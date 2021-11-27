@@ -1,0 +1,30 @@
+<h2 class="uppercase title pb-50 md-pb-30">LATEST EVENTS</h2>
+<div class="rs-latest-list">
+    <div class="latest-wrap">
+        <div *ngIf="loadingEvents == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div *ngIf="loadingEvents == 2" class="news-list-block">
+            <div *ngFor="let event of allEvents" class="news-list-item mb-40">
+                <div class="news-img">
+                    <img src="assets/images/events/event1.jpg" alt="">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <span>{{event.date.monthFull}} {{event.date.day}}, {{event.date.year}}</span>
+                    </div>
+                    <h4 class="news-title">
+                        <a href="#">
+                            {{event.title}}
+                        </a>
+                    </h4>
+                    <div class="news-btn">
+                        <a class="readon2 transparent" href="#"> Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

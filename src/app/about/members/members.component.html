@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="rs-breadcrumbs breadcrumbs-overlay" [ngClass]="[member]">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title"></h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">HOME</a>
+                        </li>
+                        <li>{{formattedMemberName.toUpperCase()}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Team Start -->
+<div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
+    <div class="container">
+        <div *ngIf="loadingMember == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingMember == 2" class="row grid">
+            <div *ngFor="let member of allMembers" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="team-item">
+                    <div class="team-img">
+                        <a href="#"><img src="data:image/png;base64,{{member.photo}}"
+                                alt="{{member.name}}" /></a>
+                        <div class="social-icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <a href="teachers-single.html">
+                            <h3 class="name">{{member.name}}</h3>
+                        </a>
+                        <span class="designation">{{member.role}}</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

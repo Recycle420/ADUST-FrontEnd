@@ -1,0 +1,495 @@
+<app-header></app-header>
+<div id="rs-slider" class="slider-overlay-2">
+    <div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="loadingSliders == 2" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item rs-banner-section2 active">
+                <img src="data:image/png;base64,{{sliders[0].photo}}" alt="Slide1" />
+                <div class="slide-content">
+                    <div class="display-table">
+                        <div class="display-table-cell">
+                            <div class="container text-center">
+                                <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
+                                    data-animation-out="animate-out">{{sliders[0].title}}</h1>
+                                <br />
+                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
+                                    data-animation-out="animate-out">WHY ADUST</a>
+                                <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
+                                    data-animation-out="animate-out">APPLY NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate hidden-sm">
+                    <div class="circle1">
+                        <img src="assets/images/circle.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let slider of sliders.slice(1,sliders.length);index as i" class="carousel-item rs-banner-section2">
+                <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
+                <div class="slide-content">
+                    <div class="display-table">
+                        <div class="display-table-cell">
+                            <div class="container text-center">
+                                <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
+                                    data-animation-out="animate-out">{{slider.title}}</h1>
+                                <br />
+                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
+                                    data-animation-out="animate-out">WHY ADUST</a>
+                                <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
+                                    data-animation-out="animate-out">APPLY NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate hidden-sm">
+                    <div class="circle1">
+                        <img src="assets/images/circle.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!-- Slider Area End -->
+<!-- Services Start -->
+<div class="rs-services rs-services-style7 pt-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="row pr-30 md-pr-0">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="Services-wrap mb-30">
+                            <div class="Services-item">
+                                <div class="Services-icon">
+                                    <img src="assets/images/services/labrotory.jpg" alt="">
+                                </div>
+                                <div class="Services-desc">
+                                    <i class="flaticon-book-1 mb-15"></i>
+                                    <h4 class="services-title">
+                                        <a href="#">LABORATORY</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Services-wrap">
+                            <div class="Services-item">
+                                <div class="Services-icon">
+                                    <img src="assets/images/services/library.jpg" alt="">
+                                </div>
+                                <div class="Services-desc">
+                                    <i class="flaticon-book mb-15"></i>
+                                    <h4 class="services-title">
+                                        <a href="#">BOOKS & LIBRARY</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-30 col-md-6">
+                        <div class="Services-wrap mb-30">
+                            <div class="Services-item">
+                                <div class="Services-icon">
+                                    <img src="assets/images/services/Advanced-AI-Lab.jpg" alt="">
+                                </div>
+                                <div class="Services-desc">
+                                    <i class="flaticon-book mb-15"></i>
+                                    <h4 class="services-title">
+                                        <a href="#">ADVANCED AI LAB</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Services-wrap">
+                            <div class="Services-item">
+                                <div class="Services-icon">
+                                    <img src="assets/images/services/convocation.jpg" alt="">
+                                </div>
+                                <div class="Services-desc">
+                                    <i class="flaticon-tool-2"></i>
+                                    <h4 class="services-title mb-15">
+                                        <a href="#">CONVOCATION</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 pl-15 pt-30">
+                <div class="content-part">
+                    <span class="sub-text">About Us</span>
+                    <h2 class="uppercase title pb-20 md-pb-10">Welcome To ADUST</h2>
+                    <p class="pb-20">
+                        The vision of ADUST is multi-faceted and multifarious. ADUST
+                        looks beyond stereotypical periphery. It seeks to keep pace
+                        with the fleeting time and technological advancement.
+                        Creation of new jobs and invention of new methods of learning
+                        are its principal dream. It strives to impart future-proof
+                        education to its pupils. ADUST believes that without sound
+                        knowledge in any discipline, all-out progress will not be
+                        achievable. It wishes to employ its total means and energy to
+                        root out the curse of unemployment and prevent social
+                        regression. ADUST visualizes attaining of social and economic
+                        emancipation, removing gender disparity and producing
+                        befitting employments for its students. ADUST dreams of
+                        better and sustainable future for the whole nation.
+                    </p>
+                    <div class="btn-part">
+                        <a class="readon2" href="#"> Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+<!-- Latest News Start -->
+<div id="rs-latest-news-style7" class="rs-latest-news-style7 sec-spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 md-pb-50">
+                <app-events></app-events>
+            </div>
+            <div class="col-lg-6">
+                <app-notices></app-notices>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter Up Section Start-->
+<!-- Team Start -->
+<div id="rs-team" class="rs-team sec-color sec-spacer">
+    <div class="container">
+        <div class="row rs-vertical-middle">
+            <div class="col-lg-4 col-md-12">
+                <div class="sec-title mb-30">
+                    <h2>TOP MANAGEMENT</h2>
+                    <p>Fusce sem dolor inter in efficitur faucibus.</p>
+                </div>
+                <p class="mobile-mb-50">
+                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
+                    and demoralized
+                    .
+                </p>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
+                    <ng-template carouselSlide [width]="350" >
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/images/management/chairman.jpg" alt="team Image" />
+                                <div class="normal-text">
+                                    <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                    <span class="subtitle">Chairman</span>
+                                </div>
+                            </div>
+                            <div class="team-content">
+                                <div class="overly-border"></div>
+                                <div class="display-table">
+                                    <div class="display-table-cell">
+                                        <h3 class="team-name"><a href="teachers-single.html">LIAKAT ALI SIKDAR</a>
+                                        </h3>
+                                        <span class="team-title">Chairman</span>
+                                        <p class="team-desc">Entrusted with planning, implementation and evaluation.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide [width]="350" >
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/images/management/vc.jpg" alt="team Image" />
+                                <div class="normal-text">
+                                    <h3 class="team-name">DR. RAFIQUE U AHMED</h3>
+                                    <span class="subtitle">Vice Chancellor</span>
+                                </div>
+                            </div>
+                            <div class="team-content">
+                                <div class="overly-border"></div>
+                                <div class="display-table">
+                                    <div class="display-table-cell">
+                                        <h3 class="team-name"><a href="teachers-single.html">DR. RAFIQUE U AHMED</a>
+                                        </h3>
+                                        <span class="team-title">Vice Chancellor</span>
+                                        <p class="team-desc">Entrusted with planning, implementation and evaluation.
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                </owl-carousel-o>
+
+               <div class="owl-carousel rs-navigation-2" style="display: block !important;">
+                    <div class="owl-controls">
+                        <div class="owl-nav">
+                            <div class="owl-prev" (click)="owlCar.prev()"><i class="fa fa-angle-left"></i></div>
+                            <div class="owl-next" (click)="owlCar.next()"><i class="fa fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team End -->
+<!-- Counter Up Section Start-->
+<div class="rs-counter pt-100 pb-70 bg-achievements" id="vvvvvvvvvvvvv">
+    <div class="container">
+        <div class="sec-title white-text mb-50 text-center">
+            <h2>ACHEIVEMENTS</h2>
+            <p>Fusce sem dolor, interdum in efficitur at, faucibus nec lorem. Sed nec molestie justo.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="rs-counter-list">
+                    <h2 class="counter-number plus">{{animteachers}}</h2>
+                    <h4 class="counter-desc">TEACHERS</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="rs-counter-list">
+                    <h2 class="counter-number plus">{{animcourses}}</h2>
+                    <h4 class="counter-desc">COURSES</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="rs-counter-list">
+                    <h2 class="counter-number plus">{{animStudents}}</h2>
+                    <h4 class="counter-desc">STUDENTS</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="rs-counter-list">
+                    <h2 class="counter-number plus">{{animSatisfiedClients}}</h2>
+                    <h4 class="counter-desc">Satisfied Client</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter Up Section End -->
+<!-- Courses Start -->
+<div id="rs-courses-2" class="rs-courses-2 sec-spacer">
+    <div class="container">
+        <div class="sec-title-2">
+            <h2 class="mb-30">OUR MAIN COURSES</h2>
+            <div class="view-more">
+                <a href="#">View All Courses <i class="fa fa-angle-double-right"></i></a>
+            </div>
+        </div>
+        <div class="gridFilter">
+            <button [ngClass]="{'active': selectedCourse.title === 'all'}" (click)="this.selectedCourse = {title:'all'}"
+                data-filter="*">ALL</button>
+
+            <button [ngClass]="{'active': selectedCourse.title === courseProgram.title}"
+                (click)="this.selectedCourse = courseProgram"
+                *ngFor="let courseProgram of coursePrograms">{{courseProgram.title}}</button>
+
+        </div>
+
+        <div *ngIf="loadingCoursePrograms == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="row grid" *ngIf="loadingCoursePrograms == 2">
+            <ng-container *ngIf="selectedCourse.title =='all'">
+                <div class="col-lg-4 col-md-6 grid-item filter1 filter3" *ngFor="let department of allDepartments">
+                    <div class="cource-item">
+                        <div class="cource-img">
+                            <img src="data:image/png;base64,{{department.photo}}" alt="" />
+                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="course-body">
+                            <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                            <div class="course-desc">
+                                <p>
+                                    {{department.description}}
+                                </p>
+                            </div>
+                            <a href="#" class="cource-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="selectedCourse.title !=='all'">
+                <div class="col-lg-4 col-md-6 grid-item filter1 filter3"
+                    *ngFor="let department of selectedCourse.departments">
+                    <div class="cource-item">
+                        <div class="cource-img">
+                            <img src="data:image/png;base64,{{department.photo}}" alt="" />
+                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="course-body">
+                            <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                            <div class="course-desc">
+                                <p>
+                                    {{department.description}}
+                                </p>
+                            </div>
+                            <a href="#" class="cource-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+<!-- Events Start -->
+<div class="rs-countdown-part bg12">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="countdown-part">
+                    <div class="content-part">
+                        <h2 class="title">
+                            Get<br>
+                            Admission
+                        </h2>
+                        <p class="description">
+                            Alumnus for getting pre-admission assessment,
+                            please fill up the registration form. <br />
+                            You will get a call from our admission office for your admission process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="register-form">
+                    <div class="form-title text-center">
+                        <h4 class="title">
+                            Registration form
+                        </h4>
+                    </div>
+                    <div class="form-group text-center">
+                        <form id="contact-form" class="contact-form" method="post" action="mailer.php">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="name" type="text" placeholder="Name" id="name"
+                                        required="required">
+
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="email" type="email" placeholder="E-Mail"
+                                        id="email" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="number" type="text" placeholder="Phone Number"
+                                        id="phone_number" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="subject" type="text" placeholder="Subject"
+                                        id="subject" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" value="Get It Now" class="wpcf7-form-control wpcf7-submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Events End -->
+<!-- Testimonial Start -->
+<div id="rs-testimonial-3" class="rs-testimonial-3 pt-100 pb-40 sec-color">
+    <div class="container">
+        <div class="sec-title-2">
+            <h2>WHAT OUR STUDENTS SAY</h2>
+            <p>Fusce sem dolor, interdum in efficitur at, faucibus nec lorem. Sed nec molestie justo.</p>
+        </div>
+
+        <div *ngIf="loadingTestimonials == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingTestimonials == 2" class="row">
+            <div class="col-md-12">
+                <owl-carousel-o class="rs-carousel" [options]="customOptionsStudents" #owlCar>
+                    <ng-container *ngFor="let item of allTestimonials">
+                        <ng-template  carouselSlide [width]="350">
+                            <div class="testimonial-style3">
+                                <div class="image">
+                                    <img src="data:image/png;base64,{{item.photo}}" alt="">
+                                </div>
+                                <h5 class="title">{{item.name}}</h5>
+                                <p class="description">
+                                    {{item.whatSay}}.
+                                </p>
+                                <div class="testimonial-content">
+                                    <div class="testimonial-profile">
+                                        <h3 class="name">{{item.designation}}</h3>
+                                        <span class="post">{{item.company}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Partner Start -->
+<div id="partner" class="rs-partner pt-70 pb-10">
+    <div class="container">
+        <div class="sec-title2 mb-50 text-center">
+            <h2 class="title">Academic & Strategic Partners</h2>
+        </div>
+
+        <div *ngIf="loadingPartners == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+
+        <owl-carousel-o *ngIf="loadingPartners == 2"  class="partner" [options]="customOptionsPartners" #owlCar>
+            <ng-container *ngFor="let item of allPartners">
+                <ng-template carouselSlide [width]="158">
+                    <div class="partner-item">
+                        <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div>
+</div>
+<app-footer></app-footer>
+

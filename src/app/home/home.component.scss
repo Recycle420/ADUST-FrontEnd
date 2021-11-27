@@ -1,0 +1,40 @@
+.slide-ani {
+    animation-name: slide;
+    animation-duration: 1s;
+  }
+  
+  @keyframes slide {
+    from {
+      width: 100%;
+      height: 100%;
+      margin-left: 100%;
+    }
+  
+    to {
+      width: 100%;
+      height: 100%;
+      margin-left: 0%;
+    }
+  }
+
+
+  .slide-ani-rev {
+    animation-name: sliderev;
+    animation-duration: 1s;
+
+  }
+  
+  @keyframes sliderev {
+    from {
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+    }
+  
+    to {
+      width: 100%;
+      height: 100%;
+      margin-left: -100%;
+    }
+  }
+ 

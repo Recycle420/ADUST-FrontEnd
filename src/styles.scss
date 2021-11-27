@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+.carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    background-color: rgba(255,255,255,.5);
+}
+
+
+.partner .owl-item{
+    width: 158px !important;
+    margin-right: 80px !important;
+}
+
+.carousel-indicators {
+    list-style: none;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+}
+.icon-font{
+    font-size: 45px !important;
+    line-height: 35px !important
+}
+.owl-controls .owl-nav > div {
+    position: absolute;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #444;
+    color: #fff;
+    transform: translateY(-50%);
+    font-size: 22px;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.owl-controls .owl-nav > div {
+    position: initial;
+    display: inline-block;
+    transform: none;
+    opacity: 1 !important;
+}
+
+.owl-controls .owl-nav .owl-prev {
+    left: -60px;
+}
+.owl-controls .owl-nav .owl-next {
+    right: -60px;
+}
+
+.mycarousel-body {
+    
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 1;
+    
+}
+.par{
+    overflow: hidden;
+height: 100%;
+cursor: grab;
+width: 1480px;
+}
+
+.team-margin{
+    overflow: hidden;
+}
