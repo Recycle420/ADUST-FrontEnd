@@ -1,70 +1,47 @@
 <app-header></app-header>
-<div id="rs-slider" class="slider-overlay-2">
-    <div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
-        <div class="spinner-grow text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+<div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
     </div>
-    <div *ngIf="loadingSliders == 2" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item rs-banner-section2 active">
-                <img src="data:image/png;base64,{{sliders[0].photo}}" alt="Slide1" />
-                <div class="slide-content">
-                    <div class="display-table">
-                        <div class="display-table-cell">
-                            <div class="container text-center">
-                                <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
-                                    data-animation-out="animate-out">{{sliders[0].title}}</h1>
-                                <br />
-                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
-                                    data-animation-out="animate-out">WHY ADUST</a>
-                                <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
-                                    data-animation-out="animate-out">APPLY NOW</a>
+</div>
+<div *ngIf="loadingSliders == 2" id="rs-slider" class="slider-overlay-2">
+    <owl-carousel-o [options]="customOptionsHome" #owlCarHome>
+        <ng-container *ngFor="let slider of sliders">
+            <ng-template carouselSlide>
+                <div class=" rs-banner-section2">
+                    <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
+                    <div class="slide-content">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="container text-center">
+                                    <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
+                                        data-animation-out="animate-out">{{slider.title}}</h1>
+                                    <br />
+                                    <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
+                                        data-animation-out="animate-out">WHY ADUST</a>
+                                    <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
+                                        data-animation-out="animate-out">APPLY NOW</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="animate hidden-sm">
-                    <div class="circle1">
-                        <img src="assets/images/circle.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div *ngFor="let slider of sliders.slice(1,sliders.length);index as i" class="carousel-item rs-banner-section2">
-                <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
-                <div class="slide-content">
-                    <div class="display-table">
-                        <div class="display-table-cell">
-                            <div class="container text-center">
-                                <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
-                                    data-animation-out="animate-out">{{slider.title}}</h1>
-                                <br />
-                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
-                                    data-animation-out="animate-out">WHY ADUST</a>
-                                <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
-                                    data-animation-out="animate-out">APPLY NOW</a>
-                            </div>
+                    <div class="animate hidden-sm">
+                        <div class="circle1">
+                            <img src="assets/images/circle.png" alt="">
                         </div>
                     </div>
                 </div>
-
-                <div class="animate hidden-sm">
-                    <div class="circle1">
-                        <img src="assets/images/circle.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+    <a class="carousel-control-prev" (click)="owlCarHome.prev()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" (click)="owlCarHome.next()">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 <!-- Slider Area End -->

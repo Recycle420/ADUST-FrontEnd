@@ -24,6 +24,41 @@ export class DepartmentHomeComponent implements OnInit {
     "Faculty-Science-Technology": 5,
     "Diploma": 6
   }
+
+  customOptionsHome: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: true,
+    dots: false,
+    navSpeed: false,
+  
+    autoplay: true,
+    nav: true,
+    items: 1,
+    rewind: true,
+    autoplayTimeout: 8000,
+    smartSpeed: 500,
+    autoWidth: true,  
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+        dots: false
+      },
+      768: {
+        items: 1 ,
+        nav: true ,
+        dots: false 
+      },
+      992: {
+        items: 1 ,
+        nav: true ,
+        dots: false 
+      }
+    }
+    
+  }
   customOptionsStudents: OwlOptions = {
     loop: true,
     mouseDrag: true,

@@ -1,37 +1,50 @@
 <app-department-header [currentDepartment]="department"></app-department-header>
-<div id="rs-slider" class="slider-overlay-2">
-    <div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
-        <div class="spinner-grow text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+<div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
     </div>
-    <div *ngIf="loadingSliders == 2" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div  class="carousel-inner">
-            <div *ngFor="let slider of sliders;index as i" class="carousel-item" [ngClass]="{'active': i==0}">
-                <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
-                <div class="slide-content">
-                    <div class="display-table">
-                        <div class="display-table-cell">
-                            <div class="container">
-                                <h1 class="slider-title" data-animation-in="fadeInLeft" data-animation-out="animate-out">{{slider.title}}</h1>
-                                <p data-animation-in="fadeInUp" data-animation-out="animate-out" class="slider-desc">Fusce sem dolor, interdum in efficitur at, faucibus nec lorem.Sed nec molestie justo.<br> Nunc quis sapien in arcu pharetra volutpat.Morbi nec vulputate dolor.</p>
-                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn" data-animation-out="animate-out">READ MORE</a>
-                                <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn" data-animation-out="animate-out">GET STARTED NOW</a>
+</div>
+
+<div *ngIf="loadingSliders == 2" id="rs-slider" class="slider-overlay-2">
+    <owl-carousel-o [options]="customOptionsHome" #owlCarDept>
+        <ng-container *ngFor="let slider of sliders;index as i">
+            <ng-template carouselSlide>
+                <div>
+                    <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
+                    <div class="slide-content">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="container">
+                                    <h1 class="slider-title" data-animation-in="fadeInLeft"
+                                        data-animation-out="animate-out">
+                                        {{slider.title}}</h1>
+                                    <p data-animation-in="fadeInUp" data-animation-out="animate-out"
+                                        class="slider-desc">Fusce
+                                        sem dolor, interdum in efficitur at, faucibus nec lorem.Sed nec molestie
+                                        justo.<br> Nunc
+                                        quis sapien in arcu pharetra volutpat.Morbi nec vulputate dolor.</p>
+                                    <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
+                                        data-animation-out="animate-out">READ MORE</a>
+                                    <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
+                                        data-animation-out="animate-out">GET STARTED NOW</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+
+    <a class="carousel-control-prev" (click)="owlCarDept.prev()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" (click)="owlCarDept.next()">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
 </div>
 
 <div class="rs-services rs-services-style1">
