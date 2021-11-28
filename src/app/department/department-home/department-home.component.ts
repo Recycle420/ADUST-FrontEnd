@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Subscription } from 'rxjs';
@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class DepartmentHomeComponent implements OnInit {
   loadingSliders: number =0;
+  innerWidth!: number;
 
   constructor(private route: ActivatedRoute, private apiService:ApiService) {}
 
@@ -94,7 +95,13 @@ export class DepartmentHomeComponent implements OnInit {
     }
     
   }
-  sliders:any =[]
+  sliders:any =[];
+
+  currentPage:number = 0;
+  pageOffset:number = 5;
+  pageArray:any =[];
+  totalCount = 53;
+
 
 
   ngOnInit(){
@@ -106,6 +113,7 @@ export class DepartmentHomeComponent implements OnInit {
         this.loadSliders();
       }
     });
+    this.setPage(0);
   }
   ngOnDestroy(){
     this.routerSubscription.unsubscribe();
@@ -118,5 +126,27 @@ export class DepartmentHomeComponent implements OnInit {
       this.loadingSliders = 2;
     })
   }
+  @HostListener('window:resize', ['$event'])
+	onResize(event: { target: { innerWidth: number } }) {
+		this.innerWidth = event.target.innerWidth;
+	}
+
+  setPage(pageNo:number){
+    if(pageNo >= 0){
+      this.currentPage = pageNo;
+      let start = pageNo* this.pageOffset;
+      let end = start+ this.pageOffset -1;
+      if(end > this.totalCount){
+        end = this.totalCount-1;
+      }
+      let pageArray = [];
+      for(let i=start; i<=end;i++){
+        pageArray.push(i);
+      }
+      this.pageArray = pageArray;
+    }
+
+  }
+
 
 }
