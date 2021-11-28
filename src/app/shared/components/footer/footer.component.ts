@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  hide = false;
+  hide = true;
   constructor() { }
 
   ngOnInit(): void {
   }
   GoToTop(){
     window.scrollTo(0,0);
+  }
+  
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event: any) {
+     let height = document.documentElement.scrollTop;
+     if(height > window.innerHeight + 100){
+       this.hide = false;
+     }else if(height < window.innerHeight + 100 ){
+      this.hide = true;
+     }
   }
 }

@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  hide = false;
   animteachers = 0;
   animcourses = 0;
   animSatisfiedClients = 0;
@@ -165,49 +164,8 @@ export class HomeComponent implements OnInit {
   }
 
   coursePrograms:any=[];
-
   allDepartments:any=[];
 
-
-
-  mainSlider=[
-    {
-     title: 'Quality Education | Affordable Cost',
-     source: 'assets/images/slider/Slider-1.jpg'
-    },
-    {
-      title: 'Near Metro Rail Station',
-      source: 'assets/images/slider/slider-2.jpg'
-     },
-     {
-      title: 'Permanent Campus',
-      source: 'assets/images/slider/slider-3.jpg',
-     }
- ];
- mainSliderOffset = 1;
- mainSliderIndex = 0;
- mainSlideCurrentSlides:any[]=[];
-
-
- topManageSlider=[
-  {
-   name: 'LIAKAT ALI SIKDAR',
-   designation: 'assets/images/slider/Slider-1.jpg',
-   dialouge: 'Entrusted with planning, implementation and evaluation.',
-   image:'assets/images/management/chairman.jpg'
-  },
-  {
-    name: 'DR. RAFIQUE U AHMED',
-    designation: 'Vice Chancellor',
-    dialouge: 'Entrusted with planning, implementation and evaluation.',
-    image:'assets/images/management/vc.jpg'
-   }
-];
-topManageSliderOffset = 2;
-topManageSliderIndex = 0;
-topManageSliderCurrentSlides:any[]=[];
-
-letf = -760;
 loadingCoursePrograms = 0 ;
 
 loadingTestimonials = 0;
@@ -256,30 +214,12 @@ sliders:any=[];
     })
   }
 
-  next(){
-     if(this.letf == -1140){
-       this.letf = -760;
-     } else if(this.letf == -760){
-      this.letf = -1140;
-    }
-  }
-
-  GoToTop(){
-    window.scrollTo(0,0);
-  }
-
   changeSelectedCourse(courseName:string){
       this.selectedCourse = courseName;
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: any) {
-     let height = document.documentElement.scrollTop;
-     if(height > window.innerHeight + 100){
-       this.hide = false;
-     }else if(height < window.innerHeight + 100 ){
-      this.hide = true;
-     }
      const configuratorContainer = document.getElementById('vvvvvvvvvvvvv') as HTMLElement;
 	   let offset = configuratorContainer.getBoundingClientRect().top;
 
@@ -287,6 +227,7 @@ sliders:any=[];
         this.addCounter();
      }
   }
+
   addCounter(){
     
      setInterval(()=>{
