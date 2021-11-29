@@ -13,7 +13,7 @@ export class ApiService {
   };
   constructor(private http: HttpClient) { }
 
-  getCoursePrograms(){
+  getCoursePrograms(images:boolean){
     return this.http.get(environment.apiUrl+'/CoursePrograms',this.httpOptions);
   }
   getNotices(){

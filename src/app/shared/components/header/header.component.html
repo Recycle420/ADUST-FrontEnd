@@ -107,11 +107,15 @@
                                     </li>
                                     <li> <a>Admission</a>
                                     </li>
-                                
                                     <li class="menu-item-has-children">
-                                        <a [routerLink]="['/department', departMentMenu[0].id]">Academics</a>
-                                        <ul class="sub-menu">
-                                            <li> <a *ngFor="let department of departMentMenu" [routerLink]="['/department', department.id]">{{department.name}}</a></li>
+                                        <a href="javascript:void(0)">Academics</a>
+                                        <ul class="sub-menu" *ngIf="coursePrograms.length !=0">
+                                            <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
+                                                <a href="javascript:void(0)">{{course.title}}</a>
+                                                <ul class="sub-menu">
+                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.title, department.id]">{{department.title}}</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li> <a>Research</a></li>

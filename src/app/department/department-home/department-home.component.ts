@@ -17,15 +17,8 @@ export class DepartmentHomeComponent implements OnInit {
 
 	routerSubscription!: Subscription;
   department:string = "still on dev";
-  sliderId:any = {
-    "Social-Sciences": 1,
-    "Faculty of Business Administration": 2,
-    "Business-Administration": 3,
-    "Faculty-Engineering": 4,
-    "Faculty-Science-Technology": 5,
-    "Diploma": 6
-  }
-
+  departmentId = 0;
+  
   customOptionsHome: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -109,7 +102,8 @@ export class DepartmentHomeComponent implements OnInit {
 
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.department){
-        this.department =  paramMap.params.department
+        this.department =  paramMap.params.department;
+        this.departmentId = paramMap.params.id;
         this.loadSliders();
       }
     });
@@ -121,7 +115,7 @@ export class DepartmentHomeComponent implements OnInit {
 
   loadSliders(){
     this.loadingSliders = 1;
-    this.apiService.getCarousels(this.sliderId[this.department]).subscribe((data:any)=>{
+    this.apiService.getCarousels(this.departmentId).subscribe((data:any)=>{
       this.sliders = data;
       this.loadingSliders = 2;
     })

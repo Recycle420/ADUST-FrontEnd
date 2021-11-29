@@ -4,7 +4,7 @@ import { DepartmentHomeComponent } from './department-home/department-home.compo
 
 const routes: Routes = [
   {
-    path: ':department',
+    path: ':department/:id',
     component: DepartmentHomeComponent,
   }
 ];
