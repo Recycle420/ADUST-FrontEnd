@@ -1,36 +1,23 @@
-import { Component, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent  {
+export class HeaderComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
+  coursePrograms:any =[];
+  
+  ngOnInit(){
+    this.apiService.getCoursePrograms(false).subscribe((coursePrograms: any) => {
+      this.coursePrograms = coursePrograms;
+      console.log(coursePrograms);
+    })
 
-  departMentMenu=[
-     {
-       name: "Faculty of Arts and Social Sciences",
-       id: "Social-Sciences"
-     },
-     {
-      name: "Faculty of Business Administration",
-      id: "Business-Administration"
-    },
-    {
-      name: "Faculty of Engineering",
-      id: "Faculty-Engineering"
-    },
-    {
-      name: "Faculty of Science and Technology",
-      id: "Faculty-Science-Technology"
-    },
-    {
-      name: "Diploma",
-      id: "Diploma"
-    }
-  ]
+  }
 
 }

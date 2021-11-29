@@ -194,7 +194,7 @@ sliders:any=[];
       this.loadingSliders = 2;
     })
 
-    this.apiService.getCoursePrograms().subscribe((coursePrograms: any) => {
+    this.apiService.getCoursePrograms(true).subscribe((coursePrograms: any) => {
       this.coursePrograms = coursePrograms;
       this.allDepartments = [];
 
