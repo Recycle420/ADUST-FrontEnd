@@ -16,11 +16,19 @@ export class ApiService {
   getCoursePrograms(images:boolean){
     return this.http.get(environment.apiUrl+'/CoursePrograms',this.httpOptions);
   }
-  getNotices(){
-    return this.http.get(environment.apiUrl+'/Notices',this.httpOptions);
+  getNotices(departmentId?:number){
+    if(departmentId){
+      return this.http.get(environment.apiUrl+`/Notices/GetNoticesByDepartment/${departmentId}`,this.httpOptions);
+    }else{
+      return this.http.get(environment.apiUrl+'/Notices',this.httpOptions);
+    }
   }
-  getEvents(){
-    return this.http.get(environment.apiUrl+'/ProgramEvents',this.httpOptions);
+  getEvents(departmentId?:number){
+    if(departmentId){
+      return this.http.get(environment.apiUrl+`/ProgramEvents/GetProgramEventsByDepartment/${departmentId}`,this.httpOptions);
+    }else{
+      return this.http.get(environment.apiUrl+'/ProgramEvents',this.httpOptions);
+    }
   }
   getPartners(){
     return this.http.get(environment.apiUrl+'/Partners',this.httpOptions);
@@ -33,5 +41,17 @@ export class ApiService {
   }
   getCarousels(departmentId:number){
     return this.http.get(environment.apiUrl+`/Carousels/${departmentId}`,this.httpOptions);
+  }
+  getGallery(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Gallerys/GetGalleryByDepartment/${departmentId}`,this.httpOptions);
+  }
+  getShortGallery(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Gallerys/GetShortGalleryByDepartment/${departmentId}`,this.httpOptions);
+  }
+  getAcademicMenuList(){
+    return this.http.get(environment.apiUrl+'/CoursePrograms/GetAcademicMenuList',this.httpOptions);
+  }
+  getDepartmentNessages(departmentId:number){
+    return this.http.get(environment.apiUrl+`/DepartmentMessages/GetMessagesByDepartment/${departmentId}`,this.httpOptions);
   }
 }

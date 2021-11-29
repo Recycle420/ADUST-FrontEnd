@@ -18,6 +18,9 @@ export class DepartmentHomeComponent implements OnInit {
 	routerSubscription!: Subscription;
   department:string = "still on dev";
   departmentId = 0;
+  loadingGallery = 0;
+  galleryImages:any=[];
+
   
   customOptionsHome: OwlOptions = {
     loop: true,
@@ -94,17 +97,19 @@ export class DepartmentHomeComponent implements OnInit {
   pageOffset:number = 5;
   pageArray:any =[];
   totalCount = 53;
+  loadingDepartmentMessages = 0;
+  departmentMessages:any = [];
 
 
 
   ngOnInit(){
-    
-
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.department){
         this.department =  paramMap.params.department;
         this.departmentId = paramMap.params.id;
         this.loadSliders();
+        this.loadingImages();
+        this.loadDepartmentMessages();
       }
     });
     this.setPage(0);
@@ -139,6 +144,23 @@ export class DepartmentHomeComponent implements OnInit {
       }
       this.pageArray = pageArray;
     }
+
+  }
+
+  loadingImages() {
+    this.loadingGallery = 1;
+    this.apiService.getShortGallery(this.departmentId).subscribe((gallery: any) => {
+      this.loadingGallery = 2;
+      this.galleryImages = gallery;
+    })
+  }
+
+  loadDepartmentMessages(){
+    this.loadingDepartmentMessages = 1;
+    this.apiService.getDepartmentNessages(this.departmentId).subscribe((data:any)=>{
+      this.departmentMessages = data;
+      this.loadingDepartmentMessages = 2;
+    })
 
   }
 

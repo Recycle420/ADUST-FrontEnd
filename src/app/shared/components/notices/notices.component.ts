@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { UtilityService } from '../services/utility.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-notices',
@@ -10,13 +10,13 @@ import { UtilityService } from '../services/utility.service';
 export class NoticesComponent implements OnInit {
   allNotices: any;
   loadingNotices = 0;
-
+  @Input() departmentId!:number;
 
   constructor(private apiService: ApiService, private utilityService: UtilityService) { }
 
   ngOnInit(): void {
     this.loadingNotices = 1;
-    this.apiService.getNotices().subscribe((notices: any) => {
+    this.apiService.getNotices(this.departmentId).subscribe((notices: any) => {
       this.allNotices = notices.map((notice: any) => {
         return {
           ...notice, description: notices.description ? notices.description : "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
@@ -25,5 +25,6 @@ export class NoticesComponent implements OnInit {
       })
       this.loadingNotices = 2;
     })
+
   }
 }

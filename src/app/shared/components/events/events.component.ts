@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { UtilityService } from '../services/utility.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-events',
@@ -9,6 +9,8 @@ import { UtilityService } from '../services/utility.service';
 })
 export class EventsComponent implements OnInit {
 
+  @Input() departmentId!:number;
+
   loadingEvents = 0 ;
   allEvents:any = [];
 
@@ -16,12 +18,13 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingEvents = 1
-    this.apiService.getEvents().subscribe((programevents: any) => {
+    this.apiService.getEvents(this.departmentId).subscribe((programevents: any) => {
       this.allEvents = programevents.map((programevent: any) =>{
         return {...programevent, date: this.utilityService.getFormateDate(programevent.eventDate) }
       })
       this.loadingEvents = 2;
     })
+    
   }
 
 

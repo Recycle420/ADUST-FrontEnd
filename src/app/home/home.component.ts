@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { ApiService } from '../shared/services/api.service'; 
+import { ApiService } from '../shared/services/api.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   totalCourses = 50;
   totalStudents = 900;
   totalSatisfiedClients = 3675;
-  selectedCourse:any = {};
+  selectedCourse: any = {};
 
   customOptionsStudents: OwlOptions = {
     loop: true,
@@ -46,17 +46,17 @@ export class HomeComponent implements OnInit {
         dots: false
       },
       768: {
-        items: 2 ,
-        nav: true ,
-        dots: false 
+        items: 2,
+        nav: true,
+        dots: false
       },
       992: {
-        items: 3 ,
-        nav: true ,
-        dots: false 
+        items: 3,
+        nav: true,
+        dots: false
       }
     }
-    
+
   }
 
   customOptionsHome: OwlOptions = {
@@ -66,14 +66,14 @@ export class HomeComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: false,
-  
+
     autoplay: true,
     nav: true,
     items: 1,
     rewind: true,
     autoplayTimeout: 8000,
     smartSpeed: 500,
-    autoWidth: true,  
+    autoWidth: true,
     responsive: {
       0: {
         items: 1,
@@ -81,47 +81,47 @@ export class HomeComponent implements OnInit {
         dots: false
       },
       768: {
-        items: 1 ,
-        nav: true ,
-        dots: false 
+        items: 1,
+        nav: true,
+        dots: false
       },
       992: {
-        items: 1 ,
-        nav: true ,
-        dots: false 
+        items: 1,
+        nav: true,
+        dots: false
       }
     }
-    
+
   }
 
   customOptionsTopManage: OwlOptions = {
-     
-    loop:  true ,
+
+    loop: true,
     items: 2,
     lazyLoad: true,
     margin: 30,
-    autoplay:  true ,
-    autoplayTimeout:  5000,
+    autoplay: true,
+    autoplayTimeout: 5000,
     smartSpeed: 1200,
     dots: true,
-    nav:  true ,
+    nav: true,
     autoWidth: true,
     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    navSpeed:  false,
+    navSpeed: false,
     responsive: {
       0: {
-        items:  1,
-        nav: true ,
-        dots: true 
+        items: 1,
+        nav: true,
+        dots: true
       },
       768: {
-        items: 2 ,
-        nav: true ,
-        dots: true 
+        items: 2,
+        nav: true,
+        dots: true
       },
       992: {
-        items: 2 ,
-        nav: true ,
+        items: 2,
+        nav: true,
         dots: true
       }
     }
@@ -151,31 +151,32 @@ export class HomeComponent implements OnInit {
       },
       768: {
         items: 4,
-        nav: true ,
-        dots: false 
+        nav: true,
+        dots: false
       },
       992: {
         items: 5,
         nav: false,
-        dots: false 
+        dots: false
       }
     }
-    
+
   }
 
-  coursePrograms:any=[];
-  allDepartments:any=[];
+  coursePrograms: any = [];
+  allDepartments: any = [];
 
-loadingCoursePrograms = 0 ;
+  loadingCoursePrograms = 0;
 
-loadingTestimonials = 0;
-loadingPartners = 0;
+  loadingTestimonials = 0;
+  loadingPartners = 0;
 
-allPartners:any = [];
-allTestimonials:any =[];
+  allPartners: any = [];
+  allTestimonials: any = [];
 
-loadingSliders = 0;
-sliders:any=[];
+  loadingSliders = 0;
+  sliders: any = [];
+  menuList: any = [];
 
   ngOnInit(): void {
     this.animteachers = 0;
@@ -184,12 +185,13 @@ sliders:any=[];
     this.animStudents = 0;
 
     this.loadingCoursePrograms = 1;
-  
+
     this.loadingTestimonials = 1;
     this.loadingPartners = 1;
     this.loadingSliders = 1;
 
-    this.apiService.getCarousels(0).subscribe((data:any)=>{
+
+    this.apiService.getCarousels(0).subscribe((data: any) => {
       this.sliders = data;
       this.loadingSliders = 2;
     })
@@ -212,40 +214,41 @@ sliders:any=[];
       this.allPartners = partners;
       this.loadingPartners = 2;
     })
+
   }
 
-  changeSelectedCourse(courseName:string){
-      this.selectedCourse = courseName;
+  changeSelectedCourse(courseName: string) {
+    this.selectedCourse = courseName;
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: any) {
-     const configuratorContainer = document.getElementById('vvvvvvvvvvvvv') as HTMLElement;
-	   let offset = configuratorContainer.getBoundingClientRect().top;
+    const configuratorContainer = document.getElementById('vvvvvvvvvvvvv') as HTMLElement;
+    let offset = configuratorContainer.getBoundingClientRect().top;
 
-     if(offset < 300 && this.animteachers == 0){
-        this.addCounter();
-     }
+    if (offset < 300 && this.animteachers == 0) {
+      this.addCounter();
+    }
   }
 
-  addCounter(){
-    
-     setInterval(()=>{
-         if(this.animteachers < this.totalTeachers){
-           this.animteachers = this.animteachers + 1;
-         }
-         if(this.animcourses < this.totalCourses){
-          this.animcourses = this.animcourses + 1;
-         } 
-         if(this.animStudents < this.totalStudents){
-          let addAmountStudents = (this.totalStudents-this.animStudents) > 18 ? 18 : (this.totalStudents-this.animStudents) ;
-          this.animStudents = this.animStudents + addAmountStudents;
-         }
-         if(this.animSatisfiedClients < this.totalSatisfiedClients){
-          let addAmountClients = (this.totalSatisfiedClients-this.animSatisfiedClients) > 60 ? 60 : this.totalSatisfiedClients-this.animSatisfiedClients ;
-          this.animSatisfiedClients = this.animSatisfiedClients + addAmountClients;
-         }
-     },80)
+  addCounter() {
+
+    setInterval(() => {
+      if (this.animteachers < this.totalTeachers) {
+        this.animteachers = this.animteachers + 1;
+      }
+      if (this.animcourses < this.totalCourses) {
+        this.animcourses = this.animcourses + 1;
+      }
+      if (this.animStudents < this.totalStudents) {
+        let addAmountStudents = (this.totalStudents - this.animStudents) > 18 ? 18 : (this.totalStudents - this.animStudents);
+        this.animStudents = this.animStudents + addAmountStudents;
+      }
+      if (this.animSatisfiedClients < this.totalSatisfiedClients) {
+        let addAmountClients = (this.totalSatisfiedClients - this.animSatisfiedClients) > 60 ? 60 : this.totalSatisfiedClients - this.animSatisfiedClients;
+        this.animSatisfiedClients = this.animSatisfiedClients + addAmountClients;
+      }
+    }, 80)
   }
-  
+
 }

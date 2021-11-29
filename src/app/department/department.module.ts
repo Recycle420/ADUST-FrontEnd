@@ -5,10 +5,12 @@ import { DepartmentRoutingModule } from './department-routing.module';
 import { DepartmentHomeComponent } from './department-home/department-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 
 @NgModule({
   declarations: [
-    DepartmentHomeComponent
+    DepartmentHomeComponent,
+    PhotoGalleryComponent
   ],
   imports: [
     CommonModule,

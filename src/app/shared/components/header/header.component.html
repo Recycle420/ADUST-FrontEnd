@@ -74,7 +74,7 @@
         </div>
         <!-- Header Top End -->
         <!-- Menu Start -->
-        <div class="menu-area menu-sticky">
+        <div class="menu-area menu-sticky" [ngClass]="{'sticky': sticky }">
             <div class="container">
                 <div class="main-menu">
                     <div class="row">
@@ -102,10 +102,10 @@
                                             <li><a [routerLink]="['/authority/members', 'registrar' ]">Registrar</a></li>
                                             <li><a [routerLink]="['/authority/members', 'controller-of-examinations']">Controller of Examinations</a></li>
                                             <li><a [routerLink]="['/authority/members','treasurer']"> Treasurer</a></li>
-                                            <li><a [routerLink]="['/authority/members','board-of-trustees']">Board of Trustees</a></li>
+                                            <li><a >Board of Trustees</a></li>
                                         </ul>
                                     </li>
-                                    <li> <a>Admission</a>
+                                    <li> <a [routerLink]="['/admission']"> Admission</a>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="javascript:void(0)">Academics</a>
@@ -113,13 +113,13 @@
                                             <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
                                                 <a href="javascript:void(0)">{{course.title}}</a>
                                                 <ul class="sub-menu">
-                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.title, department.id]">{{department.title}}</a></li>
+                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.title.split(' ').join('-'), department.id]">{{department.title}}</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li> <a>Research</a></li>
-                                    <li> <a>Media</a></li>
+                                    <li> <a [routerLink]="['/research']">Research</a></li>
+                                    <li> <a [routerLink]="['/media']">Media</a></li>
                                     <li> <a [routerLink]="['/contact']">Contact us</a>
                                     </li>
                                 </ul>

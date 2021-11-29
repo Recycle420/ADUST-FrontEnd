@@ -4,9 +4,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { DepartmentHeaderComponent } from './components/department-header/department-header.component';
-import { NoticesComponent } from './notices/notices.component';
-import { EventsComponent } from './events/events.component';
-
+import { NoticesComponent } from './components/notices/notices.component';
+import { EventsComponent } from './components/events/events.component';
+import { UnderDevelopmentComponent } from './components/under-development/under-development.component';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { EventsComponent } from './events/events.component';
     FooterComponent,
     DepartmentHeaderComponent,
     NoticesComponent,
-    EventsComponent
+    EventsComponent,
+    UnderDevelopmentComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +27,8 @@ import { EventsComponent } from './events/events.component';
     FooterComponent,
     DepartmentHeaderComponent,
     NoticesComponent,
-    EventsComponent
+    EventsComponent,
+    UnderDevelopmentComponent
   ]
 })
 export class SharedModule { }

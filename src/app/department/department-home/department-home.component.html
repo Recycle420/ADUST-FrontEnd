@@ -1,7 +1,26 @@
-<app-department-header [currentDepartment]="department"></app-department-header>
-<div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
-    <div class="spinner-grow text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+<app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
+<div *ngIf="loadingSliders == 1" id="rs-slider" class="slider-overlay-2">
+    <div class="rs-banner-section2">
+        <img src="assets/images/slider/slider-3.jpg" alt="Slide1" />
+        <div class="slide-content d-none">
+            <div class="display-table">
+                <div class="display-table-cell">
+                    <div class="container text-center">
+                        <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
+                            Permanent Campus</h1>
+                        <br />
+                        <a href="#" class="sl-readmore-btn mr-30" >WHY ADUST</a>
+                        <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
+                            data-animation-out="animate-out">APPLY NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="animate hidden-sm">
+            <div class="circle1">
+                <img src="assets/images/circle.png" alt="">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -11,7 +30,7 @@
             <ng-template carouselSlide>
                 <div>
                     <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
-                    <div class="slide-content">
+                    <div class="slide-content d-none">
                         <div class="display-table">
                             <div class="display-table-cell">
                                 <div class="container">
@@ -108,20 +127,6 @@
                 <p class="mobile-mb-50">
                     On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized.can I get some?There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected yours humour, or randomised words which don't look even slightly believable.
                 </p>
-                <div class="row about-signature">
-                    <div class="col-md-6">
-                        <h4>Rashid Mahabub Shojib</h4>
-                        <span>Vice Chancellor (vc)</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <img src="assets/images/about/signature.png" alt="signature">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-12">
-                <div class="about-img rs-image-effect-shine">
-                    <img src="images/about/about2.jpg" alt="img02">
-                </div>
             </div>
         </div>
     </div>
@@ -131,10 +136,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 md-pb-50">
-                <app-events></app-events>
+                <app-events [departmentId]="departmentId"></app-events>
             </div>
             <div class="col-lg-6">
-                <app-notices></app-notices>
+                <app-notices [departmentId]="departmentId"></app-notices>
             </div>
         </div>
     </div>
@@ -146,13 +151,19 @@
             <h2>Messages From Department of </h2>
             <p>I must explain to you how all this mistaken idea of denouncing pleasure.</p>
         </div>
-        <div class="row space-bt30">
-            <div class="col-lg-6 col-md-12">
+
+        <div *ngIf="loadingDepartmentMessages == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="row space-bt30" *ngIf="loadingDepartmentMessages == 2">
+            <div class="col-lg-6 col-md-12" *ngFor="let message of departmentMessages">
                 <div class="event-item">
                     <div class="row rs-vertical-middle">
                         <div class="col-md-6">
                             <div class="event-img">
-                                <img src="assets/images/events/4.jpg" alt="events Images" />
+                                <img src="data:image/png;base64,{{message.photo}}" alt="events Images" />
                                 <a class="image-link" href="events-details.html" title="University Tour 2018">
                                     <i class="fa fa-link"></i>
                                 </a>
@@ -160,36 +171,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="event-content">
-                                <h3 class="event-title"><a href="events-details.html">Dr. Md. Abdullah Al Mamun</a></h3>
+                                <h3 class="event-title"><a href="events-details.html">{{message.name}}</a></h3>
+                                <h6><a href="events-details.html">{{message.designation}}</a></h6>
                                 <div class="event-desc">
                                     <p>
-                                        Welcome to the Department of Computer Science and Engineering (CSE) of Atish Dipankar University of Science and Technology (ADUST).
-                                        It is my pleasure to serve as the Advisor with a team of academic and supporting staffs.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <div class="event-item">
-                    <div class="row rs-vertical-middle">
-                        <div class="col-md-6">
-                            <div class="event-img">
-                                <img src="assets/images/events/4.jpg" alt="events Images" />
-                                <a class="image-link" href="images/events/kids1.jpg" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="event-content">
-                                <h3 class="event-title"><a href="events-details.html">Dr. Md. Abdullah Al Mamun</a></h3>
-                                <div class="event-desc">
-                                    <p>
-                                        Welcome to the Department of Computer Science and Engineering (CSE) of Atish Dipankar University of Science and Technology (ADUST).
-                                        It is my pleasure to serve as the Advisor with a team of academic and supporting staffs.
+                                        {{message.message}}
                                     </p>
                                 </div>
                             </div>
@@ -200,6 +186,7 @@
         </div>
     </div>
 </div>
+
 <!-- Events End -->
 <!-- Courses Categories Start -->
 <div id="rs-learning-objectives" class="rs-learning-objectives pt-100 pb-70">
@@ -338,12 +325,7 @@
                             </div>
                         </div>
                     </ng-template>
-                    
-
                 </owl-carousel-o>
-
-
-               
             </div>
         </div>
     </div>
@@ -352,52 +334,21 @@
 <div class="rs-gallery-4 rs-gallery sec-spacer">
     <div class="container">
         <div class="sec-title-2 mb-50 text-center">
-            <h2>GALLERY (4 COLUMNS)</h2>
+            <h2>GALLERY</h2>
             <p>Considering primary motivation for the generation of narratives is a useful concept</p>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
+        <div *ngIf="loadingGallery == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
-            <div class="col-lg-3 col-md-6">
+        </div>
+        <div class="row" *ngIf="loadingGallery == 2">
+            <div class="col-lg-3 col-md-6" *ngFor="let image of galleryImages">
                 <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
+                    <img src="data:image/png;base64,{{image.photo}}" alt="Gallery Image" />
                     <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
+                        <h3><a href="#">{{image.title}}</a></h3>
+                        <p>{{image.description}}</p>
                         <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
                             <i class="fa fa-search"></i>
                         </a>
@@ -405,64 +356,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" />
-                    <div class="gallery-desc">
-                        <h3><a href="#">Photo Title Here</a></h3>
-                        <p>There are many variations of Lorem Ipsum available</p>
-                        <a class="image-popup" href="assets/images/gallery/1.jpg" title="Photo Title Here">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+        <div  class="d-flex justify-content-center pb-5">
+            <a class="btn btn-sm btn-primary" style="width: 150px;" [routerLink]="['/department/department-gallery/', department,departmentId]" >Load More</a>
         </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link fa fa-angle-left" tabindex="-1" (click)="setPage(currentPage -1)"></a></li>
-                <li class="page-item"  *ngFor="let page of pageArray"><a class="page-link active" href="#">{{page+1}}</a></li>
-                
-                <li class="page-item"><a class="page-link fa fa-angle-right" (click)="setPage(currentPage +1)"></a></li>
-            </ul>
-        </nav>
+        
     </div>
 </div>
 

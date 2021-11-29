@@ -2,15 +2,14 @@
 <div *ngIf="loadingSliders == 1" id="rs-slider" class="slider-overlay-2">
     <div class="rs-banner-section2">
         <img src="assets/images/slider/slider-3.jpg" alt="Slide1" />
-        <div class="slide-content">
+        <div class="slide-content d-none">
             <div class="display-table">
                 <div class="display-table-cell">
                     <div class="container text-center">
                         <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
                             Permanent Campus</h1>
                         <br />
-                        <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
-                            data-animation-out="animate-out">WHY ADUST</a>
+                        <a href="#" class="sl-readmore-btn mr-30" >WHY ADUST</a>
                         <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
                             data-animation-out="animate-out">APPLY NOW</a>
                     </div>
@@ -30,7 +29,7 @@
             <ng-template carouselSlide>
                 <div class="rs-banner-section2">
                     <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
-                    <div class="slide-content">
+                    <div class="slide-content d-none">
                         <div class="display-table">
                             <div class="display-table-cell">
                                 <div class="container text-center">

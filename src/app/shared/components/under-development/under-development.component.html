@@ -1,0 +1,13 @@
+<app-header *ngIf="!department"></app-header>
+<app-department-header [departmentName]="department" [departmentId]="departmentId" *ngIf="department"></app-department-header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 error-page-message">
+            <img src="assets/images/under-construction.png" />
+            <div class="home-page text-center">
+                <a *ngIf="!department" class="btn btn-primary" [routerLink]="['/']">Go to Home Page</a>
+                <a *ngIf="department" class="btn btn-primary" [routerLink]="['/department/', department,departmentId]">Go to Home Page</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -72,7 +72,7 @@
         </div>
         <!-- Header Top End -->
         <!-- Menu Start -->
-        <div class="menu-area menu-sticky">
+        <div class="menu-area menu-sticky" [ngClass]="{'sticky': sticky }">
             <div class="container">
                 <div class="main-menu">
                     <div class="row">
@@ -83,18 +83,33 @@
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
-                                    <li class="active"> <a  [routerLink]="['/department', currentDepartment]">{{currentDepartment}}</a></li>
-                                    <li> <a >ABOUT US</a></li>
-                                    <li> <a >PEOPLE</a></li>
-                                    <li> <a>NEWS &amp; EVENT</a></li>
-                                    <li> <a >NOTICE</a></li>
-                                    <li> <a >Research</a></li>
-                                    <li> <a >ALUMNAS</a></li>
-                                    <li> <a >Contact</a></li>
-                                    <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i>ADUST HOME</a></li>
+                                    <li class="active"> <a
+                                            [routerLink]="['/department', departmentName, departmentId]">{{departmentName}}</a>
+                                    </li>
+                                    <li> <a [routerLink]="['/department/about-us', departmentName, departmentId]">ABOUT
+                                            US</a></li>
+                                    <li> <a
+                                            [routerLink]="['/department/people', departmentName, departmentId]">PEOPLE</a>
+                                    </li>
+                                    <li> <a [routerLink]="['/department/news-events', departmentName, departmentId]">NEWS
+                                            &amp; EVENT</a></li>
+                                    <li> <a
+                                            [routerLink]="['/department/notice', departmentName, departmentId]">NOTICE</a>
+                                    </li>
+                                    <li> <a
+                                            [routerLink]="['/department/research', departmentName, departmentId]">Research</a>
+                                    </li>
+                                    <li> <a
+                                            [routerLink]="['/department/alumnus', departmentName, departmentId]">ALUMNAS</a>
+                                    </li>
+                                    <li> <a
+                                            [routerLink]="['/department/contact', departmentName, departmentId]">Contact</a>
+                                    </li>
+                                    <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i>ADUST
+                                            HOME</a></li>
                                 </ul>
                             </nav>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -105,5 +120,3 @@
     <!--Header End-->
 
 </div>
-
-
