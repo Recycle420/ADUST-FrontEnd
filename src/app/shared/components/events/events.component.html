@@ -9,7 +9,7 @@
         <div *ngIf="loadingEvents == 2" class="news-list-block">
             <div *ngFor="let event of allEvents" class="news-list-item mb-40">
                 <div class="news-img">
-                    <img src="assets/images/events/4.jpg" alt="">
+                    <img src="data:image/png;base64,{{event.photo}}" alt="">
                 </div>
                 <div class="news-content">
                     <div class="news-date">

@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit {
   animSatisfiedClients = 0;
   animStudents = 0;
 
-  totalTeachers = 60;
-  totalCourses = 50;
-  totalStudents = 900;
-  totalSatisfiedClients = 3675;
+  totalTeachers = 160;
+  totalCourses = 20;
+  totalStudents = 5000;
+  totalSatisfiedClients = 2000;
   selectedCourse: any = {};
 
   customOptionsStudents: OwlOptions = {
