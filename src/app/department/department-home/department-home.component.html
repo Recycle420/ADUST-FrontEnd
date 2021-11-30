@@ -128,7 +128,7 @@
                     {{departmentDetails.description}}
                 </p>
             </div>
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-5 col-md-12" *ngIf="departmentDetails.photo">
                 <div class="about-img rs-image-effect-shine">
                     <img src="data:image/png;base64,{{departmentDetails.photo}}" alt="img02">
                 </div>
