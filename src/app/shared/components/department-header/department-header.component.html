@@ -12,16 +12,17 @@
                 </div>
                 <div class="col-md-8">
                     <div class="rs-toolbar-right hidden-sm">
+                        <a target="_blank" href="http://103.17.38.130/Login" class="apply-btn">Registration for 3rd Convocation</a>&nbsp;&nbsp;&nbsp;
                         <div class="toolbar-share-icon">
                             <ul>
-                                <li><a href="#">UMIS</a></li>
+                                <li><a target="_blank" href="http://103.17.38.130/Login/">UMIS</a></li>
                                 <li><a href="#">Payment Procedure</a></li>
-                                <li><a href="#">Webmail</a></li>
+                                <li><a target="_blank" href="https://vps.cloudhostbd.com:2096/">Webmail</a></li>
                                 <li><a href="#">Alumni</a></li>
-                                <li><a href="#">Blogs</a></li>
+                                <li><a href="#">Career</a></li>
                             </ul>
                         </div>
-                        <a href="#" class="apply-btn">Apply Online!</a>
+                        <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx" class="apply-btn">Apply Online!</a>
                     </div>
                 </div>
             </div>
@@ -34,37 +35,9 @@
         <div class="rs-header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12 col-sm-12">
                         <div class="logo-area">
-                            <a>
-                                <img src="assets/images/logo.png" alt="logo">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12">
-                        <div class="header-contact">
-                            <div id="info-details" class="widget-text">
-                                <i class="fa fa-envelope-o icon-font"></i>
-                                <div class="info-text">
-                                    <a href="mailto:admission@adust.edu.bd">
-                                        <span>Mail Us</span>
-                                        admission@adust.edu.bd
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12">
-                        <div class="header-contact pull-right">
-                            <div id="phone-details" class="widget-text">
-                                <i class="fa fa-volume-control-phone icon-font"></i>
-                                <div class="info-text">
-                                    <a href="tel:4155551234">
-                                        <span>Call Us</span>
-                                        +88 01787666575-78
-                                    </a>
-                                </div>
-                            </div>
+                            <h1><img src="assets/images/adust-logo.png" alt="logo">  {{departmentName}}</h1>
                         </div>
                     </div>
                 </div>
@@ -77,22 +50,22 @@
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <!-- <div id="logo-sticky" class="text-center">
-                                <a href="index.html"><img src="~/images/logo.png" alt="logo"></a>
-                            </div> -->
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
                                     <li class="active"> <a
-                                            [routerLink]="['/department', departmentName, departmentId]">{{departmentName}}</a>
+                                            [routerLink]="['/department', departmentName, departmentId]">Home</a>
                                     </li>
-                                    <li> <a [routerLink]="['/department/about-us', departmentName, departmentId]">ABOUT
-                                            US</a></li>
+                                    <li> 
+                                        <a [routerLink]="['/department/about-us', departmentName, departmentId]">ABOUT</a>
+                                    </li>
+                                    <li> 
+                                        <a [routerLink]="['/department/admission', departmentName, departmentId]">ADMISSION</a>
+                                    </li>
                                     <li> <a
                                             [routerLink]="['/department/people', departmentName, departmentId]">PEOPLE</a>
                                     </li>
-                                    <li> <a [routerLink]="['/department/news-events', departmentName, departmentId]">NEWS
-                                            &amp; EVENT</a></li>
+                                    <li> <a [routerLink]="['/department/news-events', departmentName, departmentId]">EVENT</a></li>
                                     <li> <a
                                             [routerLink]="['/department/notice', departmentName, departmentId]">NOTICE</a>
                                     </li>
@@ -105,7 +78,7 @@
                                     <li> <a
                                             [routerLink]="['/department/contact', departmentName, departmentId]">Contact</a>
                                     </li>
-                                    <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i>ADUST
+                                    <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i> ADUST
                                             HOME</a></li>
                                 </ul>
                             </nav>
@@ -118,5 +91,4 @@
         <!-- Menu End -->
     </header>
     <!--Header End-->
-
 </div>

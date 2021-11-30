@@ -1252,7 +1252,7 @@ ul {
     02. Header Start
 ---------------------------------------*/
 .rs-header .rs-header-top {
-    padding: 25px 0 20px;
+    padding: 20px 0 20px;
 }
 
     .rs-header .rs-header-top .header-contact {
@@ -1356,7 +1356,11 @@ ul {
 }
 
 .home1 .logo-area {
-    padding-top: 3px;
+    padding-top: 0;
+}
+
+.logo-area h1 {
+    margin: 0 0 0;
 }
 
 .home1 .rs-menu li i {
@@ -1423,7 +1427,7 @@ ul {
 }
 
 .home2 .menu-area .main-menu {
-    background: #111111;
+    background: #051E37;
     position: absolute;
     top: -30px;
     border-radius: 0;
@@ -2826,7 +2830,7 @@ ul {
     07. Services
 ---------------------------------------*/
 .rs-services-style1 .services-item {
-    background-color: #212121;
+    background-color: #051E37;
     padding: 25px 17px 17px;
     box-shadow: 0 4px 2px -2px #000000;
     z-index: 111;
@@ -2869,7 +2873,7 @@ ul {
 .rs-services-style1 .services-icon {
     height: 130px;
     width: 130px;
-    background-color: #212121;
+    background-color: #051E37;
     line-height: 88px;
     text-align: center;
     position: absolute;
@@ -10560,8 +10564,13 @@ ul {
     background-position: center top;
 }
 .bg5 {
-    background-image: url(../images/bg/testimonial-bg.jpg);
+    background-image: url(../images/bg/bg-achievement.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center top;
+}
+
+.height-500 {
+    height: 500px;
+    overflow: auto;
 }

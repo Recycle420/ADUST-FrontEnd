@@ -12,17 +12,17 @@
                 </div>
                 <div class="col-md-8">
                     <div class="rs-toolbar-right hidden-sm">
-                        <a href="#" class="apply-btn">Registration for 3rd Convocation</a>&nbsp;&nbsp;&nbsp;
+                        <a target="_blank" href="http://103.17.38.130/Login" class="apply-btn">Registration for 3rd Convocation</a>&nbsp;&nbsp;&nbsp;
                         <div class="toolbar-share-icon">
                             <ul>
-                                <li><a href="#">UMIS</a></li>
+                                <li><a target="_blank" href="http://103.17.38.130/Login/">UMIS</a></li>
                                 <li><a href="#">Payment Procedure</a></li>
-                                <li><a href="#">Webmail</a></li>
+                                <li><a target="_blank" href="https://vps.cloudhostbd.com:2096/">Webmail</a></li>
                                 <li><a href="#">Alumni</a></li>
-                                <li><a href="#">Blogs</a></li>
+                                <li><a href="#">Career</a></li>
                             </ul>
                         </div>
-                        <a href="#" class="apply-btn">Apply Online!</a>
+                        <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx" class="apply-btn">Apply Online!</a>
                     </div>
                 </div>
             </div>
@@ -79,9 +79,6 @@
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <!-- <div id="logo-sticky" class="text-center">
-                                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
-                                </div> -->
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
@@ -119,7 +116,13 @@
                                         </ul>
                                     </li>
                                     <li> <a [routerLink]="['/research']">Research</a></li>
-                                    <li> <a [routerLink]="['/media']">Media</a></li>
+                                    <li> 
+                                        <a href="javascript:void(0)">Media</a>
+                                        <ul class="sub-menu">
+                                            <li><a [routerLink]="['/media']">Photo Gallery</a></li>
+                                            <li><a [routerLink]="['/media']">Video Gallery</a></li>
+                                        </ul>
+                                    </li>
                                     <li> <a [routerLink]="['/contact']">Contact us</a>
                                     </li>
                                 </ul>
