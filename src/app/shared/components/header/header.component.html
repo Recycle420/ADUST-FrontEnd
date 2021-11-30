@@ -1,4 +1,4 @@
-<div class="full-width-header">
+<div class="home1 full-width-header">
     <!-- Toolbar Start -->
     <div class="rs-toolbar">
         <div class="container">
@@ -110,7 +110,7 @@
                                             <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
                                                 <a href="javascript:void(0)">{{course.title}}</a>
                                                 <ul class="sub-menu">
-                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.title.split(' ').join('-'), department.id]">{{department.title}}</a></li>
+                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

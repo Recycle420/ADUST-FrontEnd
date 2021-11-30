@@ -100,6 +100,9 @@ export class DepartmentHomeComponent implements OnInit {
   loadingDepartmentMessages = 0;
   departmentMessages:any = [];
 
+  loadingDepartmentTestimonials = 0;
+  departmentTestimonials:any = [];
+
 
 
   ngOnInit(){
@@ -110,6 +113,7 @@ export class DepartmentHomeComponent implements OnInit {
         this.loadSliders();
         this.loadingImages();
         this.loadDepartmentMessages();
+        this.loadDepartmentTestimonials();
       }
     });
     this.setPage(0);
@@ -162,6 +166,14 @@ export class DepartmentHomeComponent implements OnInit {
       this.loadingDepartmentMessages = 2;
     })
 
+  }
+
+  loadDepartmentTestimonials(){
+    this.loadingDepartmentTestimonials =  1;
+    this.apiService.getDepartmentTestimonials(this.departmentId).subscribe((data:any)=>{
+      this.departmentTestimonials = data;
+      this.loadingDepartmentTestimonials = 2;
+    })
   }
 
 
