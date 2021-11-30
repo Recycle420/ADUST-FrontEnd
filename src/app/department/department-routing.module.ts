@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path: 'contact/:department/:id',
     component: UnderDevelopmentComponent,
+  },
+  {
+    path: 'admission/:department/:id',
+    component: UnderDevelopmentComponent,
   }
 ];
 

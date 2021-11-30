@@ -82,8 +82,8 @@
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
-                                    <li class="active"> <a [routerLink]="['/']">Home</a></li>
-                                    <li class="menu-item-has-children">
+                                    <li [ngClass]="{'active': activeHome()}"> <a [routerLink]="['/']">Home</a></li>
+                                    <li class="menu-item-has-children" [ngClass]="{'active': active('about')}">
                                         <a [routerLink]="['/about']">About</a>
                                         <ul class="sub-menu">
                                             <li><a [routerLink]="['/about']">About ADUST</a></li>
@@ -92,7 +92,7 @@
                                             <li><a [routerLink]="['/about/members','administration']"> Administration</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children" [ngClass]="{'active': active('authority')}">
                                         <a [routerLink]="['/authority']">Authority</a>
                                         <ul class="sub-menu">
                                             <li><a [routerLink]="['/authority/members', 'vice-chancellor']">Vice Chancellor</a></li>
@@ -102,9 +102,9 @@
                                             <li><a >Board of Trustees</a></li>
                                         </ul>
                                     </li>
-                                    <li> <a [routerLink]="['/admission']"> Admission</a>
+                                    <li [ngClass]="{'active': active('admission')}"> <a [routerLink]="['/admission']"> Admission</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children" [ngClass]="{'active': active('department')}">
                                         <a href="javascript:void(0)">Academics</a>
                                         <ul class="sub-menu" *ngIf="coursePrograms.length !=0">
                                             <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
@@ -115,15 +115,15 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li> <a [routerLink]="['/research']">Research</a></li>
-                                    <li> 
+                                    <li [ngClass]="{'active': active('research')}"> <a [routerLink]="['/research']">Research</a></li>
+                                    <li [ngClass]="{'active': active('media')}"> 
                                         <a href="javascript:void(0)">Media</a>
                                         <ul class="sub-menu">
                                             <li><a [routerLink]="['/media']">Photo Gallery</a></li>
                                             <li><a [routerLink]="['/media']">Video Gallery</a></li>
                                         </ul>
                                     </li>
-                                    <li> <a [routerLink]="['/contact']">Contact us</a>
+                                    <li [ngClass]="{'active': active('contact')}"> <a [routerLink]="['/contact']">Contact us</a>
                                     </li>
                                 </ul>
                             </nav>

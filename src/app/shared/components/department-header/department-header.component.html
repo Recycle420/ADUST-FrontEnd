@@ -53,29 +53,29 @@
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
-                                    <li class="active"> <a
+                                    <li [ngClass]="{'active': activateHome()}"> <a
                                             [routerLink]="['/department', departmentName, departmentId]">Home</a>
                                     </li>
-                                    <li> 
+                                    <li [ngClass]="{'active': active('/department/about-us')}"> 
                                         <a [routerLink]="['/department/about-us', departmentName, departmentId]">ABOUT</a>
                                     </li>
-                                    <li> 
+                                    <li [ngClass]="{'active': active('/department/admission')}"> 
                                         <a [routerLink]="['/department/admission', departmentName, departmentId]">ADMISSION</a>
                                     </li>
-                                    <li> <a
+                                    <li [ngClass]="{'active': active('/department/people')}"> <a
                                             [routerLink]="['/department/people', departmentName, departmentId]">PEOPLE</a>
                                     </li>
-                                    <li> <a [routerLink]="['/department/news-events', departmentName, departmentId]">EVENT</a></li>
-                                    <li> <a
+                                    <li [ngClass]="{'active': active('/department/news-events')}"> <a [routerLink]="['/department/news-events', departmentName, departmentId]">EVENT</a></li>
+                                    <li [ngClass]="{'active': active('/department/notice')}"> <a
                                             [routerLink]="['/department/notice', departmentName, departmentId]">NOTICE</a>
-                                    </li>
-                                    <li> <a
+                                    </li >
+                                    <li [ngClass]="{'active': active('/department/research')}"> <a
                                             [routerLink]="['/department/research', departmentName, departmentId]">Research</a>
-                                    </li>
-                                    <li> <a
+                                    </li >
+                                    <li [ngClass]="{'active': active('/department/alumnus')}"> <a
                                             [routerLink]="['/department/alumnus', departmentName, departmentId]">ALUMNAS</a>
                                     </li>
-                                    <li> <a
+                                    <li [ngClass]="{'active': active('/department/contact')}"> <a
                                             [routerLink]="['/department/contact', departmentName, departmentId]">Contact</a>
                                     </li>
                                     <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i> ADUST

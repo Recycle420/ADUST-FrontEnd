@@ -14,10 +14,15 @@ export class HeaderComponent implements OnInit {
   sticky = false;
   
   ngOnInit(){
-    this.apiService.getAcademicMenuList().subscribe((coursePrograms: any) => {
-      this.coursePrograms = coursePrograms;
-    })
-
+    let menu = localStorage.getItem('menu');
+    if(!menu || menu.length < 3){
+      this.apiService.getAcademicMenuList().subscribe((coursePrograms: any) => {
+        this.coursePrograms = coursePrograms;
+        localStorage.setItem('menu',JSON.stringify(coursePrograms));
+      })
+    }else{
+      this.coursePrograms = JSON.parse(menu);
+    }
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
@@ -30,5 +35,10 @@ export class HeaderComponent implements OnInit {
       this.sticky = false;
     }
   }
-
+  active(param:string){
+    return window.location.href.includes(param);
+  }
+  activeHome(){
+    return window.location.href.length - window.location.origin.length < 4;
+  }
 }

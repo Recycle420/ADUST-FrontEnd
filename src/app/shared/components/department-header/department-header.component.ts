@@ -27,4 +27,13 @@ export class DepartmentHeaderComponent implements OnInit {
     }
   }
 
+  active(param:string){
+    return window.location.href.includes(param);
+  }
+
+  activateHome(){
+    return window.location.hash.split('/').length == 4;
+  }
+  
+
 }

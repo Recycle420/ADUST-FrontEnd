@@ -57,4 +57,8 @@ export class ApiService {
   getDepartmentTestimonials(departmentId:number){
     return this.http.get(environment.apiUrl+`/Testimonials/GetTestimonialsByDepartment/${departmentId}`,this.httpOptions);
   }
+  getDepartMentDetails(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Departments/${departmentId}`,this.httpOptions);
+  }
+
 }

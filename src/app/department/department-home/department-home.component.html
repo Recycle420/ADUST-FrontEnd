@@ -122,15 +122,15 @@
             <div class="col-lg-7 col-md-12">
                 <div class="sec-title mb-30">
                     <h2>ABOUT US</h2>
-                    <p>Fusce sem dolor, interdum in efficitur at, faucibus.</p>
+                    <p>{{departmentDetails.departmentMessages}}</p>
                 </div>
                 <p class="mobile-mb-50">
-                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized.can I get some?There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected yours humour, or randomised words which don't look even slightly believable.
+                    {{departmentDetails.description}}
                 </p>
             </div>
             <div class="col-lg-5 col-md-12">
                 <div class="about-img rs-image-effect-shine">
-                    <img src="assets/images/about/history.png" alt="img02">
+                    <img src="data:image/png;base64,{{departmentDetails.photo}}" alt="img02">
                 </div>
             </div>
         </div>
@@ -273,5 +273,4 @@
         
     </div>
 </div>
-<app-footer></app-footer>
 
