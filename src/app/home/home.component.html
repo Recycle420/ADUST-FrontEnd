@@ -185,7 +185,8 @@
             </div>
             <div class="col-lg-8 col-md-12">
                 <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
-                    <ng-template carouselSlide [width]="350" >
+                    
+                    <ng-template carouselSlide >
                         <div class="team-item">
                             <div class="team-img">
                                 <img src="assets/images/management/chairman.jpg" alt="team Image" />
@@ -208,7 +209,8 @@
                             </div>
                         </div>
                     </ng-template>
-                    <ng-template carouselSlide [width]="350" >
+                
+                    <ng-template carouselSlide >
                         <div class="team-item">
                             <div class="team-img">
                                 <img src="assets/images/management/vc.jpg" alt="team Image" />
@@ -316,15 +318,15 @@
                     <div class="cource-item">
                         <div class="cource-img">
                             <img src="data:image/png;base64,{{department.photo}}" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                            <a class="image-link" [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" title="{{department.title}}">
                                 <i class="fa fa-link"></i>
                             </a>
                         </div>
                         <div class="course-body">
-                            <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                            <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
                             <div class="course-desc">
                                 <p>
-                                    {{department.description}}
+                                    {{department.description.slice(0, 100)}} ...
                                 </p>
                             </div>
                             <a href="#" class="cource-btn">Apply Now</a>
@@ -338,15 +340,15 @@
                     <div class="cource-item">
                         <div class="cource-img">
                             <img src="data:image/png;base64,{{department.photo}}" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                            <a class="image-link" [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" title="University Tour 2018">
                                 <i class="fa fa-link"></i>
                             </a>
                         </div>
                         <div class="course-body">
-                            <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                            <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
                             <div class="course-desc">
                                 <p>
-                                    {{department.description}}
+                                    {{department.description.slice(0, 100)}} ...
                                 </p>
                             </div>
                             <a href="#" class="cource-btn">Apply Now</a>
