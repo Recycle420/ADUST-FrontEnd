@@ -1434,12 +1434,11 @@ ul {
     width: 100%;
     z-index: 999;
     left: 0;
-    max-width: 1170px;
     margin: 0 auto;
 }
 
 .home2 .menu-area .rs-menu ul > li > a {
-    color: #bbbbbb;
+    color: #fff !important;
 }
 
     .home2 .menu-area .rs-menu ul > li > a:hover {
