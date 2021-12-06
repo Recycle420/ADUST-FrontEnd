@@ -61,7 +61,7 @@ export class ApiService {
     return this.http.get(environment.apiUrl+`/Departments/${departmentId}`,this.httpOptions);
   }
   getPeoples(type:string,departmentId:number){
-    return this.http.get(environment.apiUrl+`Peoples/GetPeoples?type=${type}&departmentId=${departmentId}`,this.httpOptions);
+    return this.http.get(environment.apiUrl+`/Peoples/GetPeoples?type=${type}&departmentId=${departmentId}`,this.httpOptions);
   }
 
 }
