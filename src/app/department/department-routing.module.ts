@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UnderDevelopmentComponent } from '../shared/components/under-development/under-development.component';
 import { DepartmentHomeComponent } from './department-home/department-home.component';
+import { PeopleComponent } from './people/people.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
     component: UnderDevelopmentComponent,
   },
   {
-    path: 'people/:department/:id',
-    component: UnderDevelopmentComponent,
+    path: 'peoples/:people_type/:department/:id',
+    component: PeopleComponent,
   },
   {
     path: 'news-events/:department/:id',

@@ -60,5 +60,8 @@ export class ApiService {
   getDepartMentDetails(departmentId:number){
     return this.http.get(environment.apiUrl+`/Departments/${departmentId}`,this.httpOptions);
   }
+  getPeoples(type:string,departmentId:number){
+    return this.http.get(environment.apiUrl+`/Peoples?type=${type}&departmentId=${departmentId}`,this.httpOptions);
+  }
 
 }

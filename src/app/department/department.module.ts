@@ -6,11 +6,13 @@ import { DepartmentHomeComponent } from './department-home/department-home.compo
 import { SharedModule } from '../shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { PeopleComponent } from './people/people.component';
 
 @NgModule({
   declarations: [
     DepartmentHomeComponent,
-    PhotoGalleryComponent
+    PhotoGalleryComponent,
+    PeopleComponent
   ],
   imports: [
     CommonModule,

@@ -10562,6 +10562,24 @@ ul {
     background-position: center;
     background-position: center top;
 }
+.faculty {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.office-assistant {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.lab-assistant {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
 .bg5 {
     background-image: url(../images/bg/bg-achievement.jpg);
     background-size: cover;
