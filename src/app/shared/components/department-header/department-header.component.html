@@ -62,8 +62,13 @@
                                     <li [ngClass]="{'active': active('/department/admission')}"> 
                                         <a [routerLink]="['/department/admission', departmentName, departmentId]">ADMISSION</a>
                                     </li>
-                                    <li [ngClass]="{'active': active('/department/people')}"> <a
-                                            [routerLink]="['/department/people', departmentName, departmentId]">PEOPLE</a>
+                                    <li [ngClass]="{'active': active('/department/people')}"> 
+                                        <a href="javascript:void(0)">PEOPLE</a>
+                                            <ul class="sub-menu">
+                                                <li><a [routerLink]="['/department/peoples', 'faculty']">Faculty</a></li>
+                                                <li><a [routerLink]="['/department/peoples', 'office-assistant']">Office Assistant</a></li>
+                                                <li><a [routerLink]="['/department/peoples', 'lab-assistant']">Lab Assistant</a></li>
+                                            </ul>
                                     </li>
                                     <li [ngClass]="{'active': active('/department/news-events')}"> <a [routerLink]="['/department/news-events', departmentName, departmentId]">EVENT</a></li>
                                     <li [ngClass]="{'active': active('/department/notice')}"> <a
