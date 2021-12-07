@@ -146,6 +146,7 @@
 .rs-image-effect-shine {
     position: relative;
     overflow: hidden;
+    text-align: right;
 }
 
     .rs-image-effect-shine::before {
