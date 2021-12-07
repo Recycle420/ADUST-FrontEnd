@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://ummahtrustedshop.com/api'
+  apiUrl: 'https://api.adust.edu.bd/api'
 };

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://ummahtrustedshop.com/api'
+  apiUrl: 'https://api.adust.edu.bd/api'
 };
 
 /*
