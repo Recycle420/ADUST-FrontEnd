@@ -2835,7 +2835,7 @@ ul {
     box-shadow: 0 4px 2px -2px #000000;
     z-index: 111;
     position: relative;
-    top: -30px;
+    top: -70px;
     transition: all 0.3s ease 0s;
 }
 
@@ -10591,8 +10591,4 @@ ul {
 .height-500 {
     height: 500px;
     overflow: auto;
-}
-
-.width-50p {
-    width: 50% !important;
 }

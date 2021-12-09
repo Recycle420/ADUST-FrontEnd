@@ -99,7 +99,7 @@
                                             <li><a [routerLink]="['/authority/members', 'registrar' ]">Registrar</a></li>
                                             <li><a [routerLink]="['/authority/members', 'controller-of-examinations']">Controller of Examinations</a></li>
                                             <li><a [routerLink]="['/authority/members','treasurer']"> Treasurer</a></li>
-                                            <li><a >Board of Trustees</a></li>
+                                            <li><a [routerLink]="['/authority/members','board-of-trustees']">Board of Trustees</a></li>
                                         </ul>
                                     </li>
                                     <li [ngClass]="{'active': active('admission')}"> <a [routerLink]="['/admission']"> Admission</a>
@@ -110,7 +110,7 @@
                                             <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
                                                 <a href="javascript:void(0)">{{course.title}}</a>
                                                 <ul class="sub-menu">
-                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></li>
+                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-').toLowerCase(), department.id]">{{department.title}}</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

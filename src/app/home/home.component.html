@@ -174,7 +174,7 @@
 <div id="rs-team" class="rs-team sec-color sec-spacer">
     <div class="container">
         <div class="row rs-vertical-middle">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-5 col-md-12">
                 <div class="sec-title mb-30">
                     <h2>TOP MANAGEMENT</h2>
                     <p>Making a difference: Valuing the role of higher education</p>
@@ -183,10 +183,10 @@
                     Our leadership team is the guiding force behind ADUST’s commitment to progress, accountability and excellence.
                 </p>
             </div>
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-7 col-md-12">
                 <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
                     
-                    <ng-template carouselSlide [width]="350" >
+                    <ng-template carouselSlide [width]="360">
                         <div class="team-item">
                             <div class="team-img">
                                 <img src="assets/images/management/chairman.jpg" alt="team Image" />
@@ -210,7 +210,7 @@
                         </div>
                     </ng-template>
                 
-                    <ng-template carouselSlide [width]="350" >
+                    <ng-template carouselSlide [width]="360">
                         <div class="team-item">
                             <div class="team-img">
                                 <img src="assets/images/management/vc.jpg" alt="team Image" />
@@ -329,7 +329,7 @@
                                     {{department.description.slice(0, 100)}} ...
                                 </p>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -351,7 +351,7 @@
                                     {{department.description.slice(0, 100)}} ...
                                 </p>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
