@@ -1,0 +1,151 @@
+<app-header></app-header>
+
+<!-- About Us Start -->
+<div id="rs-about" class="rs-about sec-spacer">
+    <div class="container">
+        <div class="sec-title mb-50 text-center">
+            <h2>ADMISSION</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="about-desc">
+                    <h1 class="sec-title font-weight-400">Admission Schedule for <b>{{AdmissionDetails.admissionScheduleFor}}</b></h1>
+                </div>
+
+    <table class="table table-responsive">
+        <tr>
+            <td>
+                Admission Form open
+            </td>
+            <td>
+                {{AdmissionDetails.admissionFormOpenDate | date:'longDate'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Deadline Admission Form Submission Date
+            </td>
+            <td>
+                {{AdmissionDetails.deadlineAdmissionFormSubmissionDate | date:'longDate'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Admission Date
+            </td>
+            <td>
+                {{AdmissionDetails.admissionDate | date:'longDate'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Admission Result Date
+            </td>
+            <td>
+                {{AdmissionDetails.admissionResultDate | date:'longDate'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Orientation Date
+            </td>
+            <td>
+                {{AdmissionDetails.orientationDate | date:'longDate'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Class Start Date
+            </td>
+            <td>
+                {{AdmissionDetails.classStartDate | date:'longDate'}}
+            </td>
+        </tr>
+    </table>
+
+<p class="p-spacer" [innerHtml]='AdmissionDetails.description'>
+</p>
+
+    <h4>Admission Requirements</h4>
+
+                <div id="accordion" class="rs-accordion-style1">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Undergraduate Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.undergraduateProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Post Graduate Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.graduateProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Diploma & Engineering Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.diplomaAndEngineeringProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-spacer-30">Tution Fees & Scholarships</h4>
+
+                <div id="accordion" class="rs-accordion-style1">
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Tution Fees
+                            </h3>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                <div *ngIf="AdmissionDetails.photo">
+                                        <img src="data:image/png;base64,{{AdmissionDetails.photo}}" alt="img02">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header mb-0" id="headingFour">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                  Scholarships
+                            </h3>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.scholarships'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-spacer-30">Apply Now</h4>
+                <p class="p-spacer" [innerHtml]='AdmissionDetails.applyNowProcess'>
+                </p>
+
+                <div class="text-center">
+                <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx" class="btn btn-part readon2">Apply Now</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- About Us End -->

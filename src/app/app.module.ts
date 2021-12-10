@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AdmissionComponent } from './admission/admission.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ContactUsComponent 
+    ContactUsComponent,
+    AdmissionComponent 
   ],
   imports: [
     BrowserModule,

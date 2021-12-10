@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   totalTeachers = 160;
   totalCourses = 20;
   totalStudents = 5000;
-  totalSatisfiedClients = 2000;
+  totalSatisfiedClients = 20000;
   selectedCourse: any = {};
 
   customOptionsStudents: OwlOptions = {
