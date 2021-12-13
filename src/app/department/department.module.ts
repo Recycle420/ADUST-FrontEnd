@@ -7,12 +7,14 @@ import { SharedModule } from '../shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { PeopleComponent } from './people/people.component';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
 
 @NgModule({
   declarations: [
     DepartmentHomeComponent,
     PhotoGalleryComponent,
-    PeopleComponent
+    PeopleComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     CommonModule,
