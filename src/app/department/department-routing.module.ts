@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UnderDevelopmentComponent } from '../shared/components/under-development/under-development.component';
 import { DepartmentHomeComponent } from './department-home/department-home.component';
+import { DepartmentAboutComponent } from './department-about/department-about.component';
+import { DepartmentAdmissionComponent } from './department-admission/department-admission.component';
 import { PeopleComponent } from './people/people.component';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 
 const routes: Routes = [
@@ -11,16 +14,24 @@ const routes: Routes = [
     component: DepartmentHomeComponent,
   },
   {
+    path: 'department-admission/:department/:id',
+    component: DepartmentAdmissionComponent,
+  },
+  {
     path: 'department-gallery/:department/:id',
     component: PhotoGalleryComponent,
   },
   {
-    path: 'about-us/:department/:id',
-    component: UnderDevelopmentComponent,
+    path: 'department-about/:department/:id',
+    component: DepartmentAboutComponent,
   },
   {
     path: 'peoples/:people_type/:department/:id',
     component: PeopleComponent,
+  },
+  {
+    path: 'people-details/:people_type/:department/:departmentid/:id',
+    component: PeopleDetailsComponent,
   },
   {
     path: 'news-events/:department/:id',
@@ -40,10 +51,6 @@ const routes: Routes = [
   },
   {
     path: 'contact/:department/:id',
-    component: UnderDevelopmentComponent,
-  },
-  {
-    path: 'admission/:department/:id',
     component: UnderDevelopmentComponent,
   }
 ];

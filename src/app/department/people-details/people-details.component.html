@@ -1,2 +1,35 @@
 <app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
-<p>people-details works!</p>
+<!-- Team Single Start -->
+<div class="rs-team-single pt-100">
+    <div class="container">
+        <div class="row team sec-color">
+            <div class="col-lg-3 col-md-12">
+                <div class="team-photo mobile-mb-40 pull-right mr-40" *ngIf="PeopleDetails.photo">
+                    <img src="data:image/png;base64,{{PeopleDetails.photo}}" alt="Team1">
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-12">
+                <h1 class="team-name color">{{PeopleDetails.name}}</h1>
+                <h5 class="designation-color"> {{PeopleDetails.designation}} </h5>
+                <p class="team-contact">
+                    Email : {{PeopleDetails.email}} <br/>
+                    Phone : {{PeopleDetails.phone}}
+                </p>
+                <hr>
+                <div>
+                    <p [innerHtml]='PeopleDetails.professionalSummary'></p>
+                </div>
+                <div>
+                    <p [innerHtml]='PeopleDetails.education'></p>
+                </div>
+                <div>
+                    <p [innerHtml]='PeopleDetails.research'></p>
+                </div>
+                <div>
+                    <p [innerHtml]='PeopleDetails.publication'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team Single End -->

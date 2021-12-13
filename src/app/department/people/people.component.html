@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="team-body">
-                        <a [routerLink]="['/department/people-details',people_type, department, departmentId, member.id ]">
+                        <a [routerLink]="['/department/people-details', member.type, department, member.departmentId, member.id]">
                             <h3 class="name">{{member.name}}</h3>
                         </a>
                         <span class="designation">{{member.designation}}</span>

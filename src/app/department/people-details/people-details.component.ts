@@ -22,13 +22,12 @@ export class PeopleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
-      if(paramMap.params.department){
         this.people_type = paramMap.params.people_type;
         this.department =  paramMap.params.department;
-        this.departmentId = paramMap.params.departmentId;
+        this.departmentId = paramMap.params.departmentid;
+        console.log(paramMap);
         this.peopleId = paramMap.params.id;
         this.loadPeopleDetails(this.peopleId);
-      }
     });
   }
 
