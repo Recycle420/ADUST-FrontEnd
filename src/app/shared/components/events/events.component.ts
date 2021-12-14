@@ -10,6 +10,7 @@ import { UtilityService } from '../../services/utility.service';
 export class EventsComponent implements OnInit {
 
   @Input() departmentId!:number;
+  @Input() loadAll = false;
 
   loadingEvents = 0 ;
   allEvents:any = [];
@@ -18,13 +19,22 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingEvents = 1
-    this.apiService.getEvents(this.departmentId).subscribe((programevents: any) => {
-      this.allEvents = programevents.map((programevent: any) =>{
-        return {...programevent, date: this.utilityService.getFormateDate(programevent.eventDate) }
+    if(!this.loadAll){
+      this.apiService.getEvents(this.departmentId).subscribe((programevents: any) => {
+        this.allEvents = programevents.map((programevent: any) =>{
+          return {...programevent, date: this.utilityService.getFormateDate(programevent.eventDate) }
+        })
+        this.loadingEvents = 2;
       })
-      this.loadingEvents = 2;
-    })
-    
+    }else{
+      this.apiService.getEventsByDepartments(this.departmentId).subscribe((programevents: any) => {
+        this.allEvents = programevents.map((programevent: any) =>{
+          return {...programevent, date: this.utilityService.getFormateDate(programevent.eventDate) }
+        })
+        this.loadingEvents = 2;
+      })
+
+    }
   }
 
 

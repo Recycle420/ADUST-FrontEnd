@@ -69,5 +69,11 @@ export class ApiService {
   getAdmissions(){
     return this.http.get(environment.apiUrl+'/Admissions',this.httpOptions);
   }
+  getEventsByDepartments(departmentId:number){
+    return this.http.get(environment.apiUrl+`/ProgramEvents/GetProgramEventsByDepartment/${departmentId}`,this.httpOptions);
+  }
+  getNoticesByDepartments(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Notices/GetNoticesByDepartment/${departmentId}`,this.httpOptions);
+  }
 
 }

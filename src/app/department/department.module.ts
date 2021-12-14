@@ -10,6 +10,8 @@ import { PeopleComponent } from './people/people.component';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
 import { DepartmentAdmissionComponent } from './department-admission/department-admission.component';
 import { DepartmentAboutComponent } from './department-about/department-about.component';
+import { EventsComponent } from './events/events.component';
+import { NoticesComponent } from './notices/notices.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DepartmentAboutComponent } from './department-about/department-about.co
     PeopleComponent,
     PeopleDetailsComponent,
     DepartmentAdmissionComponent,
-    DepartmentAboutComponent
+    DepartmentAboutComponent,
+    EventsComponent,
+    NoticesComponent
   ],
   imports: [
     CommonModule,

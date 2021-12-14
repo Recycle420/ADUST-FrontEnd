@@ -7,6 +7,8 @@ import { DepartmentAdmissionComponent } from './department-admission/department-
 import { PeopleComponent } from './people/people.component';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { NoticesComponent } from './notices/notices.component';
+import { EventsComponent } from './events/events.component';
 
 const routes: Routes = [
   {
@@ -35,11 +37,11 @@ const routes: Routes = [
   },
   {
     path: 'news-events/:department/:id',
-    component: UnderDevelopmentComponent,
+    component: EventsComponent,
   },
   {
     path: 'notice/:department/:id',
-    component: UnderDevelopmentComponent,
+    component: NoticesComponent,
   },
   {
     path: 'research/:department/:id',
