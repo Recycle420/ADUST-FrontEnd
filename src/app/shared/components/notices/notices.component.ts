@@ -40,4 +40,13 @@ export class NoticesComponent implements OnInit {
     }
     
   }
+
+  downloadPdf(base64String:string, fileName:string) {
+    const linkSource = `data:application/pdf;base64,${base64String}`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+  }
+
 }

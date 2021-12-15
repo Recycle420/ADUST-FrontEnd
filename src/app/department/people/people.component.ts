@@ -22,7 +22,7 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.department){
-        this.department =  paramMap.params.department.split('-').join(' ');
+        this.department =  paramMap.params.department;
         this.departmentId = paramMap.params.id;
         this.people_type = paramMap.params.people_type;
         this.loadPeoples();

@@ -41,4 +41,7 @@ export class HeaderComponent implements OnInit {
   activeHome(){
     return window.location.href.length - window.location.origin.length < 4;
   }
+  replace(name:string){
+    return name.replace(/(\(|\))/gi,'')
+  }
 }

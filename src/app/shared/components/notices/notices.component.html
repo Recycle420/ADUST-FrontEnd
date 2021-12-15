@@ -16,8 +16,9 @@
             </div>
             <div class="event-des">
                 <h4 class="title">
-                    <a href="#">{{notice.title}}</a>
+                    <a>{{notice.title}}</a>
                 </h4>
+                <a href="#" (click)="downloadPdf(notice.photo, notice.photoName)" *ngIf="notice.photoName && notice.photoName.includes('.pdf')">{{notice.photoName}}</a>
             </div>
         </div>
     </div>
