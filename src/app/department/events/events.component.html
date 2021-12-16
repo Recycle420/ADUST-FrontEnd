@@ -1,10 +1,39 @@
 <app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
-<div id="rs-latest-news-style7" class="rs-latest-news-style7 sec-spacer">
+
+<div class="rs-event-details pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center" style="margin-top: 5%;" >
-                <app-events [departmentId]="departmentId" [loadAll]="true"></app-events>
+        <div class="sec-title mb-50 text-center">
+            <h2>LATEST EVENTS</h2>
+        </div>
+<div *ngIf="loadingEvents == 1" class="d-flex justify-content-center pb-5">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="loadingEvents == 2" class="rs-latest-list">
+    <div class="col-lg-12 col-md-12">
+        <div *ngFor="let event of allEvents" class="event-details-content mb-70">
+            <h3 class="event-title">{{event.title}}</h3>
+            <div class="event-meta">
+                <div class="event-date">
+                    <i class="fa fa-calendar"></i>
+                    <span>{{event.date.monthFull}} {{event.date.day}}, {{event.date.year}}</span>
+                </div>
+                <div class="event-time">
+                    <i class="fa fa-clock-o"></i>
+                    <span>12.30AM-05.30PM</span>
+                </div>
+            </div>
+            <div class="event-img">
+                <img src="data:image/png;base64,{{event.photo}}" alt="Event Details Images" />
+            </div>
+            <div class="event-desc">
+                
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>

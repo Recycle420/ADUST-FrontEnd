@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Component({
   selector: 'app-dept-events',
@@ -14,7 +15,10 @@ export class EventsComponent implements OnInit {
   department:string = "still on dev";
   departmentId = 0;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute,) { }
+  loadingEvents = 0 ;
+  allEvents:any = [];
+
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private utilityService : UtilityService) { }
   
   
   ngOnInit(): void {
@@ -23,10 +27,21 @@ export class EventsComponent implements OnInit {
         this.department =  paramMap.params.department.split('-').join(' ');
         this.departmentId = paramMap.params.id;
       }
+      this.loadEvents();
     });
   }
   ngOnDestroy(): void {
       this.routerSubscription.unsubscribe();
   }
 
+  loadEvents()
+  {
+    this.loadingEvents = 1
+    this.apiService.getEventsByDepartments(this.departmentId).subscribe((programevents: any) => {
+      this.allEvents = programevents.map((programevent: any) =>{
+        return {...programevent, date: this.utilityService.getFormateDate(programevent.eventDate) }
+      })
+      this.loadingEvents = 2;
+    })
+    }
 }
