@@ -12,8 +12,9 @@
     </div>
 </div>
 <div *ngIf="loadingEvents == 2" class="rs-latest-list">
-    <div class="col-lg-12 col-md-12">
-        <div *ngFor="let event of allEvents" class="event-details-content mb-70">
+    <div *ngFor="let event of allEvents">
+    <div class="col-lg-12 col-md-12 mb-70">
+        <div class="event-details-content">
             <h3 class="event-title">{{event.title}}</h3>
             <div class="event-meta">
                 <div class="event-date">
@@ -22,17 +23,20 @@
                 </div>
                 <div class="event-time">
                     <i class="fa fa-clock-o"></i>
-                    <span>12.30AM-05.30PM</span>
+                    <span>{{event.eventDate.Time}}</span>
+                </div>
+                <div class="event-location">
+                    <i class="fa fa-map-marker"></i>
+                    <span>{{event.venue}}</span>
                 </div>
             </div>
             <div class="event-img">
                 <img src="data:image/png;base64,{{event.photo}}" alt="Event Details Images" />
             </div>
-            <div class="event-desc">
-                
-            </div>
+        <p [innerHtml]='event.description'></p>
         </div>
     </div>
+</div>
 </div>
 </div>
 </div>

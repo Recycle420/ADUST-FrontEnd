@@ -20,7 +20,7 @@ export class UtilityService {
      return 'JAN-January'
    }
    else if (monthString == '02') {
-     return 'FEB-Fanuary'
+     return 'FEB-February'
    }
    else if (monthString == '03') {
      return 'MAR-March'
