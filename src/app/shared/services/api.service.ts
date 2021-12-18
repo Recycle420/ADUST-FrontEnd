@@ -30,6 +30,9 @@ export class ApiService {
       return this.http.get(environment.apiUrl+'/ProgramEvents',this.httpOptions);
     }
   }
+  getEventDetails(id:number){
+      return this.http.get(environment.apiUrl+`/ProgramEvents/${id}`,this.httpOptions);
+  }
   getPartners(){
     return this.http.get(environment.apiUrl+'/Partners',this.httpOptions);
   }
@@ -59,6 +62,12 @@ export class ApiService {
   }
   getDepartMentDetails(departmentId:number){
     return this.http.get(environment.apiUrl+`/Departments/${departmentId}`,this.httpOptions);
+  }
+  getDepartmentAbout(departmentId:number){
+    return this.http.get(environment.apiUrl+`/DepartmentAbouts/${departmentId}`,this.httpOptions);
+  }
+  getDepartmentObjective(departmentId:number){
+    return this.http.get(environment.apiUrl+`/DepartmentObjectives/${departmentId}`,this.httpOptions);
   }
   getPeoples(type:string,departmentId:number){
     return this.http.get(environment.apiUrl+`/Peoples/GetPeoples?type=${type}&departmentId=${departmentId}`,this.httpOptions);

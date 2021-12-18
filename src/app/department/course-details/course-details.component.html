@@ -1,0 +1,35 @@
+<app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">COURSE DETAILS</h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">{{department.split('-').join(' ').toUpperCase()}}</a>
+                        </li>
+                        <li>COURSE DETAILS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<div class="rs-vision sec-spacer sec-color">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="abt-title">
+                    <h2>COURSE DETAILS</h2>
+                </div>
+                <div class="vision-desc">
+                    <p [innerHtml]='departmentObjective.courseDetails'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

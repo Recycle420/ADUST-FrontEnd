@@ -20,7 +20,7 @@ export class NoticesComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.department){
-        this.department =  paramMap.params.department.split('-').join(' ');
+        this.department =  paramMap.params.department;
         this.departmentId = paramMap.params.id;
       }
     });

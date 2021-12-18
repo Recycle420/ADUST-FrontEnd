@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">EVENT DETAILS</h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">HOME</a>
+                        </li>
+                        <li>EVENT DETAILS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<div class="rs-event-details pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+        <div class="sec-title mb-50 text-center">
+            <h2>EVENT DETAILS</h2>
+        </div>
+<div *ngIf="loadingEvents == 0" class="d-flex justify-content-center pb-5">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="loadingEvents == 1" class="rs-latest-list">
+    <div class="col-lg-12 col-md-12 mb-70">
+        <div class="event-details-content">
+            <h3 class="event-title">{{eventDetails.title}}</h3>
+            <div class="event-meta">
+                <div class="event-date">
+                    <i class="fa fa-calendar"></i>
+                    <span>{{eventDetails.date.monthFull}} {{eventDetails.date.day}}, {{eventDetails.date.year}}</span>
+                </div>
+                <div class="event-time">
+                    <i class="fa fa-clock-o"></i>
+                    <span>{{eventDetails.eventDate.Time}}</span>
+                </div>
+                <div class="event-location">
+                    <i class="fa fa-map-marker"></i>
+                    <span>{{eventDetails.venue}}</span>
+                </div>
+            </div>
+            <div class="event-img">
+                <img src="data:image/png;base64,{{eventDetails.photo}}" alt="Event Details Images" />
+            </div>
+        <p [innerHtml]='eventDetails.description'></p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>

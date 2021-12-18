@@ -10,13 +10,15 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmissionComponent } from './admission/admission.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    AdmissionComponent 
+    AdmissionComponent,
+    EventDetailsComponent 
   ],
   imports: [
     BrowserModule,

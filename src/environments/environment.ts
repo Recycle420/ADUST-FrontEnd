@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.adust.edu.bd/api'
+  apiUrl: 'https://localhost:44316/api'
 };
 
 /*
