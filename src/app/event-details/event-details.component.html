@@ -22,26 +22,23 @@
 <div class="rs-event-details pt-100 pb-70">
     <div class="container">
         <div class="row">
-        <div class="sec-title mb-50 text-center">
-            <h2>EVENT DETAILS</h2>
-        </div>
 <div *ngIf="loadingEvents == 0" class="d-flex justify-content-center pb-5">
     <div class="spinner-grow text-primary" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
 <div *ngIf="loadingEvents == 1" class="rs-latest-list">
-    <div class="col-lg-12 col-md-12 mb-70">
+    <div class="col-lg-12 col-md-12">
         <div class="event-details-content">
             <h3 class="event-title">{{eventDetails.title}}</h3>
             <div class="event-meta">
                 <div class="event-date">
                     <i class="fa fa-calendar"></i>
-                    <span>{{eventDetails.date.monthFull}} {{eventDetails.date.day}}, {{eventDetails.date.year}}</span>
+                    <span>{{eventDetails.eventDate}}</span>
                 </div>
                 <div class="event-time">
                     <i class="fa fa-clock-o"></i>
-                    <span>{{eventDetails.eventDate.Time}}</span>
+                    <span>{{eventDetails.eventDate}}</span>
                 </div>
                 <div class="event-location">
                     <i class="fa fa-map-marker"></i>

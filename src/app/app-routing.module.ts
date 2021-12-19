@@ -19,7 +19,7 @@ const routes: Routes = [
     component: AdmissionComponent
   },
   {
-    path: 'event-details',
+    path: 'event-details/:id',
     component: EventDetailsComponent
   },
   {

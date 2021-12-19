@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Component({
   selector: 'app-event-details',
@@ -15,7 +16,7 @@ export class EventDetailsComponent implements OnInit {
   loadingEvents = 0 ;
   eventDetails:any = {};
 
-  constructor(private route: ActivatedRoute, private apiService:ApiService) { }
+  constructor(private route: ActivatedRoute, private apiService:ApiService, private utilityService : UtilityService) { }
 
   ngOnInit(): void {
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
