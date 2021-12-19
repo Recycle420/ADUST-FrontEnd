@@ -303,7 +303,6 @@
             <button [ngClass]="{'active': selectedCourse.title === courseProgram.title}"
                 (click)="this.selectedCourse = courseProgram"
                 *ngFor="let courseProgram of coursePrograms">{{courseProgram.title}}</button>
-
         </div>
 
         <div *ngIf="loadingCoursePrograms == 1" class="d-flex justify-content-center pb-5">
@@ -325,9 +324,7 @@
                         <div class="course-body">
                             <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
                             <div class="course-desc">
-                                <p>
-                                    {{department.description.slice(0, 100)}} ...
-                                </p>
+                                <p [innerHtml]='department.description.slice(0, 100)'></p>
                             </div>
                             <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
                         </div>
@@ -347,9 +344,7 @@
                         <div class="course-body">
                             <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
                             <div class="course-desc">
-                                <p>
-                                    {{department.description.slice(0, 100)}} ...
-                                </p>
+                                <p [innerHtml]='department.description.slice(0, 100)'></p>
                             </div>
                             <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
                         </div>

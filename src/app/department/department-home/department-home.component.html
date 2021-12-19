@@ -117,11 +117,9 @@
             <div class="col-lg-7 col-md-12">
                 <div class="sec-title mb-30">
                     <h2>ABOUT US</h2>
-                    <p>{{departmentDetails.departmentMessages}}</p>
+                    <p [innerHtml]='departmentDetails.departmentMessages'></p>
                 </div>
-                <p class="mobile-mb-50">
-                    {{departmentDetails.description}}
-                </p>
+                <p [innerHtml]='departmentDetails.description'></p>
             </div>
             <div class="col-lg-5 col-md-12" *ngIf="departmentDetails.photo">
                 <div class="about-img rs-image-effect-shine">
