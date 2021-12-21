@@ -10,18 +10,31 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private apiService: ApiService) { }
-  coursePrograms:any =[];
+  coursePrograms: any = [];
   sticky = false;
-  
-  ngOnInit(){
+  innerWidth = 1000;
+  menuToggle = 3;
+
+  ngOnInit() {
     let menu = localStorage.getItem('menu');
-    if(!menu || menu.length < 3){
+    this.innerWidth = window.innerWidth;
+    if (!menu || menu.length < 3) {
       this.apiService.getAcademicMenuList().subscribe((coursePrograms: any) => {
         this.coursePrograms = coursePrograms;
-        localStorage.setItem('menu',JSON.stringify(coursePrograms));
+        localStorage.setItem('menu', JSON.stringify(coursePrograms));
       })
-    }else{
+    } else {
       this.coursePrograms = JSON.parse(menu);
+    }
+    this.menuToggleFalse();
+    
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: { target: { innerWidth: number } }) {
+    this.innerWidth = event.target.innerWidth;
+    if (this.innerWidth < 768) {
+      this.menuToggleFalse();
     }
   }
 
@@ -29,19 +42,47 @@ export class HeaderComponent implements OnInit {
   onScroll(event: any) {
     const configuratorContainer = document.getElementById('rs-header') as HTMLElement;
     let offset = configuratorContainer.getBoundingClientRect().bottom;
-    if(offset < 0){
+    if (offset < 0) {
       this.sticky = true;
-    }else{
+    } else {
       this.sticky = false;
     }
   }
-  active(param:string){
+  active(param: string) {
     return window.location.href.includes(param);
   }
-  activeHome(){
+  activeHome() {
     return window.location.href.length - window.location.origin.length < 4;
   }
-  replace(name:string){
-    return name.replace(/(\(|\))/gi,'')
+
+  runMenuToggle() {
+  
+    if (this.menuToggle == 1) {
+      this.menuToggleFalse();
+    } else if (this.menuToggle == 0) {
+      this.menuToggleTrue()
+    }
   }
+
+  menuToggleFalse() {
+    var controller = document.getElementById('toggle-controller') as HTMLElement;
+    var window = document.getElementById('toggle-window') as HTMLElement;
+    controller.classList.remove('rs-menu-toggle-open');
+    if (!controller.classList.contains('rs-menu-toggle-close')) {
+      controller.classList.add('rs-menu-toggle-close');
+    }
+    if (!window.classList.contains('rs-menu-close')) {
+      window.classList.add('rs-menu-close');
+    }
+    this.menuToggle = 0;
+  }
+  menuToggleTrue() {
+    var controller = document.getElementById('toggle-controller') as HTMLElement;
+    var window = document.getElementById('toggle-window') as HTMLElement;
+    controller.classList.remove('rs-menu-toggle-close');
+    controller.classList.add('rs-menu-toggle-open');
+    window.classList.remove('rs-menu-close');
+    this.menuToggle = 1;
+  }
+
 }
