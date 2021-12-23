@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   sticky = false;
   innerWidth = 1000;
   menuToggle = 3;
+  subMenuToggle = 0;
+ 
+  subMenuToggleList:string[]=[];
 
   ngOnInit() {
     let menu = localStorage.getItem('menu');
@@ -84,5 +87,27 @@ export class HeaderComponent implements OnInit {
     window.classList.remove('rs-menu-close');
     this.menuToggle = 1;
   }
+  removeSubMenuTottle(menuname:string){
+    this.subMenuToggleList.splice(this.subMenuToggleList.findIndex(s=>s==menuname),1);
+  }
+
+  showToogleIconConditionForMulti(parentName:string, childName:string){
+    if(this.subMenuToggleList.includes(parentName) && !this.subMenuToggleList.includes(childName)&& innerWidth < 768){
+      return false
+    }else if(this.subMenuToggleList.includes(parentName) && this.subMenuToggleList.includes(childName)&& innerWidth < 768){
+      return true
+    }
+    return 'xx';
+  }
+
+  showToogleIconConditionForSingle(parentName:string){
+    if(!this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
+      return false
+    }else if(this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
+      return true
+    }
+    return 'xx';
+  }
+  
 
 }

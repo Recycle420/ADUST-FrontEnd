@@ -6,3 +6,19 @@
     height: auto !important;
     opacity : 1
 }
+.submenu-opacity-0{
+    opacity: 0 !important;
+    z-index: -100;
+}
+.submenu-opacity-1{
+    opacity: 1 !important;
+    z-index: 100;
+}
+.submenu-opacity-child-0{
+    opacity: 0 !important;
+    z-index: 99;
+}
+.submenu-opacity-child-1{
+    opacity: 1 !important;
+    z-index: 1000;
+}
