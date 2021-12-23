@@ -73,6 +73,8 @@
                 </div>
             </div>
         </div>
+        <!-- Header Top End -->
+        <!-- Menu Start -->
         <div class="menu-area menu-sticky" [ngClass]="{'sticky': sticky }">
             <div class="container">
                 <div class="main-menu">
@@ -80,25 +82,22 @@
                         <div class="col-sm-12">
                             <a id="toggle-controller" class="rs-menu-toggle" (click)="runMenuToggle()"><i class="fa fa-bars"></i>Menu</a>
                             <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < 768, 'menu-show': menuToggle == 1 && innerWidth < 768 }">
-                                <ul class="nav-menu">
-                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': selectedMenu.title == menu.title}">
-                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" (click)="this.selectedMenu = menu" [ngClass]="{'menu-item-has-children': menu.children}">{{menu.title}}</a>
+                                <ul class="nav-menu">              
+                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': selectedMenu.title == menu.title, 'menu-item-has-children': menu.children}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" (click)="this.selectedMenu = menu">{{menu.title}}</a>
                                         <ng-container *ngIf="menu.children">
-                                            
                                             <span *ngIf="!showToogleIconConditionForSingle(menu.title)" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
                                             <span *ngIf="showToogleIconConditionForSingle(menu.title)" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
-
+                                            
                                             <ul *ngIf="menu.title !='Academics'" class="sub-menu" [ngClass]="{'submenu-opacity-0': !showToogleIconConditionForSingle(menu.title), 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)}">
                                                 <li *ngFor="let childOne of menu.children"><a [routerLink]="childOne.param ? [childOne.link, childOne.param]:[childOne.link]">{{childOne.title}}</a></li>
                                             </ul>
-
+                                            
                                             <ul *ngIf="menu.title == 'Academics'" class="sub-menu"  [ngClass]="{'submenu-opacity-0': !showToogleIconConditionForSingle(menu.title), 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)}">
                                                 <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
                                                     <a href="javascript:void(0)">{{course.title}}</a>
-                                                    
                                                     <span *ngIf="!showToogleIconConditionForMulti(menu.title,course.title)" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(course.title)"></i></span>
                                                     <span *ngIf="showToogleIconConditionForMulti(menu.title,course.title)"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(course.title)"></i></span>
-                                                    
                                                     <ul class="sub-menu" *ngIf="coursePrograms.length !=0" [ngClass]="{'submenu-opacity-child-0': !showToogleIconConditionForMulti(menu.title,course.title), 'submenu-opacity-child-1': showToogleIconConditionForMulti(menu.title,course.title)}">
                                                         <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></li>
                                                     </ul>
@@ -113,5 +112,7 @@
                 </div>
             </div>
         </div>
+        <!-- Menu End -->
     </header>
+    <!--Header End-->
 </div>
