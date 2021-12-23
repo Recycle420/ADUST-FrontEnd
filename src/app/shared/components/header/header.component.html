@@ -73,85 +73,45 @@
                 </div>
             </div>
         </div>
-        <!-- Header Top End -->
-        <!-- Menu Start -->
         <div class="menu-area menu-sticky" [ngClass]="{'sticky': sticky }">
             <div class="container">
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a id="toggle-controller" class="rs-menu-toggle" (click)="runMenuToggle()"><i class="fa fa-bars"></i>{{innerWidth}}</a>
-                            <nav id="toggle-window" class="rs-menu"
-                                [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < 768, 'menu-show': menuToggle == 1 && innerWidth < 768 }">
+                            <a id="toggle-controller" class="rs-menu-toggle" (click)="runMenuToggle()"><i class="fa fa-bars"></i>Menu</a>
+                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < 768, 'menu-show': menuToggle == 1 && innerWidth < 768 }">
                                 <ul class="nav-menu">
-                                    <li [ngClass]="{'active': activeHome()}"> <a [routerLink]="['/']">Home</a></li>
-                                    <li class="menu-item-has-children d-none" [ngClass]="{'active': active('about')}">
-                                        <a [routerLink]="['/about']">About
-                                        </a>
-                                        <span *ngIf="subMenuToggle == 0 && innerWidth < 768" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggle = 1"></i></span>
-                                        <span *ngIf="subMenuToggle == 1 && innerWidth < 768" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.subMenuToggle = 0"></i></span>
-                                        <ul class="sub-menu" [ngClass]="{'submenu-opacity-0': subMenuToggle == 0 && innerWidth < 768, 'submenu-opacity-1': subMenuToggle == 1 && innerWidth < 768}">
-                                            <li><a [routerLink]="['/about']">About ADUST</a> </li>
-                                            <li><a [routerLink]="['/about/members', 'syndicate' ]">Syndicate</a></li>
-                                            <li><a [routerLink]="['/about/members', 'academic-council']">Academic
-                                                    Council</a></li>
-                                            <li><a [routerLink]="['/about/members','administration']">Administration</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children" [ngClass]="{'active': active('authority')}">
-                                        <a [routerLink]="['/authority']">Authority</a>
-                                        <ul class="sub-menu d-none">
-                                            <li><a [routerLink]="['/authority/members', 'vice-chancellor']">Vice
-                                                    Chancellor</a></li>
-                                            <li><a [routerLink]="['/authority/members', 'registrar' ]">Registrar</a>
-                                            </li>
-                                            <li><a [routerLink]="['/authority/members', 'controller-of-examinations']">Controller
-                                                    of Examinations</a></li>
-                                            <li><a [routerLink]="['/authority/members','treasurer']"> Treasurer</a></li>
-                                            <li><a>Board of Trustees</a></li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('admission')}"> <a [routerLink]="['/admission']">
-                                            Admission</a>
-                                    </li>
-                                    <li class="menu-item-has-children" [ngClass]="{'active': active('department')}">
-                                        <a href="javascript:void(0)">Academics</a>
-                                        <span *ngIf="!showToogleIconConditionForSingle('academics')" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push('academics')"></i></span>
-                                        <span *ngIf="showToogleIconConditionForSingle('academics')" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle('academics')"></i></span>
-                                        <ul class="sub-menu" *ngIf="coursePrograms.length !=0" [ngClass]="{'submenu-opacity-0': !showToogleIconConditionForSingle('academics'), 'submenu-opacity-1':  showToogleIconConditionForSingle('academics')}">
-                                            <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
-                                                <a href="javascript:void(0)">{{course.title}}</a>
-                                                <span *ngIf="!showToogleIconConditionForMulti('academics',course.title)" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(course.title)"></i></span>
-                                                <span *ngIf="showToogleIconConditionForMulti('academics',course.title)"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(course.title)"></i></span>
-                                                <ul class="sub-menu" [ngClass]="{'submenu-opacity-child-0': !showToogleIconConditionForMulti('academics',course.title), 'submenu-opacity-child-1': showToogleIconConditionForMulti('academics',course.title)}">
-                                                    <li *ngFor="let department of course.departments">
-                                                        <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('research')}"> <a
-                                            [routerLink]="['/research']">Research</a></li>
-                                    <li [ngClass]="{'active': active('media')}">
-                                        <a href="javascript:void(0)">Media</a>
-                                        <ul class="sub-menu d-none">
-                                            <li><a [routerLink]="['/media']">Photo Gallery</a></li>
-                                            <li><a [routerLink]="['/media']">Video Gallery</a></li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('contact')}"> <a
-                                            [routerLink]="['/contact']">Contact us</a>
+                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': selectedMenu.title == menu.title}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" (click)="this.selectedMenu = menu" [ngClass]="{'menu-item-has-children': menu.children}">{{menu.title}}</a>
+                                        <ng-container *ngIf="menu.children">
+                                            
+                                            <span *ngIf="!showToogleIconConditionForSingle(menu.title)" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title)" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
+
+                                            <ul *ngIf="menu.title !='Academics'" class="sub-menu" [ngClass]="{'submenu-opacity-0': !showToogleIconConditionForSingle(menu.title), 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)}">
+                                                <li *ngFor="let childOne of menu.children"><a [routerLink]="childOne.param ? [childOne.link, childOne.param]:[childOne.link]">{{childOne.title}}</a></li>
+                                            </ul>
+
+                                            <ul *ngIf="menu.title == 'Academics'" class="sub-menu"  [ngClass]="{'submenu-opacity-0': !showToogleIconConditionForSingle(menu.title), 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)}">
+                                                <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">{{course.title}}</a>
+                                                    
+                                                    <span *ngIf="!showToogleIconConditionForMulti(menu.title,course.title)" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(course.title)"></i></span>
+                                                    <span *ngIf="showToogleIconConditionForMulti(menu.title,course.title)"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(course.title)"></i></span>
+                                                    
+                                                    <ul class="sub-menu" *ngIf="coursePrograms.length !=0" [ngClass]="{'submenu-opacity-child-0': !showToogleIconConditionForMulti(menu.title,course.title), 'submenu-opacity-child-1': showToogleIconConditionForMulti(menu.title,course.title)}">
+                                                        <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul> 
+                                        </ng-container>
                                     </li>
                                 </ul>
                             </nav>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Menu End -->
     </header>
-    <!--Header End-->
 </div>

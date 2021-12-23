@@ -15,8 +15,104 @@ export class HeaderComponent implements OnInit {
   innerWidth = 1000;
   menuToggle = 3;
   subMenuToggle = 0;
- 
   subMenuToggleList:string[]=[];
+  menuList:any=[
+    {
+      title: 'Home',
+      link : '/',
+    },
+    {
+      title: 'About',
+      link : '/about',
+      children:[
+        {
+          title: 'About ADUST',
+          link : '/about'
+        },
+        {
+          title: 'Syndicate',
+          link : '/about/members',
+          param: 'syndicate'
+        },
+        {
+          title: 'Academic Council',
+          link : '/about/members',
+          param: 'academic-council'
+        },
+        {
+          title: 'Administration',
+          link : '/about/members',
+          param: 'administration'
+        }
+      ]
+    },
+    {
+      title: 'Authority',
+      link : '/authority',
+      children:[
+        {
+          title: 'Vice Chancellor',
+          link : '/authority/members',
+          param: 'vice-chancellor'
+        },
+        {
+          title: 'Registrar',
+          link : '/authority/members',
+          param: 'registrar'
+        },
+        {
+          title: 'Controller of Examinations',
+          link : '/authority/members',
+          param: 'controller-of-examinations'
+        },
+        {
+          title: 'Treasurer',
+          link : '/about/members',
+          param: 'Treasurer'
+        },
+        {
+          title: 'Board of Trustees',
+          link : '/about/members',
+          param: 'board-of-trustees'
+        }
+      ]
+    },
+    {
+      title: 'Admission',
+      link : '/admission',
+    },
+    {
+      title: 'Academics',
+      link : '/department',
+      children:[]
+    },
+    {
+      title: 'Research',
+      link : '/research'
+    },
+    {
+      title: 'Media',
+      link : '/media',
+      children: [
+        {
+          title: 'Media',
+          link : '/media'
+        },
+        {
+          title: 'Media',
+          link : '/media'
+        }
+      ]
+    },
+    {
+      title: 'Contact us',
+      link : '/contact'
+    }
+  ]
+  selectedMenu:any ={
+    title: 'Home',
+    link : '/',
+  };
 
   ngOnInit() {
     let menu = localStorage.getItem('menu');
@@ -100,14 +196,14 @@ export class HeaderComponent implements OnInit {
     return 'xx';
   }
 
-  showToogleIconConditionForSingle(parentName:string){
-    if(!this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
+  showToogleIconConditionForSingle(parentName:string):any{
+    if(!this.subMenuToggleList.includes(parentName) && innerWidth < 768){
       return false
     }else if(this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
       return true
     }
-    return 'xx';
   }
+  
   
 
 }
