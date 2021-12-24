@@ -189,21 +189,19 @@ export class HeaderComponent implements OnInit {
 
   showToogleIconConditionForMulti(parentName:string, childName:string){
     if(this.subMenuToggleList.includes(parentName) && !this.subMenuToggleList.includes(childName)&& innerWidth < 768){
-      return false
+      return 1;
     }else if(this.subMenuToggleList.includes(parentName) && this.subMenuToggleList.includes(childName)&& innerWidth < 768){
-      return true
+      return 2;
     }
-    return 'xx';
+    return 3;
   }
 
   showToogleIconConditionForSingle(parentName:string):any{
     if(!this.subMenuToggleList.includes(parentName) && innerWidth < 768){
-      return false
+      return 1;
     }else if(this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
-      return true
+      return 2;
     }
+    return 3;
   }
-  
-  
-
 }
