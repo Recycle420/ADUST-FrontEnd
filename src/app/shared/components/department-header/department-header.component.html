@@ -50,39 +50,19 @@
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
-                            <nav class="rs-menu">
+                            <a id="toggle-controller" class="rs-menu-toggle"><i class="fa fa-bars" (click)="runMenuToggle()"></i>Menu</a>
+                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < targetWidth, 'menu-show': menuToggle == 1 && innerWidth < targetWidth }">
                                 <ul class="nav-menu">
-                                    <li [ngClass]="{'active': activateHome()}"> <a
-                                            [routerLink]="['/department', departmentName, departmentId]">Home</a>
-                                    </li>
-                                    <li [ngClass]="{'active': active('/department/department-about')}"> 
-                                        <a [routerLink]="['/department/department-about', departmentName, departmentId]">ABOUT</a>
-                                    </li>
-                                    <li [ngClass]="{'active': active('/department/department-admission')}"> 
-                                        <a [routerLink]="['/department/department-admission', departmentName, departmentId]">ADMISSION</a>
-                                    </li>
-                                    <li [ngClass]="{'active': active('/department/people')}"> 
-                                        <a href="javascript:void(0)">PEOPLE</a>
-                                            <ul class="sub-menu">
-                                                <li><a [routerLink]="['/department/peoples', 'faculty', departmentName, departmentId ]">Faculty</a></li>
-                                                <li><a [routerLink]="['/department/peoples', 'office-assistant',  departmentName, departmentId]">Office Assistant</a></li>
-                                                <li><a [routerLink]="['/department/peoples', 'lab-assistant', departmentName, departmentId]">Lab Assistant</a></li>
+                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': active(menu), 'menu-item-has-children': menu.children}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param,departmentName,departmentId]:[menu.link,departmentName,departmentId]" (click)="routeChange()" *ngIf="menu.link;else other_link">{{menu.title}}</a>
+                                        <ng-template #other_link> <a>{{menu.title}}</a></ng-template>
+                                        <ng-container *ngIf="menu.children">
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 1" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 2" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
+                                            <ul class="sub-menu" [ngClass]="{'submenu-opacity-0': showToogleIconConditionForSingle(menu.title) ==1, 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)==2}">
+                                                <li *ngFor="let childOne of menu.children"><a [routerLink]="childOne.param ? [childOne.link, childOne.param,departmentName,departmentId]:[childOne.link,departmentName,departmentId]" (click)="routeChange()">{{childOne.title}}</a></li>
                                             </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('/department/news-events')}"> <a [routerLink]="['/department/news-events', departmentName, departmentId]">EVENT</a></li>
-                                    <li [ngClass]="{'active': active('/department/notice')}"> <a
-                                            [routerLink]="['/department/notice', departmentName, departmentId]">NOTICE</a>
-                                    </li >
-                                    <li [ngClass]="{'active': active('/department/research')}"> <a
-                                            [routerLink]="['/department/research', departmentName, departmentId]">Research</a>
-                                    </li >
-                                    
-                                    <li [ngClass]="{'active': active('/department/alumnus')}"> <a
-                                            [routerLink]="['/department/alumnus', departmentName, departmentId]">ALUMNUS</a>
-                                    </li>
-                                    <li [ngClass]="{'active': active('/department/club')}"> <a
-                                            [routerLink]="['/club']">Club</a>
+                                        </ng-container>
                                     </li>
                                     <li class="pull-right"> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane text-danger"></i>ADUST HOME</a></li>
                                 </ul>

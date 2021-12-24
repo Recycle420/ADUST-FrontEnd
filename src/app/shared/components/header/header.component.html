@@ -3,7 +3,7 @@
     <div class="rs-toolbar">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 hidden-sm">
+                <div class="col-md-4">
                     <div class="rs-toolbar-left">
                         <div class="welcome-message">
                             <i class="fa fa-bank"></i><span>Welcome to ADUST</span>
@@ -11,7 +11,9 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="rs-toolbar-right">
+                    <div class="rs-toolbar-right hidden-sm">
+                        <a target="_blank" href="http://103.17.38.130/Login" class="apply-btn">Registration for 3rd
+                            Convocation</a>&nbsp;&nbsp;&nbsp;
                         <div class="toolbar-share-icon">
                             <ul>
                                 <li><a target="_blank" href="http://103.17.38.130/Login/">UMIS</a></li>
@@ -21,8 +23,8 @@
                                 <li><a href="#">Career</a></li>
                             </ul>
                         </div>
-                        <a target="_blank" href="http://103.17.38.130/Login" class="apply-btn">Registration for 3rd Convocation</a>&nbsp;&nbsp;
-                        <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx" class="apply-btn">Apply Online!</a>
+                        <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx"
+                            class="apply-btn">Apply Online!</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +33,6 @@
     <!-- Toolbar End -->
     <!--Header Start-->
     <header id="rs-header" class="rs-header">
-
         <!-- Header Top Start -->
         <div class="rs-header-top">
             <div class="container">
@@ -79,55 +80,37 @@
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
-                            <nav class="rs-menu">
-                                <ul class="nav-menu">
-                                    <li [ngClass]="{'active': activeHome()}"> <a [routerLink]="['/']">Home</a></li>
-                                    <li class="menu-item-has-children" [ngClass]="{'active': active('about')}">
-                                        <a [routerLink]="['/about']">About</a>
-                                        <ul class="sub-menu">
-                                            <li><a [routerLink]="['/about']">About ADUST</a></li>
-                                            <li><a [routerLink]="['/about/members', 'syndicate' ]">Syndicate</a></li>
-                                            <li><a [routerLink]="['/about/members', 'academic-council']">Academic Council</a></li>
-                                            <li><a [routerLink]="['/about/members','administration']"> Administration</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children" [ngClass]="{'active': active('authority')}">
-                                        <a [routerLink]="['/authority']">Authority</a>
-                                        <ul class="sub-menu">
-                                            <li><a [routerLink]="['/authority/members', 'vice-chancellor']">Vice Chancellor</a></li>
-                                            <li><a [routerLink]="['/authority/members', 'registrar' ]">Registrar</a></li>
-                                            <li><a [routerLink]="['/authority/members', 'controller-of-examinations']">Controller of Examinations</a></li>
-                                            <li><a [routerLink]="['/authority/members','treasurer']"> Treasurer</a></li>
-                                            <li><a [routerLink]="['/authority/members','board-of-trustees']">Board of Trustees</a></li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('admission')}"> <a [routerLink]="['/admission']"> Admission</a>
-                                    </li>
-                                    <li class="menu-item-has-children" [ngClass]="{'active': active('department')}">
-                                        <a href="javascript:void(0)">Academics</a>
-                                        <ul class="sub-menu" *ngIf="coursePrograms.length !=0">
-                                            <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
-                                                <a href="javascript:void(0)">{{course.title}}</a>
-                                                <ul class="sub-menu">
-                                                    <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', replace(department.fullName.split(' ').join('-').toLowerCase()), department.id]">{{department.title}}</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('research')}"> <a [routerLink]="['/research']">Research</a></li>
-                                    <li [ngClass]="{'active': active('media')}"> 
-                                        <a href="javascript:void(0)">Media</a>
-                                        <ul class="sub-menu">
-                                            <li><a [routerLink]="['/media']">Photo Gallery</a></li>
-                                            <li><a [routerLink]="['/media']">Video Gallery</a></li>
-                                        </ul>
-                                    </li>
-                                    <li [ngClass]="{'active': active('contact')}"> <a [routerLink]="['/contact']">Contact us</a>
+                            <a id="toggle-controller" class="rs-menu-toggle" (click)="runMenuToggle()"><i class="fa fa-bars"></i>Menu</a>
+                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < targetWidth, 'menu-show': menuToggle == 1 && innerWidth < targetWidth }">
+                                <ul class="nav-menu">              
+                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': active(menu), 'menu-item-has-children': menu.children}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" *ngIf="menu.link;else other_link">{{menu.title}}</a>
+                                        <ng-template #other_link>
+                                            <a>{{menu.title}}</a>
+                                        </ng-template>
+                                        <ng-container *ngIf="menu.children">
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 1" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 2" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
+                            
+                                            <ul *ngIf="menu.title !='Academics'" class="sub-menu" [ngClass]="{'submenu-opacity-0': showToogleIconConditionForSingle(menu.title) ==1, 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)==2}">
+                                                <li *ngFor="let childOne of menu.children"><a [routerLink]="childOne.param ? [childOne.link, childOne.param]:[childOne.link]">{{childOne.title}}</a></li>
+                                            </ul>
+                                            
+                                            <ul *ngIf="menu.title == 'Academics'" class="sub-menu"  [ngClass]="{'submenu-opacity-0': showToogleIconConditionForSingle(menu.title)==1, 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)==2}">
+                                                <li *ngFor="let course of coursePrograms" class="menu-item-has-children">
+                                                    <a href="#">{{course.title}}</a>
+                                                    <span *ngIf="showToogleIconConditionForMulti(menu.title,course.title) == 1" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(course.title)"></i></span>
+                                                    <span *ngIf="showToogleIconConditionForMulti(menu.title,course.title) ==2" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(course.title)"></i></span>
+                                                    
+                                                    <ul class="sub-menu" *ngIf="coursePrograms.length !=0" [ngClass]="{'submenu-opacity-child-0': showToogleIconConditionForMulti(menu.title,course.title) == 1, 'submenu-opacity-child-1': showToogleIconConditionForMulti(menu.title,course.title)==2}">
+                                                        <li *ngFor="let department of course.departments"> <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul> 
+                                        </ng-container>
                                     </li>
                                 </ul>
                             </nav>
-
                         </div>
                     </div>
                 </div>
@@ -137,4 +120,3 @@
     </header>
     <!--Header End-->
 </div>
-

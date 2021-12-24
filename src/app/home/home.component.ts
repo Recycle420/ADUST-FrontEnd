@@ -189,7 +189,7 @@ export class HomeComponent implements OnInit {
     this.loadingTestimonials = 1;
     this.loadingPartners = 1;
     this.loadingSliders = 1;
-
+    /*
 
     this.apiService.getCarousels(0).subscribe((data: any) => {
       this.sliders = data;
@@ -214,6 +214,8 @@ export class HomeComponent implements OnInit {
       this.allPartners = partners;
       this.loadingPartners = 2;
     })
+
+    */
 
   }
 

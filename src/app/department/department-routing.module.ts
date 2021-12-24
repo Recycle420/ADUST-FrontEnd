@@ -72,6 +72,10 @@ const routes: Routes = [
     component: UnderDevelopmentComponent,
   },
   {
+    path: 'club/:department/:id',
+    component: UnderDevelopmentComponent,
+  },
+  {
     path: 'contact/:department/:id',
     component: UnderDevelopmentComponent,
   }
