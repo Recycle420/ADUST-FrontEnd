@@ -13,9 +13,11 @@ export class HeaderComponent implements OnInit {
   coursePrograms: any = [];
   sticky = false;
   innerWidth = 1000;
+  targetWidth = 992;
   menuToggle = 3;
   subMenuToggle = 0;
   subMenuToggleList:string[]=[];
+
   menuList:any=[
     {
       title: 'Home',
@@ -83,7 +85,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       title: 'Academics',
-      link : '/department',
+      inActiveLink: '/department',
       children:[]
     },
     {
@@ -109,11 +111,6 @@ export class HeaderComponent implements OnInit {
       link : '/contact'
     }
   ]
-  selectedMenu:any ={
-    title: 'Home',
-    link : '/',
-  };
-
   ngOnInit() {
     let menu = localStorage.getItem('menu');
     this.innerWidth = window.innerWidth;
@@ -132,7 +129,7 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: { target: { innerWidth: number } }) {
     this.innerWidth = event.target.innerWidth;
-    if (this.innerWidth < 768) {
+    if (this.innerWidth < this.targetWidth) {
       this.menuToggleFalse();
     }
   }
@@ -147,15 +144,17 @@ export class HeaderComponent implements OnInit {
       this.sticky = false;
     }
   }
-  active(param: string) {
-    return window.location.href.includes(param);
+  active(param: any) {
+    let link = param.link ?? param.inActiveLink;
+    if(link.length > 1 && window.location.href.includes(link)){
+      return 1;
+    }else if(param.title == 'Home' && window.location.href.length - window.location.origin.length < 4){
+      return 1;
+    }
+    return 0;
   }
-  activeHome() {
-    return window.location.href.length - window.location.origin.length < 4;
-  }
-
-  runMenuToggle() {
   
+  runMenuToggle() {
     if (this.menuToggle == 1) {
       this.menuToggleFalse();
     } else if (this.menuToggle == 0) {
@@ -188,18 +187,17 @@ export class HeaderComponent implements OnInit {
   }
 
   showToogleIconConditionForMulti(parentName:string, childName:string){
-    if(this.subMenuToggleList.includes(parentName) && !this.subMenuToggleList.includes(childName)&& innerWidth < 768){
+    if(this.subMenuToggleList.includes(parentName) && !this.subMenuToggleList.includes(childName)&& innerWidth < this.targetWidth){
       return 1;
-    }else if(this.subMenuToggleList.includes(parentName) && this.subMenuToggleList.includes(childName)&& innerWidth < 768){
+    }else if(this.subMenuToggleList.includes(parentName) && this.subMenuToggleList.includes(childName)&& innerWidth < this.targetWidth){
       return 2;
     }
     return 3;
   }
-
   showToogleIconConditionForSingle(parentName:string):any{
-    if(!this.subMenuToggleList.includes(parentName) && innerWidth < 768){
+    if(!this.subMenuToggleList.includes(parentName) && innerWidth < this.targetWidth){
       return 1;
-    }else if(this.subMenuToggleList.includes(parentName)&& innerWidth < 768){
+    }else if(this.subMenuToggleList.includes(parentName)&& innerWidth < this.targetWidth){
       return 2;
     }
     return 3;

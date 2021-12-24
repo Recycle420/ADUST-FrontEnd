@@ -81,10 +81,13 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <a id="toggle-controller" class="rs-menu-toggle" (click)="runMenuToggle()"><i class="fa fa-bars"></i>Menu</a>
-                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < 768, 'menu-show': menuToggle == 1 && innerWidth < 768 }">
+                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < targetWidth, 'menu-show': menuToggle == 1 && innerWidth < targetWidth }">
                                 <ul class="nav-menu">              
-                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': selectedMenu.title == menu.title, 'menu-item-has-children': menu.children}">
-                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" (click)="this.selectedMenu = menu">{{menu.title}}</a>
+                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': active(menu), 'menu-item-has-children': menu.children}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param]:[menu.link]" *ngIf="menu.link;else other_link">{{menu.title}}</a>
+                                        <ng-template #other_link>
+                                            <a>{{menu.title}}</a>
+                                        </ng-template>
                                         <ng-container *ngIf="menu.children">
                                             <span *ngIf="showToogleIconConditionForSingle(menu.title) == 1" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
                                             <span *ngIf="showToogleIconConditionForSingle(menu.title) == 2" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
