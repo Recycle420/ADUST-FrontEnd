@@ -1,0 +1,143 @@
+<app-header></app-header>
+
+<div class="rs-countdown-part sec-color sec-spacer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="register-form">
+                    <div class="form-title text-center">
+                        <h2 class="title">Please fill up the form for getting maximum Scholarship</h2>
+                    </div>
+                    <div class="form-group text-center">
+                        <h4 class="title">
+                            Admission open for {{AdmissionDetails.admissionScheduleFor}}<br>
+                            ✔️ 10%-100% Scholarship on Tuition Fees
+                            ✔️ 40% Discount on Admission Fees
+                        </h4>
+                        <form id="contact-form" class="contact-form" method="post" action="mailer.php">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="name" type="text" placeholder="Interested Program" id="name" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="name" type="text" placeholder="Full Name" id="name" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="email" type="email" placeholder="E-Mail" id="email" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="number" type="text" placeholder="Phone Number" id="phone_number" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="SSCResult" type="number" placeholder="SSC/Dakhil Result" id="ssc_result" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="HSCResult" type="number" placeholder="HSC/Alim/Diploma Result" id="hsc_result" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="SSCPassingYear" type="number" placeholder="SSC/Dakhil Passing Year" id="ssc_passingyear" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="HSCPassingYear" type="number" placeholder="HSC/Alim/Diploma Passing Year" id="hsc_passingyear" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="from-control" name="district" type="text" placeholder="District" id="district" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</div>
+
+<div id="rs-about" class="rs-about sec-spacer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+
+            <h4>Admission Requirements</h4>
+
+                <div id="accordion" class="rs-accordion-style1">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Undergraduate Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.undergraduateProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Post Graduate Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.graduateProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Diploma & Engineering Program Requirements
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.diplomaAndEngineeringProgramRequirements'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <h4 class="mt-spacer-30">Tution Fees & Scholarships</h4>
+
+                <div id="accordion" class="rs-accordion-style1">
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Tution Fees
+                            </h3>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                <div *ngIf="AdmissionDetails.photo">
+                                        <img src="data:image/png;base64,{{AdmissionDetails.photo}}" alt="img02">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header mb-0" id="headingFour">
+                            <h3 class="acdn-title collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                  Scholarships
+                            </h3>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body" [innerHtml]='AdmissionDetails.scholarships'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h4 class="mt-spacer-30">Apply Now</h4>
+                <p class="p-spacer" [innerHtml]='AdmissionDetails.applyNowProcess'>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</div>

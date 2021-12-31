@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdmissionComponent } from './admission/admission.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     HomeComponent,
     ContactUsComponent,
     AdmissionComponent,
-    EventDetailsComponent 
+    EventDetailsComponent,
+    AdmissionSurveyComponent 
   ],
   imports: [
     BrowserModule,

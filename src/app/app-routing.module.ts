@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AdmissionComponent } from './admission/admission.component';
 import { UnderDevelopmentComponent } from './shared/components/under-development/under-development.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'admission',
     component: AdmissionComponent
+  },
+  {
+    path: 'admission-survey',
+    component: AdmissionSurveyComponent
   },
   {
     path: 'event-details/:id',
