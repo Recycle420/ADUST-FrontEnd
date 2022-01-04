@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 <div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
     <div class="breadcrumbs-inner">
@@ -27,8 +26,7 @@
                 <div class="gm-err-container">
                     <div class="gm-err-content">
                         <div class="gm-err-icon text-center">
-                            <img src="assets/images/map.jpg" draggable="false"
-                                style="user-select: none;">
+                            <img src="assets/images/map.jpg" draggable="false" style="user-select: none;">
                         </div>
                     </div>
                 </div>
@@ -73,14 +71,14 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label>First Name*</label>
-                                <input name="fname" id="fname" class="form-control" type="text">
+                                <label>Name*</label>
+                                <input name="fname" id="fname" class="form-control" type="text" [(ngModel)]="commentSurveyForm.name">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label>Last Name*</label>
-                                <input name="lname" id="lname" class="form-control" type="text">
+                                <label>Phone Number*</label>
+                                <input name="lname" id="lname" class="form-control" type="text" [(ngModel)]="commentSurveyForm.phoneNumber">
                             </div>
                         </div>
                     </div>
@@ -88,13 +86,13 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>Email*</label>
-                                <input name="email" id="email" class="form-control" type="email">
+                                <input name="email" id="email" class="form-control" type="email" [(ngModel)]="commentSurveyForm.email">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>Subject *</label>
-                                <input name="subject" id="subject" class="form-control" type="text">
+                                <input name="subject" id="subject" class="form-control" type="text" [(ngModel)]="commentSurveyForm.subject">
                             </div>
                         </div>
                     </div>
@@ -103,26 +101,20 @@
                             <div class="form-group">
                                 <label>Message *</label>
                                 <textarea cols="40" rows="10" id="message" name="message"
-                                    class="textarea form-control"></textarea>
+                                    class="textarea form-control" [(ngModel)]="commentSurveyForm.comments"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-group mb-0">
-                        <input class="btn-send" type="submit" value="Submit Now">
+                        <input class="btn-send" type="submit" value="Submit Now" (click)="saveCommentSurvey()">
                     </div>
-
                 </fieldset>
             </form>
         </div>
+        
+        <h3 class="text-center text-danger" *ngIf="incompleteForm">**Incomplete From!!</h3>
+        <h4 *ngIf="showSubmitted" class="text-center title">
+            ✔️ Summitted
+        </h4>
     </div>
 </div>
-
-
-
-
-
-
-
-
-   
-   

@@ -9,6 +9,13 @@
                     <div class="form-title text-center">
                         <h2 class="title">Please fill up the form for getting maximum Scholarship</h2>
                     </div>
+
+                    <div *ngIf="loadingDepartmentlist == 1 || loadingAdmissions ==1" class="d-flex justify-content-center pb-5">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+
                     <div class="form-group text-center">
                         <h4 class="title">
                             Admission open for {{AdmissionDetails.admissionScheduleFor}}<br>
@@ -18,37 +25,44 @@
                         <form id="contact-form" class="contact-form" method="post" action="mailer.php">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="name" type="text" placeholder="Interested Program" id="name" required="required">
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="course-program" [(ngModel)]="admissionSurveyForm.departmentId">
+                                        <option value = 0 selected>Select Course Program</option>
+                                        <option *ngFor="let item of departmentList" [value]="item.id"> {{item.fullName}}</option>
+                                      </select>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="name" type="text" placeholder="Full Name" id="name" required="required">
+                                    <input class="from-control" name="name" type="text" placeholder="Name" [(ngModel)]="admissionSurveyForm.name">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="email" type="email" placeholder="E-Mail" id="email" required="required">
+                                    <input class="from-control" name="email" type="email" placeholder="E-Mail" [(ngModel)]="admissionSurveyForm.email">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="number" type="text" placeholder="Phone Number" id="phone_number" required="required">
+                                    <input class="from-control" name="number" type="text" placeholder="Phone Number" [(ngModel)]="admissionSurveyForm.phoneNumber">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="SSCResult" type="number" placeholder="SSC/Dakhil Result" id="ssc_result" required="required">
+                                    <input class="from-control" name="SSCResult" type="text" placeholder="SSC/Dakhil Result" [(ngModel)]="admissionSurveyForm.sscResult">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="HSCResult" type="number" placeholder="HSC/Alim/Diploma Result" id="hsc_result" required="required">
+                                    <input class="from-control" name="HSCResult" type="text" placeholder="HSC/Alim/Diploma Result" [(ngModel)]="admissionSurveyForm.hscResult">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="SSCPassingYear" type="number" placeholder="SSC/Dakhil Passing Year" id="ssc_passingyear" required="required">
+                                    <input class="from-control" name="SSCPassingYear" type="text" placeholder="SSC/Dakhil Passing Year" [(ngModel)]="admissionSurveyForm.sscPassingYear">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="HSCPassingYear" type="number" placeholder="HSC/Alim/Diploma Passing Year" id="hsc_passingyear" required="required">
+                                    <input class="from-control" name="HSCPassingYear" type="text" placeholder="HSC/Alim/Diploma Passing Year" [(ngModel)]="admissionSurveyForm.hscPassingYear">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input class="from-control" name="district" type="text" placeholder="District" id="district" required="required">
+                                    <input class="from-control" name="district" type="text" placeholder="District" id="district" required="required" [(ngModel)]="admissionSurveyForm.district">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit">
+                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit" (click)="saveSurveyForm()">
                                 </div>
                             </div>
                         </form>
+                        <h3 class="text-danger" *ngIf="incompleteForm">**Incomplete From!!</h3>
+                        <h4 *ngIf="showSubmitted" class="title">
+                            ✔️ Summitted
+                        </h4>
                     </div>
                 </div>
             </div>

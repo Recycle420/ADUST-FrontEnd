@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,8 +8,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  constructor(private route:Router, private activatedRoute: ActivatedRoute){
+
+  }
   hide = true;
-  constructor() { }
 
   ngOnInit(): void {
   }
@@ -24,5 +27,13 @@ export class FooterComponent implements OnInit {
      }else if(height < window.innerHeight + 100 ){
       this.hide = true;
      }
+  }
+
+  goNext(){
+    window.scrollTo(0,0);
+    setTimeout(()=>{
+      this.route.navigate(['../admission-survey'], { relativeTo: this.activatedRoute });
+    },300)
+    
   }
 }

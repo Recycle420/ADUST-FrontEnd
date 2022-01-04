@@ -84,5 +84,14 @@ export class ApiService {
   getNoticesByDepartments(departmentId:number){
     return this.http.get(environment.apiUrl+`/Notices/GetNoticesByDepartment/${departmentId}`,this.httpOptions);
   }
+  getDepartmentList(){
+    return this.http.get(environment.apiUrl+`/Departments/GetDepartmentList`,this.httpOptions);
+  }
+  saveAdmissionSurvey(admissionSurveyForm:any){
+    return this.http.post(environment.apiUrl+"/AdmissionSurveys",admissionSurveyForm);
+  }
+ saveSurveyComments(surveyCommentForm:any){
+    return this.http.post(environment.apiUrl+"/SurveyComments",surveyCommentForm);
+  }
 
 }

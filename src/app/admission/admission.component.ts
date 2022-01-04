@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -10,16 +9,13 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class AdmissionComponent implements OnInit {
 
-  routerSubscription!: Subscription;
   loadingAdmissions = 0;
   AdmissionDetails:any = {};
 
-  constructor(private route: ActivatedRoute, private apiService:ApiService) { }
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.routerSubscription = this.route.paramMap.subscribe((admissions:any) => {
-        this.loadAdmissions();
-    });
+    this.loadAdmissions();
   }
 
   loadAdmissions(){

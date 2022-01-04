@@ -23,7 +23,6 @@ export class CurriculumStructureComponent implements OnInit {
       if(paramMap.params.department){
         this.department =  paramMap.params.department;
         this.departmentId = paramMap.params.id;
-
         this.loadDepartmentObjective();
       }
     });
