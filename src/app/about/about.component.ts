@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
-  constructor() { }
+  constructor(private route:Router, private activatedRoute: ActivatedRoute) { }
+  
+  ngOnInit(): void {
+  }
+
+  goNext(){
+    window.scrollTo(0,0);
+    setTimeout(()=>{
+      this.route.navigate(['../admission-survey'], { relativeTo: this.activatedRoute });
+    },300)
+  }
 }

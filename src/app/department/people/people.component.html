@@ -31,12 +31,6 @@
                 <div class="team-item">
                     <div class="team-img">
                         <a href="#"><img src="data:image/png;base64,{{member.photo}}" alt="{{member.name}}" /></a>
-                        <div class="social-icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
                     </div>
                     <div class="team-body">
                         <a [routerLink]="['/department/people-details', member.type, department, member.departmentId, member.id]">

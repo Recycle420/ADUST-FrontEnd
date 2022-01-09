@@ -30,19 +30,10 @@
             <div *ngFor="let member of allMembers" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
                 <div class="team-item">
                     <div class="team-img">
-                        <a href="#"><img src="data:image/png;base64,{{member.photo}}"
-                                alt="{{member.name}}" /></a>
-                        <div class="social-icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
+                        <a href="#"><img src="data:image/png;base64,{{member.photo}}" alt="{{member.name}}" /></a>
                     </div>
                     <div class="team-body">
-                        <a href="teachers-single.html">
-                            <h3 class="name">{{member.name}}</h3>
-                        </a>
+                        <h3 class="name">{{member.name}}</h3>
                         <span class="designation">{{member.role}}</span>
                     </div>
                 </div>

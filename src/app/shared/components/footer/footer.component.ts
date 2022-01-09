@@ -34,6 +34,5 @@ export class FooterComponent implements OnInit {
     setTimeout(()=>{
       this.route.navigate(['../admission-survey'], { relativeTo: this.activatedRoute });
     },300)
-    
   }
 }
