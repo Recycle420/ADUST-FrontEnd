@@ -9,7 +9,7 @@
                         <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
                             Permanent Campus</h1>
                         <br />
-                        <a href="#" class="sl-readmore-btn mr-30" >WHY ADUST</a>
+                        <a href="#" class="sl-readmore-btn mr-30">WHY ADUST</a>
                         <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
                             data-animation-out="animate-out">APPLY NOW</a>
                     </div>
@@ -180,12 +180,13 @@
                     <p>Making a difference: Valuing the role of higher education</p>
                 </div>
                 <p class="mobile-mb-50">
-                    Our leadership team is the guiding force behind ADUST’s commitment to progress, accountability and excellence.
+                    Our leadership team is the guiding force behind ADUST’s commitment to progress, accountability and
+                    excellence.
                 </p>
             </div>
             <div class="col-lg-7 col-md-12">
                 <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
-                    
+
                     <ng-template carouselSlide [width]="360">
                         <div class="team-item">
                             <div class="team-img">
@@ -207,7 +208,7 @@
                             </div>
                         </div>
                     </ng-template>
-                
+
                     <ng-template carouselSlide [width]="360">
                         <div class="team-item">
                             <div class="team-img">
@@ -223,7 +224,8 @@
                                     <div class="display-table-cell">
                                         <h3 class="team-name white-color">DR. RAFIQUE U AHMED</h3>
                                         <span class="team-title">Vice Chancellor</span>
-                                        <p class="team-desc">Providing an exceptional learning and student experience</p>
+                                        <p class="team-desc">Providing an exceptional learning and student experience
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +234,7 @@
 
                 </owl-carousel-o>
 
-               <div class="owl-carousel rs-navigation-2" style="display: block !important;">
+                <div class="owl-carousel rs-navigation-2" style="display: block !important;">
                     <div class="owl-controls">
                         <div class="owl-nav">
                             <div class="owl-prev" (click)="owlCar.prev()"><i class="fa fa-angle-left"></i></div>
@@ -312,16 +314,21 @@
                     <div class="cource-item">
                         <div class="cource-img">
                             <img src="data:image/png;base64,{{department.photo}}" alt="" />
-                            <a class="image-link" [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" title="{{department.title}}">
+                            <a class="image-link"
+                                [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]"
+                                title="{{department.title}}">
                                 <i class="fa fa-link"></i>
                             </a>
                         </div>
                         <div class="course-body">
-                            <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
+                            <h4 class="course-title"><a
+                                    [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a>
+                            </h4>
                             <div class="course-desc">
                                 <p [innerHtml]='department.description.slice(0, 100)'></p>
                             </div>
-                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
+                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]"
+                                class="cource-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -332,16 +339,21 @@
                     <div class="cource-item">
                         <div class="cource-img">
                             <img src="data:image/png;base64,{{department.photo}}" alt="" />
-                            <a class="image-link" [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" title="University Tour 2018">
+                            <a class="image-link"
+                                [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]"
+                                title="University Tour 2018">
                                 <i class="fa fa-link"></i>
                             </a>
                         </div>
                         <div class="course-body">
-                            <h4 class="course-title"><a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a></h4>
+                            <h4 class="course-title"><a
+                                    [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]">{{department.title}}</a>
+                            </h4>
                             <div class="course-desc">
                                 <p [innerHtml]='department.description.slice(0, 100)'></p>
                             </div>
-                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]" class="cource-btn">Learn More</a>
+                            <a [routerLink]="['/department', department.fullName.split(' ').join('-'), department.id]"
+                                class="cource-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -362,7 +374,8 @@
                             Admission
                         </h2>
                         <p class="description">
-                            Please fill up the registration form, you will get a call from our admission office for your admission process.
+                            Please fill up the registration form, you will get a call from our admission office for your
+                            admission process.
                         </p>
                     </div>
                 </div>
@@ -379,30 +392,36 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <input class="from-control" name="name" type="text" placeholder="Name" id="name"
-                                        required="required">
-
+                                        required="required" [(ngModel)]="commentSurveyForm.name">
                                 </div>
                                 <div class="col-lg-12">
                                     <input class="from-control" name="email" type="email" placeholder="E-Mail"
-                                        id="email" required="required">
+                                        id="email" required="required" [(ngModel)]="commentSurveyForm.email">
                                 </div>
                                 <div class="col-lg-12">
                                     <input class="from-control" name="number" type="text" placeholder="Phone Number"
-                                        id="phone_number" required="required">
+                                        id="phone_number" required="required"
+                                        [(ngModel)]="commentSurveyForm.phoneNumber">
                                 </div>
                                 <div class="col-lg-12">
                                     <input class="from-control" name="subject" type="text" placeholder="Subject"
-                                        id="subject" required="required">
+                                        id="subject" required="required" [(ngModel)]="commentSurveyForm.subject">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea class="from-control" name="message" type="text" placeholder="Message" id="message" rows="5"></textarea>
+                                    <textarea class="from-control" name="message" type="text" placeholder="Message"
+                                        id="message" rows="5" [(ngModel)]="commentSurveyForm.comments"></textarea>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit">
+                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit" (click)="saveCommentSurvey()">
                                 </div>
                             </div>
                         </form>
                     </div>
+                    <h3 class="text-center text-danger" *ngIf="incompleteForm">**Incomplete From!!</h3>
+                    <h4 *ngIf="showSubmitted" class="text-center title">
+                        ✔️ Summitted
+                    </h4>
+
                 </div>
             </div>
         </div>
@@ -425,16 +444,27 @@
         <div *ngIf="loadingTestimonials == 2" class="row">
             <div class="col-md-12">
                 <owl-carousel-o class="rs-carousel" [options]="customOptionsStudents" #owlCar>
-                    <ng-container *ngFor="let item of allTestimonials">
-                        <ng-template  carouselSlide [width]="350">
+                    <ng-container *ngFor="let item of allTestimonials;let i=index">
+                        <ng-template carouselSlide [width]="350">
                             <div class="testimonial-style3">
                                 <div class="image">
                                     <img src="data:image/png;base64,{{item.photo}}" alt="">
                                 </div>
                                 <h5 class="title">{{item.name}}</h5>
-                                <p class="description">
-                                    {{item.whatSay}}.
-                                </p>
+
+                                <ng-container *ngIf="!loadmoreTestimonial.includes(i); else other_link">
+                                    <span>
+                                        <p class="description">
+                                            {{item.whatSay.substring(0,100)}}...
+                                        </p>
+                                        <p (click)="loadmoreTestimonial.push(i)">load more</p>
+                                    </span>
+                                </ng-container>
+                                <ng-template #other_link>
+                                    <p class="description">
+                                        {{item.whatSay}}
+                                    </p>
+                                </ng-template>
                                 <div class="testimonial-content">
                                     <div class="testimonial-profile">
                                         <h3 class="name">{{item.designation}}</h3>
@@ -447,8 +477,6 @@
                 </owl-carousel-o>
             </div>
         </div>
-
-
     </div>
 </div>
 <!-- Testimonial End -->
@@ -466,7 +494,7 @@
         </div>
 
 
-        <owl-carousel-o *ngIf="loadingPartners == 2"  class="partner" [options]="customOptionsPartners" #owlCar>
+        <owl-carousel-o *ngIf="loadingPartners == 2" class="partner" [options]="customOptionsPartners" #owlCar>
             <ng-container *ngFor="let item of allPartners">
                 <ng-template carouselSlide [width]="158">
                     <div class="partner-item">
@@ -477,4 +505,3 @@
         </owl-carousel-o>
     </div>
 </div>
-

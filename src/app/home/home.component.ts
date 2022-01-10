@@ -178,6 +178,26 @@ export class HomeComponent implements OnInit {
   sliders: any = [];
   menuList: any = [];
 
+  loadmoreTestimonial:number[]=[]
+
+  commentSurveyForm={
+    name : '',
+    phoneNumber : '',
+    email: '',
+    subject: '',
+    comments: ''
+  }
+
+  initialCommentSurveyForm={
+    name : '',
+    phoneNumber : '',
+    email: '',
+    subject: '',
+    comments: ''
+  }
+  incompleteForm = false;
+  showSubmitted = false;
+
   ngOnInit(): void {
     this.animteachers = 0;
     this.animcourses = 0;
@@ -189,6 +209,7 @@ export class HomeComponent implements OnInit {
     this.loadingTestimonials = 1;
     this.loadingPartners = 1;
     this.loadingSliders = 1;
+    this.commentSurveyForm = {...this.initialCommentSurveyForm};
 
     this.apiService.getCarousels(0).subscribe((data: any) => {
       this.sliders = data;
@@ -250,4 +271,24 @@ export class HomeComponent implements OnInit {
     }, 80)
   }
 
+  saveCommentSurvey(){
+    if(
+      this.commentSurveyForm.name.length ==0 || 
+      (isNaN(Number(this.commentSurveyForm.phoneNumber))|| this.commentSurveyForm.phoneNumber.length ==0)||
+      this.commentSurveyForm.comments.length == 0||
+      this.commentSurveyForm.subject.length == 0||
+      this.commentSurveyForm.email.length == 0
+     ){
+      this.incompleteForm = true;
+    }else{
+      this.incompleteForm = false;
+      this.apiService.saveSurveyComments(this.commentSurveyForm).subscribe((data:any)=>{
+        this.showSubmitted =  true;
+        this.commentSurveyForm = {...this.initialCommentSurveyForm};
+        setTimeout(()=>{
+          this.showSubmitted =  false;
+        },5000)
+      })
+    }
+  }
 }
