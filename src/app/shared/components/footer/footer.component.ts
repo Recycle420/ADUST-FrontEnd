@@ -28,11 +28,4 @@ export class FooterComponent implements OnInit {
       this.hide = true;
      }
   }
-
-  goNext(){
-    window.scrollTo(0,0);
-    setTimeout(()=>{
-      this.route.navigate(['../admission-survey'], { relativeTo: this.activatedRoute });
-    },300)
-  }
 }
