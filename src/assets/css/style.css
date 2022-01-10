@@ -10585,3 +10585,17 @@ ul {
     height: 500px;
     overflow: auto;
 }
+
+.designation {
+    color: #ff3115;
+    transition: all 0.3s ease 0s;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+.designation:active,
+.designation:hover {
+        text-decoration: none;
+        outline: 0 none;
+        color: #e41f05;
+    }

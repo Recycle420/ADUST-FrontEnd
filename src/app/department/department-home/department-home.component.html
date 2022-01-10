@@ -160,16 +160,13 @@
                     <div class="row rs-vertical-middle">
                         <div class="col-md-6">
                             <div class="event-img">
-                                <img src="data:image/png;base64,{{message.photo}}" alt="events Images" />
-                                <a class="image-link" href="events-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
+                                <img src="data:image/png;base64,{{message.photo}}" alt="Images" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="event-content">
-                                <h3 class="event-title"><a href="events-details.html">{{message.name}}</a></h3>
-                                <h6><a href="events-details.html">{{message.designation}}</a></h6>
+                                <h3 class="event-title">{{message.name}}</h3>
+                                <h6 class="designation">{{message.designation}}</h6>
                                 <div class="event-desc">
                                     <p>
                                         {{message.message.slice(0, 400)}}...
@@ -233,7 +230,6 @@
     <div class="container">
         <div class="sec-title-2 mb-50 text-center">
             <h2>GALLERY</h2>
-            <p>Considering primary motivation for the generation of narratives is a useful concept</p>
         </div>
         <div *ngIf="loadingGallery == 1" class="d-flex justify-content-center pb-5">
             <div class="spinner-grow text-primary" role="status">
