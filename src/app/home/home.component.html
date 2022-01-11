@@ -455,7 +455,7 @@
                                 <ng-container *ngIf="!loadmoreTestimonial.includes(i); else other_link">
                                     <span>
                                         <p class="description">
-                                            {{item.whatSay.substring(0,100)}}...
+                                            {{item.whatSay.substring(0,150)}}...
                                         </p>
                                         <p (click)="loadmoreTestimonial.push(i)">read more</p>
                                     </span>
