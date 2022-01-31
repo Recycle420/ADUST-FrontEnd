@@ -31,7 +31,7 @@ export class DepartmentHeaderComponent implements OnChanges {
       link : '/department/department-admission',
     },
     {
-      title: 'PEOPLE',
+      title: 'Faculties',
       inactiveLink : '/department/peoples',
       children:[
         {
