@@ -8,8 +8,8 @@ import { ApiService } from '../../services/api.service';
 })
 export class HeaderComponent implements OnInit {
 
-
   constructor(private apiService: ApiService) { }
+
   coursePrograms: any = [];
   sticky = false;
   innerWidth = 1000;
@@ -26,27 +26,6 @@ export class HeaderComponent implements OnInit {
     {
       title: 'About',
       link : '/about',
-      children:[
-        {
-          title: 'About ADUST',
-          link : '/about'
-        },
-        {
-          title: 'Syndicate',
-          link : '/about/members',
-          param: 'syndicate'
-        },
-        {
-          title: 'Academic Council',
-          link : '/about/members',
-          param: 'academic-council'
-        },
-        {
-          title: 'Administration',
-          link : '/about/members',
-          param: 'administration'
-        }
-      ]
     },
     {
       title: 'Authority',
@@ -69,13 +48,28 @@ export class HeaderComponent implements OnInit {
         },
         {
           title: 'Treasurer',
-          link : '/about/members',
+          link : '/authority/members',
           param: 'Treasurer'
         },
         {
           title: 'Board of Trustees',
-          link : '/about/members',
+          link : '/authority/members',
           param: 'board-of-trustees'
+        },
+        {
+          title: 'Syndicate',
+          link : '/authority/members',
+          param: 'syndicate'
+        },
+        {
+          title: 'Academic Council',
+          link : '/authority/members',
+          param: 'academic-council'
+        },
+        {
+          title: 'Administration',
+          link : '/authority/members',
+          param: 'administration'
         }
       ]
     },
@@ -111,6 +105,7 @@ export class HeaderComponent implements OnInit {
       link : '/contact'
     }
   ]
+  
   ngOnInit() {
     let menu = localStorage.getItem('menu');
     this.innerWidth = window.innerWidth;
@@ -123,7 +118,6 @@ export class HeaderComponent implements OnInit {
       this.coursePrograms = JSON.parse(menu);
     }
     this.menuToggleFalse();
-    
   }
 
   @HostListener('window:resize', ['$event'])
@@ -144,6 +138,7 @@ export class HeaderComponent implements OnInit {
       this.sticky = false;
     }
   }
+
   active(param: any) {
     let link = param.link ?? param.inActiveLink;
     if(link.length > 1 && window.location.href.includes(link)){
@@ -174,6 +169,7 @@ export class HeaderComponent implements OnInit {
     }
     this.menuToggle = 0;
   }
+
   menuToggleTrue() {
     var controller = document.getElementById('toggle-controller') as HTMLElement;
     var window = document.getElementById('toggle-window') as HTMLElement;
@@ -182,6 +178,7 @@ export class HeaderComponent implements OnInit {
     window.classList.remove('rs-menu-close');
     this.menuToggle = 1;
   }
+
   removeSubMenuTottle(menuname:string){
     this.subMenuToggleList.splice(this.subMenuToggleList.findIndex(s=>s==menuname),1);
   }
@@ -194,6 +191,7 @@ export class HeaderComponent implements OnInit {
     }
     return 3;
   }
+
   showToogleIconConditionForSingle(parentName:string):any{
     if(!this.subMenuToggleList.includes(parentName) && innerWidth < this.targetWidth){
       return 1;

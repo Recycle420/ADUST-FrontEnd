@@ -5,6 +5,7 @@ import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angul
   templateUrl: './department-header.component.html',
   styleUrls: ['./department-header.component.scss']
 })
+
 export class DepartmentHeaderComponent implements OnChanges {
   @Input() departmentName!:string;
   @Input() departmentId!:number;
@@ -15,7 +16,6 @@ export class DepartmentHeaderComponent implements OnChanges {
   menuToggle = 3;
   subMenuToggleList:string[]=[];
   targetWidth = 992;
-
 
   menuList:any=[
     {
@@ -32,24 +32,25 @@ export class DepartmentHeaderComponent implements OnChanges {
     },
     {
       title: 'Faculties',
-      inactiveLink : '/department/peoples',
-      children:[
-        {
-          title: 'Faculty',
-          link : '/department/peoples',
-          param: 'faculty'
-        },
-        {
-          title: 'Office Assistant',
-          link : '/department/peoples',
-          param: 'office-assistant'
-        },
-        {
-          title: 'Lab Assistant',
-          link : '/department/peoples',
-          param: 'lab-assistant'
-        }
-      ]
+      link : '/department/peoples',
+      param: 'faculty'
+      // children:[
+      //   {
+      //     title: 'Faculty',
+      //     link : '/department/peoples',
+      //     param: 'faculty'
+      //   },
+      //   {
+      //     title: 'Office Assistant',
+      //     link : '/department/peoples',
+      //     param: 'office-assistant'
+      //   },
+      //   {
+      //     title: 'Lab Assistant',
+      //     link : '/department/peoples',
+      //     param: 'lab-assistant'
+      //   }
+      // ]
     },
     {
       title: 'EVENT',
@@ -104,9 +105,7 @@ export class DepartmentHeaderComponent implements OnChanges {
     }
   }
 
-
   runMenuToggle() {
-  
     if (this.menuToggle == 1) {
       this.menuToggleFalse();
     } else if (this.menuToggle == 0) {
@@ -126,6 +125,7 @@ export class DepartmentHeaderComponent implements OnChanges {
     }
     this.menuToggle = 0;
   }
+
   menuToggleTrue() {
     var controller = document.getElementById('toggle-controller') as HTMLElement;
     var window = document.getElementById('toggle-window') as HTMLElement;
@@ -134,6 +134,7 @@ export class DepartmentHeaderComponent implements OnChanges {
     window.classList.remove('rs-menu-close');
     this.menuToggle = 1;
   }
+
   showToogleIconConditionForSingle(parentName:string):any{
     if(!this.subMenuToggleList.includes(parentName) && innerWidth < this.targetWidth){
       return 1;
@@ -142,6 +143,7 @@ export class DepartmentHeaderComponent implements OnChanges {
     }
     return 3;
   }
+
   removeSubMenuTottle(menuname:string){
     this.subMenuToggleList.splice(this.subMenuToggleList.findIndex(s=>s==menuname),1);
   }
@@ -149,6 +151,7 @@ export class DepartmentHeaderComponent implements OnChanges {
   routeChange(){
     this.menuToggleFalse()
   }
+
   active(param: any) {
     let link = param.link ?? param.inactiveLink;
     if(param.title!= 'Home' && window.location.href.includes(link)){
