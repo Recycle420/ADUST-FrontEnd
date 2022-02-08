@@ -18,7 +18,7 @@
 </div>
 <!-- Breadcrumbs End -->
 <!-- Team Start -->
-<div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
+<div id="rs-people" class="rs-people team-page">
     <div class="container">
         <div *ngIf="loadingPeoples == 1" class="d-flex justify-content-center pb-5">
             <div class="spinner-grow text-primary" role="status">
@@ -27,9 +27,9 @@
         </div>
 
         <div *ngIf="loadingPeoples == 2" class="row grid">
-            <div *ngFor="let member of allPeoples" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+            <div *ngFor="let member of allPeoples" class="col-lg-4 col-md-6 col-xs-6 grid-item filter1 team-margin">
                 <div class="team-item">
-                    <div class="team-img">
+                    <!-- <div class="team-img">
                         <a href="#"><img src="data:image/png;base64,{{member.photo}}" alt="{{member.name}}" /></a>
                     </div>
                     <div class="team-body">
@@ -37,10 +37,26 @@
                             <h3 class="name">{{member.name}}</h3>
                         </a>
                         <span class="designation">{{member.designation}}</span>
+                    </div> -->
+
+                    <div class="testimonial-style3">
+                        <div class="image">
+                            <img src="data:image/png;base64,{{member.photo}}" alt="">
+                        </div>
+                        <div class="testimonial-content people-content-color">
+                            <div class="testimonial-profile">
+                                <h3 class="name">{{member.name}}</h3>
+                                <h5 class="title">{{member.designation}}</h5>
+                            </div>
+                        </div>
+                        <div class="btn-part mt-30 mb-30">
+                            <a class="readon2" [routerLink]="['/department/people-details', member.type, department, member.departmentId, member.id]">View Profile <i class="fa fa-check-circle"></i></a>
+                        </div>
                     </div>
+
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

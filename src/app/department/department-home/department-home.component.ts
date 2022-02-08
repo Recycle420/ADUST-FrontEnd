@@ -10,18 +10,17 @@ import { ApiService } from 'src/app/shared/services/api.service';
   styleUrls: ['./department-home.component.scss']
 })
 export class DepartmentHomeComponent implements OnInit {
-  loadingSliders: number =0;
+  loadingSliders: number = 0;
   innerWidth!: number;
 
-  constructor(private route: ActivatedRoute, private apiService:ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
-	routerSubscription!: Subscription;
-  department:string = "still on dev";
+  routerSubscription!: Subscription;
+  department: string = "still on dev";
   departmentId = 0;
   loadingGallery = 0;
-  galleryImages:any=[];
+  galleryImages: any = [];
 
-  
   customOptionsHome: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -29,14 +28,14 @@ export class DepartmentHomeComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: false,
-  
+
     autoplay: true,
     nav: true,
     items: 1,
     rewind: true,
     autoplayTimeout: 8000,
     smartSpeed: 500,
-    autoWidth: true,  
+    autoWidth: true,
     responsive: {
       0: {
         items: 1,
@@ -44,18 +43,19 @@ export class DepartmentHomeComponent implements OnInit {
         dots: false
       },
       768: {
-        items: 1 ,
-        nav: true ,
-        dots: false 
+        items: 1,
+        nav: true,
+        dots: false
       },
       992: {
-        items: 1 ,
-        nav: true ,
-        dots: false 
+        items: 1,
+        nav: true,
+        dots: false
       }
     }
-    
+
   }
+
   customOptionsStudents: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -79,81 +79,79 @@ export class DepartmentHomeComponent implements OnInit {
         dots: false
       },
       768: {
-        items: 2 ,
-        nav: true ,
-        dots: false 
+        items: 2,
+        nav: true,
+        dots: false
       },
       992: {
-        items: 2 ,
-        nav: true ,
-        dots: false 
+        items: 2,
+        nav: true,
+        dots: false
       }
     }
-    
-  }
-  sliders:any =[];
 
-  currentPage:number = 0;
-  pageOffset:number = 5;
-  pageArray:any =[];
+  }
+
+  sliders: any = [];
+  currentPage: number = 0;
+  pageOffset: number = 5;
+  pageArray: any = [];
   totalCount = 53;
   loadingDepartmentMessages = 0;
-  departmentMessages:any = [];
-
+  departmentMessages: any = [];
   loadingDepartmentTestimonials = 0;
-  departmentTestimonials:any = [];
-
+  departmentTestimonials: any = [];
   loadingDepartmentDetails = 0;
-  departmentDetails:any ={};
+  departmentDetails: any = {};
+  loadMoreMessage: boolean = false;
 
-
-
-  ngOnInit(){
-    this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
-      if(paramMap.params.department){
-        this.department =  paramMap.params.department;
+  ngOnInit() {
+    this.routerSubscription = this.route.paramMap.subscribe((paramMap: any) => {
+      if (paramMap.params.department) {
+        this.department = paramMap.params.department;
         this.departmentId = paramMap.params.id;
         this.loadSliders();
         this.loadDepartmentDetails();
         this.loadDepartmentMessages();
         this.loadDepartmentTestimonials();
         this.loadingImages();
-        
+
       }
     });
     this.setPage(0);
   }
-  ngOnDestroy(){
+
+  ngOnDestroy() {
     this.routerSubscription.unsubscribe();
   }
 
-  loadSliders(){
+  loadSliders() {
     this.loadingSliders = 1;
-    this.apiService.getCarousels(this.departmentId).subscribe((data:any)=>{
+    this.apiService.getCarousels(this.departmentId).subscribe((data: any) => {
       this.sliders = data;
       this.loadingSliders = 2;
     })
   }
-  @HostListener('window:resize', ['$event'])
-	onResize(event: { target: { innerWidth: number } }) {
-		this.innerWidth = event.target.innerWidth;
-	}
 
-  setPage(pageNo:number){
-    if(pageNo >= 0){
+  @HostListener('window:resize', ['$event'])
+  onResize(event: { target: { innerWidth: number } }) {
+    this.innerWidth = event.target.innerWidth;
+  }
+
+  setPage(pageNo: number) {
+    if (pageNo >= 0) {
       this.currentPage = pageNo;
-      let start = pageNo* this.pageOffset;
-      let end = start+ this.pageOffset -1;
-      if(end > this.totalCount){
-        end = this.totalCount-1;
+      let start = pageNo * this.pageOffset;
+      let end = start + this.pageOffset - 1;
+      if (end > this.totalCount) {
+        end = this.totalCount - 1;
       }
       let pageArray = [];
-      for(let i=start; i<=end;i++){
+      for (let i = start; i <= end; i++) {
         pageArray.push(i);
       }
       this.pageArray = pageArray;
     }
-
   }
 
   loadingImages() {
@@ -164,30 +162,35 @@ export class DepartmentHomeComponent implements OnInit {
     })
   }
 
-  loadDepartmentMessages(){
+  loadDepartmentMessages() {
     this.loadingDepartmentMessages = 1;
-    this.apiService.getDepartmentNessages(this.departmentId).subscribe((data:any)=>{
+    this.apiService.getDepartmentNessages(this.departmentId).subscribe((data: any) => {
       this.departmentMessages = data;
       this.loadingDepartmentMessages = 2;
     })
-
   }
 
-  loadDepartmentTestimonials(){
-    this.loadingDepartmentTestimonials =  1;
-    this.apiService.getDepartmentTestimonials(this.departmentId).subscribe((data:any)=>{
+  loadDepartmentTestimonials() {
+    this.loadingDepartmentTestimonials = 1;
+    this.apiService.getDepartmentTestimonials(this.departmentId).subscribe((data: any) => {
       this.departmentTestimonials = data;
       this.loadingDepartmentTestimonials = 2;
     })
   }
 
-  loadDepartmentDetails(){
+  loadDepartmentDetails() {
     this.loadingDepartmentDetails = 1;
-    
-    this.apiService.getDepartMentDetails(this.departmentId).subscribe((data:any)=>{
+    this.apiService.getDepartMentDetails(this.departmentId).subscribe((data: any) => {
       this.departmentDetails = data;
     })
   }
 
-
+  readMoreMessage() {
+    if (!this.loadMoreMessage) {
+      this.loadMoreMessage = true;
+    }
+    else {
+      this.loadMoreMessage = false;
+    }
+  }
 }

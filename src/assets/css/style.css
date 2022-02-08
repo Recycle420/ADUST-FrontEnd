@@ -10599,3 +10599,198 @@ ul {
         outline: 0 none;
         color: #e41f05;
     }
+
+    .rs-people .testimonial-style3 {
+        padding-top: 225px;
+        margin: 30px 0 0;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+        position: relative;
+        transition: all 0.7s ease 0s;
+        background: #e0e0e0;
+    }
+    
+        .rs-people .testimonial-style3:hover {
+            border-color: #ff3115;
+        }
+    
+            .rs-people .testimonial-style3:hover .image {
+                border-color: #ff3115;
+            }
+    
+            .rs-people .testimonial-style3:hover .testimonial-content {
+                background-color: #ff3115;
+            }
+    
+                .rs-people .testimonial-style3:hover .testimonial-content .testimonial-profile .name {
+                    color: #fff;
+                }
+    
+                .rs-people .testimonial-style3:hover .testimonial-content .testimonial-profile .post {
+                    color: lightblue;
+                }
+    
+                .rs-people .testimonial-style3:hover .testimonial-content .social-links li {
+                    background-color: #fff;
+                }
+    
+                    .rs-people .testimonial-style3:hover .testimonial-content .social-links li a {
+                        color: #ff3115;
+                    }
+    
+        .rs-people .testimonial-style3 .image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            overflow: hidden;
+            transition: all 0.7s ease 0s;
+            border: 5px solid #f2f2f2;
+        }
+    
+            .rs-people .testimonial-style3 .image img {
+                width: 100%;
+                height: auto;
+                border-radius: 50%;
+            }
+    
+        .rs-people .testimonial-style3 .title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ff3115;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+    
+        .rs-people .testimonial-style3 .description {
+            font-size: 15px;
+            color: #000;
+            line-height: 25px;
+            padding: 0 25px 15px;
+            margin: 0;
+        }
+    
+        .rs-people .testimonial-style3 .testimonial-content {
+            margin-top: 30px;
+            padding: 15px 25px;
+            border-top: none;
+            text-align: center;
+            transition: all 500ms ease 0s;
+        }
+    
+            .rs-people .testimonial-style3 .testimonial-content .testimonial-profile .name {
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                margin-top: 0;
+                transition: all 700ms ease 0s;
+            }
+    
+            .rs-people .testimonial-style3 .testimonial-content .testimonial-profile .post {
+                font-size: 14px;
+                color: #000;
+                margin-bottom: 5px;
+                text-transform: capitalize;
+            }
+    
+            .rs-people .testimonial-style3 .testimonial-content .rating {
+                display: inline-block;
+                margin-bottom: 14px;
+                margin-top: 0;
+                list-style: none;
+            }
+    
+                .rs-people .testimonial-style3 .testimonial-content .rating li {
+                    display: inline-block;
+                    font-size: 14px;
+                    color: #debe0f;
+                }
+    
+            .rs-people .testimonial-style3 .testimonial-content .social-links {
+                padding: 0;
+                margin: 0;
+            }
+    
+                .rs-people .testimonial-style3 .testimonial-content .social-links li {
+                    list-style: none;
+                    margin-right: 5px;
+                    display: inline-block;
+                    background-color: #7f352f;
+                }
+    
+                    .rs-people .testimonial-style3 .testimonial-content .social-links li a {
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        color: #fff;
+                        text-align: center;
+                    }
+    
+                        .rs-people .testimonial-style3 .testimonial-content .social-links li a:hover {
+                            text-decoration: none;
+                            color: #150504;
+                        }
+    
+    .rs-people .owl-theme .owl-controls {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+    }
+    
+        .rs-people .owl-theme .owl-controls .owl-buttons div {
+            width: 45px;
+            height: 40px;
+            line-height: 37px;
+            border-radius: 3px;
+            background: #fff;
+            border: 1px solid #ececec;
+            padding: 0;
+            opacity: 1;
+            transition: all 0.4s ease-in-out 0s;
+        }
+    
+            .rs-people .owl-theme .owl-controls .owl-buttons div:hover {
+                background: #eabd44;
+                border-color: #eabd44;
+            }
+    
+    .rs-people .owl-prev,
+    .rs-people .owl-next {
+        position: absolute;
+        left: -3%;
+    }
+    
+    .rs-people .owl-next {
+        left: auto;
+        right: -3%;
+    }
+    
+    .rs-people .owl-prev:before {
+        content: "\f104";
+        font-family: "fontAwesome";
+        font-size: 25px;
+        color: #ececec;
+    }
+    
+    .rs-people .owl-next:before {
+        content: "\f105";
+        font-family: "fontAwesome";
+        font-size: 25px;
+        color: #ececec;
+    }
+    
+    .rs-people .owl-stage-outer {
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+    
+    .rs-people .people-content-color {
+        background-color: #051E37 !important;
+    }

@@ -9,7 +9,7 @@
                         <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
                             Permanent Campus</h1>
                         <br />
-                        <a href="#" class="sl-readmore-btn mr-30" >WHY ADUST</a>
+                        <a href="#" class="sl-readmore-btn mr-30">WHY ADUST</a>
                         <a href="#" class="sl-get-started-btn" data-animation-in="lightSpeedIn"
                             data-animation-out="animate-out">APPLY NOW</a>
                     </div>
@@ -70,7 +70,9 @@
                         <i class="fa fa-american-sign-language-interpreting rs-animation-scale-up"></i>
                     </div>
                     <div class="services-desc">
-                        <h4><a class="services-title" [routerLink]="['/department/program-objective', department, departmentId]">Program Objective</a></h4>
+                        <h4><a class="services-title"
+                                [routerLink]="['/department/program-objective', department, departmentId]">Program
+                                Objective</a></h4>
                         <p></p>
                     </div>
                 </div>
@@ -81,7 +83,9 @@
                         <i class="fa fa-book rs-animation-scale-up"></i>
                     </div>
                     <div class="services-desc">
-                        <h4><a class="services-title" [routerLink]="['/department/program-outcomes', department, departmentId]">Program Outcomes</a></h4>
+                        <h4><a class="services-title"
+                                [routerLink]="['/department/program-outcomes', department, departmentId]">Program
+                                Outcomes</a></h4>
                         <p></p>
                     </div>
                 </div>
@@ -92,7 +96,9 @@
                         <i class="fa fa-user rs-animation-scale-up"></i>
                     </div>
                     <div class="services-desc">
-                        <h4><a class="services-title" [routerLink]="['/department/curriculum-structure', department, departmentId]">Curriculum Structure</a></h4>
+                        <h4><a class="services-title"
+                                [routerLink]="['/department/curriculum-structure', department, departmentId]">Curriculum
+                                Structure</a></h4>
                         <p></p>
                     </div>
                 </div>
@@ -103,7 +109,9 @@
                         <i class="fa fa-graduation-cap rs-animation-scale-up"></i>
                     </div>
                     <div class="services-desc">
-                        <h4><a class="services-title" [routerLink]="['/department/course-details', department, departmentId]">Course Details</a></h4>
+                        <h4><a class="services-title"
+                                [routerLink]="['/department/course-details', department, departmentId]">Course
+                                Details</a></h4>
                         <p></p>
                     </div>
                 </div>
@@ -157,7 +165,7 @@
         <div class="row space-bt30" *ngIf="loadingDepartmentMessages == 2">
             <div class="col-lg-6 col-md-12" *ngFor="let message of departmentMessages">
                 <div class="event-item">
-                    <div class="row rs-vertical-middle">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="event-img">
                                 <img src="data:image/png;base64,{{message.photo}}" alt="Images" />
@@ -168,9 +176,20 @@
                                 <h3 class="event-title">{{message.name}}</h3>
                                 <h6 class="designation">{{message.designation}}</h6>
                                 <div class="event-desc">
-                                    <p>
-                                        {{message.message.slice(0, 400)}}...
-                                    </p>
+                                    <span>
+                                        <ng-container *ngIf="!loadMoreMessage">
+                                            <p class="description">
+                                                {{message.message.slice(0, 400)}}...
+                                            </p>
+                                            <a type="button" (click)="readMoreMessage()">Read more</a>
+                                        </ng-container>
+                                        <ng-container *ngIf="loadMoreMessage">
+                                            <p class="description">
+                                                {{message.message}}
+                                            </p>
+                                            <a type="button" (click)="readMoreMessage()">Read less</a>
+                                        </ng-container>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -199,17 +218,19 @@
                     </div>
                 </div>
 
-                <owl-carousel-o *ngIf="loadingDepartmentTestimonials == 2" class="rs-carousel" [options]="customOptionsStudents" #owlCar>
-                    
+                <owl-carousel-o *ngIf="loadingDepartmentTestimonials == 2" class="rs-carousel"
+                    [options]="customOptionsStudents" #owlCar>
+
                     <ng-container *ngFor="let testimonal of departmentTestimonials">
-                        <ng-template carouselSlide [width]="350" >
+                        <ng-template carouselSlide [width]="350">
                             <div class="testimonial-item">
                                 <div class="testi-img">
                                     <img src="data:image/png;base64,{{testimonal.photo}}" alt="Jhon Smith">
                                 </div>
                                 <div class="testi-desc">
                                     <h4 class="testi-name">{{testimonal.name}}</h4>
-                                    <p class="text-danger mb2"><strong>{{testimonal.designation}}, {{testimonal.company}} </strong></p>
+                                    <p class="text-danger mb2"><strong>{{testimonal.designation}},
+                                            {{testimonal.company}} </strong></p>
                                     <p>
                                         {{testimonal.whatSay}}
                                     </p>
@@ -218,8 +239,8 @@
                         </ng-template>
 
                     </ng-container>
-                    
-                    
+
+
                 </owl-carousel-o>
             </div>
         </div>
@@ -251,10 +272,10 @@
             </div>
         </div>
 
-        <div  class="d-flex justify-content-center pb-5">
-            <a class="btn btn-sm btn-primary" style="width: 150px;" [routerLink]="['/department/department-gallery/', department,departmentId]" >Load More</a>
+        <div class="d-flex justify-content-center pb-5">
+            <a class="btn btn-sm btn-primary" style="width: 150px;"
+                [routerLink]="['/department/department-gallery/', department,departmentId]">Load More</a>
         </div>
-        
+
     </div>
 </div>
-

@@ -155,6 +155,7 @@
         </div>
     </div>
 </div>
+
 <!-- Services End -->
 <!-- Latest News Start -->
 <div id="rs-latest-news-style7" class="rs-latest-news-style7 sec-spacer">
@@ -169,65 +170,97 @@
         </div>
     </div>
 </div>
+
 <!-- Counter Up Section Start-->
 <!-- Team Start -->
 <div id="rs-team" class="rs-team sec-color sec-spacer">
     <div class="container">
         <div class="row rs-vertical-middle">
-            <div class="col-lg-5 col-md-12">
-                <div class="sec-title mb-30">
+            <div class="row">
+                <div class="sec-title mb-50 text-center">
                     <h2>TOP MANAGEMENT</h2>
                     <p>Making a difference: Valuing the role of higher education</p>
                 </div>
-                <p class="mobile-mb-50">
-                    Our leadership team is the guiding force behind ADUST’s commitment to progress, accountability and
-                    excellence.
-                </p>
-            </div>
-            <div class="col-lg-7 col-md-12">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="assets/images/management/chairman.jpg" alt="team Image" />
-                                <div class="normal-text">
-                                    <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
-                                    <span class="subtitle">Chairman</span>
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="assets/images/management/chairman.jpg" alt="team Image" />
+                                    <div class="normal-text">
+                                        <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                        <span class="subtitle">Chairman</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="team-content">
-                                <div class="overly-border"></div>
-                                <div class="display-table">
-                                    <div class="display-table-cell">
-                                        <h3 class="team-name white-color">LIAKAT ALI SIKDAR</h3>
-                                        <span class="team-title">Chairman</span>
-                                        <p class="team-desc">Investing in our people and places</p>
+                                <div class="team-content">
+                                    <div class="overly-border"></div>
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <h3 class="team-name white-color">LIAKAT ALI SIKDAR</h3>
+                                            <span class="team-title">Chairman</span>
+                                            <p class="team-desc">Investing in our people and places</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-6 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="assets/images/management/vice-chancellor.png" alt="team Image" />
-                                <div class="normal-text">
-                                    <h3 class="team-name">Prof. Dr. Md. Zahangir Alam</h3>
-                                    <span class="subtitle">Vice Chancellor</span>
+                        <div class="col-lg-7 col-md-7 event-desc">
+                            <ng-container *ngIf="!loadMoreMessage">
+                                <p class="description">
+                                    {{chairmanMessage.slice(0, 500)}}...
+                                </p>
+                                <a type="button" (click)="readMoreMessage()">Read more</a>
+                            </ng-container>
+                            <ng-container *ngIf="loadMoreMessage">
+                                <p class="description">
+                                    {{chairmanMessage}}
+                                </p>
+                                <a class="text-red" type="button" (click)="readMoreMessage()">Read less</a>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="assets/images/management/vice-chancellor.png" alt="team Image" />
+                                    <div class="normal-text">
+                                        <h3 class="team-name">Prof. Dr. Md. Zahangir Alam</h3>
+                                        <span class="subtitle">Vice Chancellor</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="team-content">
-                                <div class="overly-border"></div>
-                                <div class="display-table">
-                                    <div class="display-table-cell">
-                                        <h3 class="team-name white-color">Prof. Dr. Md. Zahangir Alam</h3>
-                                        <span class="team-title">Vice Chancellor</span>
-                                        <p class="team-desc">Providing an exceptional learning and student experience
-                                        </p>
+                                <div class="team-content">
+                                    <div class="overly-border"></div>
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <h3 class="team-name white-color">Prof. Dr. Md. Zahangir Alam</h3>
+                                            <span class="team-title">Vice Chancellor</span>
+                                            <p class="team-desc">Providing an exceptional learning and student
+                                                experience
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-7">
+                            <ng-container *ngIf="!loadMoreMessage">
+                                <p class="description">
+                                    {{vcMessage.slice(0, 500)}}...
+                                </p>
+                                <a type="button" (click)="readMoreMessage()">Read more</a>
+                            </ng-container>
+                            <ng-container *ngIf="loadMoreMessage">
+                                <p class="description">
+                                    {{vcMessage}}
+                                </p>
+                                <a class="text-red" type="button" (click)="readMoreMessage()">Read less</a>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
@@ -272,6 +305,7 @@
         </div>
     </div>
 </div>
+
 <!-- Counter Up Section End -->
 <!-- Courses Start -->
 <div id="rs-courses-2" class="rs-courses-2 sec-spacer">
@@ -350,6 +384,7 @@
         </div>
     </div>
 </div>
+
 <!-- Courses End -->
 <!-- Events Start -->
 <div class="rs-countdown-part bg12">
@@ -417,6 +452,7 @@
         </div>
     </div>
 </div>
+
 <!-- Events End -->
 <!-- Testimonial Start -->
 <div id="rs-testimonial-3" class="rs-testimonial-3 pt-100 pb-40 sec-color">
@@ -467,6 +503,7 @@
         </div>
     </div>
 </div>
+
 <!-- Testimonial End -->
 <!-- Partner Start -->
 <div id="partner" class="rs-partner pt-70 pb-10">
