@@ -32,26 +32,6 @@ export class HeaderComponent implements OnInit {
       link : '/authority',
       children:[
         {
-          title: 'Vice Chancellor',
-          link : '/authority/members',
-          param: 'vice-chancellor'
-        },
-        {
-          title: 'Registrar',
-          link : '/authority/members',
-          param: 'registrar'
-        },
-        {
-          title: 'Controller of Examinations',
-          link : '/authority/members',
-          param: 'controller-of-examinations'
-        },
-        {
-          title: 'Treasurer',
-          link : '/authority/members',
-          param: 'Treasurer'
-        },
-        {
           title: 'Board of Trustees',
           link : '/authority/members',
           param: 'board-of-trustees'
@@ -65,6 +45,31 @@ export class HeaderComponent implements OnInit {
           title: 'Academic Council',
           link : '/authority/members',
           param: 'academic-council'
+        },
+        {
+          title: 'Chairman',
+          link : '/authority/members',
+          param: 'chairman'
+        },
+        {
+          title: 'Vice Chancellor',
+          link : '/authority/members',
+          param: 'vice-chancellor'
+        },
+        {
+          title: 'Treasurer',
+          link : '/authority/members',
+          param: 'Treasurer'
+        },
+        {
+          title: 'Registrar',
+          link : '/authority/members',
+          param: 'registrar'
+        },
+        {
+          title: 'Controller of Examinations',
+          link : '/authority/members',
+          param: 'controller-of-examinations'
         },
         {
           title: 'Administration',
