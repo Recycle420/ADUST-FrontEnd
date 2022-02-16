@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">RESEARCH</h1>
+                    <ul>
+                        <li><a class="active">HOME</a></li>
+                        <li>ALL RESEARCH</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Team Start -->
+<div id="rs-people" class="rs-people team-page">
+    <div class="container sec-color">
+        <div *ngIf="loadingResearch == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingResearch == 2" class="row grid mb-10 pr-50 pl-50">
+            <table>
+                <div *ngFor="let member of allResearch" class="custom-table">
+                    <tr>
+                        <td>
+                            {{member.description}}
+                            <a class="pull-right mt-30" href="{{member.link}}" target="_blank">View Details</a> &nbsp; &nbsp;
+                            <a class="pull-right mt-30" href="#" (click)="downloadPdf(member.file, member.fileName)" *ngIf="member.fileName && member.fileName.includes('.pdf')">PDF</a>
+                        </td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>

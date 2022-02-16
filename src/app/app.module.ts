@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdmissionComponent } from './admission/admission.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
+import { ResearchAllComponent } from './research-all/research-all.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdmissionSurveyComponent } from './admission-survey/admission-survey.co
     ContactUsComponent,
     AdmissionComponent,
     EventDetailsComponent,
-    AdmissionSurveyComponent 
+    AdmissionSurveyComponent,
+    ResearchAllComponent 
   ],
   imports: [
     BrowserModule,

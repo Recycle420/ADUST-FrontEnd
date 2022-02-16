@@ -66,7 +66,7 @@ export class DepartmentHeaderComponent implements OnChanges {
     },
     {
       title: 'Alumni',
-      link : '/department/alumnus'
+      link : '/department/alumni'
     },
     {
       title: 'Club',

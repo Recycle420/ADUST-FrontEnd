@@ -1,0 +1,57 @@
+<app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">ALUMNI</h1>
+                    <ul>
+                        <li>
+                            <a class="active">{{department.split('-').join(' ').toUpperCase()}}</a>
+                        </li>
+                        <li>ALUMNI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Team Start -->
+<div id="rs-people" class="rs-people team-page">
+    <div class="container">
+        <div *ngIf="loadingAlumnus == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingAlumnus == 2" class="row grid">
+            <div *ngFor="let member of allAlumnus" class="col-lg-4 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="team-item">
+                    <div class="testimonial-style3">
+                        <div class="image">
+                            <img src="data:image/png;base64,{{member.photo}}" alt="">
+                        </div>
+                        <div class="testimonial-content people-content-color">
+                            <div class="testimonial-profile">
+                                <h3 class="name">{{member.name}}</h3>
+                                <h5 class="designation">{{member.designation}}</h5>
+                                <h6 class="designation">{{member.company}}</h6>
+                            </div>
+                        </div>
+                        <div class="btn-part mt-30 mb-30">
+                            <div class="testimonial-profile">
+                                <h3 class="profile">ADUST Id: {{member.adustId}}</h3>
+                                <h5 class="profile">Batch: {{member.batch}}</h5>
+                                <h6 class="profile">Department: {{department.split('-').join(' ')}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

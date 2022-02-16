@@ -13,6 +13,8 @@ import { ProgramObjectiveComponent } from './program-objective/program-objective
 import { ProgramOutcomesComponent } from './program-outcomes/program-outcomes.component';
 import { CurriculumStructureComponent } from './curriculum-structure/curriculum-structure.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { AlumniComponent } from './alumni/alumni.component';
+import { ResearchComponent } from './research/research.component';
 
 const routes: Routes = [
   {
@@ -65,11 +67,11 @@ const routes: Routes = [
   },
   {
     path: 'research/:department/:id',
-    component: UnderDevelopmentComponent,
+    component: ResearchComponent,
   },
   {
-    path: 'alumnus/:department/:id',
-    component: UnderDevelopmentComponent,
+    path: 'alumni/:department/:id',
+    component: AlumniComponent,
   },
   {
     path: 'club/:department/:id',

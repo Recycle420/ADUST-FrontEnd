@@ -89,7 +89,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       title: 'Research',
-      link : '/research'
+      link : '/research-all'
     },
     {
       title: 'Media',

@@ -16,6 +16,8 @@ import { ProgramObjectiveComponent } from './program-objective/program-objective
 import { ProgramOutcomesComponent } from './program-outcomes/program-outcomes.component';
 import { CurriculumStructureComponent } from './curriculum-structure/curriculum-structure.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { AlumniComponent } from './alumni/alumni.component';
+import { ResearchComponent } from './research/research.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
     ProgramObjectiveComponent,
     ProgramOutcomesComponent,
     CurriculumStructureComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    AlumniComponent,
+    ResearchComponent
   ],
   imports: [
     CommonModule,

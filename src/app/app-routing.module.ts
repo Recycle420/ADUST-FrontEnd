@@ -6,6 +6,7 @@ import { AdmissionComponent } from './admission/admission.component';
 import { UnderDevelopmentComponent } from './shared/components/under-development/under-development.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
+import { ResearchAllComponent } from './research-all/research-all.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,8 @@ const routes: Routes = [
     component: EventDetailsComponent
   },
   {
-    path: 'research',
-    component: UnderDevelopmentComponent
+    path: 'research-all',
+    component: ResearchAllComponent
   },
   {
     path: 'media',

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({

@@ -93,5 +93,14 @@ export class ApiService {
  saveSurveyComments(surveyCommentForm:any){
     return this.http.post(environment.apiUrl+"/SurveyComments",surveyCommentForm);
   }
+  getAlumnus(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Alumnus/GetAlumnus?departmentId=${departmentId}`,this.httpOptions);
+  }
+  getAllResearch(){
+    return this.http.get(environment.apiUrl+`/Researches`,this.httpOptions);
+  }
+  getResearch(departmentId:number){
+    return this.http.get(environment.apiUrl+`/Researches/GetResearchs?departmentId=${departmentId}`,this.httpOptions);
+  }
 
 }
