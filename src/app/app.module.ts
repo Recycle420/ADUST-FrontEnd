@@ -22,7 +22,7 @@ import { ResearchAllComponent } from './research-all/research-all.component';
     AdmissionComponent,
     EventDetailsComponent,
     AdmissionSurveyComponent,
-    ResearchAllComponent 
+    ResearchAllComponent
   ],
   imports: [
     BrowserModule,

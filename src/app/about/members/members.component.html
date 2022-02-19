@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="rs-breadcrumbs breadcrumbs-overlay" [ngClass]="[member]">
+<div class="rs-breadcrumbs breadcrumbs-overlay bg7">
     <div class="breadcrumbs-inner">
         <div class="container">
             <div class="row">
@@ -26,19 +26,48 @@
             </div>
         </div>
 
-        <div *ngIf="loadingMember == 2" class="row grid">
-            <div *ngFor="let member of allMembers" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
-                <div class="team-item">
-                    <div class="team-img">
-                        <a href="#"><img src="data:image/png;base64,{{member.photo}}" alt="{{member.name}}" /></a>
-                    </div>
-                    <div class="team-body">
-                        <h3 class="name">{{member.name}}</h3>
-                        <span class="designation">{{member.role}}</span>
+        <div *ngIf='member != "chairman" && member != "vice-chancellor"'>
+            <div *ngIf="loadingMember == 2" class="row grid">
+                <div *ngFor="let item of allMembers" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                    <div class="row grid">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                            </div>
+                            <div class="team-body">
+                                <h3 class="name">{{item.name}}</h3>
+                                <span class="designation">{{item.role}}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+        </div>
+
+        <div *ngIf='member == "chairman" || member == "vice-chancellor"' class="row grid">
+        <div *ngIf="loadingMember == 2" class="row grid">
+            <div *ngFor="let item of allMembers">
+                    <div class="rs-team-single">
+                        <div class="container">
+                            <div class="row team sec-color">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="team-photo mobile-mb-40 pull-right mr-40" *ngIf="item.photo">
+                                        <img src="data:image/png;base64,{{item.photo}}" alt="Team1">
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-md-12">
+                                    <h1 class="team-name color">{{item.name}}</h1>
+                                    <h5 class="designation-color"> {{member}} </h5>
+                                    <hr>
+                                    <div>
+                                        <p [innerHtml]='item.message'></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

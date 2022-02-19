@@ -17,9 +17,7 @@ export class MembersComponent implements OnInit, OnDestroy {
   allMembers:any = [];
 	routerSubscription!: Subscription;
 
-
   ngOnInit(){
-    
     this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.team){
         let role:any = paramMap.params.team;
@@ -29,10 +27,12 @@ export class MembersComponent implements OnInit, OnDestroy {
         this.apiService.getAdminstrators(this.member).subscribe((data:any)=>{
           this.allMembers = data;
           this.loadingMember = 2;
+          console.log(this.member);
         })
       }
     });
   }
+
   ngOnDestroy(){
     this.routerSubscription.unsubscribe();
   }
