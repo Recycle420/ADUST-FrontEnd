@@ -1,0 +1,63 @@
+<app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">DEPARTMENT CONTACT</h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index">HOME</a>
+                        </li>
+                        <li>DEPARTMENT CONTACT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Contact Section Start -->
+<div class="contact-page-section sec-spacer">
+    <div class="container">
+        <div id="googleMap" style="position: relative; overflow: hidden;">
+            <div
+                style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                <div class="gm-err-container">
+                    <div class="gm-err-content">
+                        <div class="gm-err-icon text-center">
+                            <img src="assets/images/map.jpg" draggable="false" style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row contact-address-section">
+            <div class="col-md-4 pl-0">
+                <div class="contact-info contact-address">
+                    <i class="fa fa-map-marker"></i>
+                    <h4>Address</h4>
+                    <p>Plot# 209, Sector# 15 (Khantek)</p>
+                    <p>Uttara, Dhaka-1230</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-info contact-phone">
+                    <i class="fa fa-phone"></i>
+                    <h4>Phone Number</h4>
+                    <p class="p-spacer" [innerHtml]='departmentContact.phone'>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 pr-0">
+                <div class="contact-info contact-email">
+                    <i class="fa fa-envelope"></i>
+                    <h4>Email Address</h4>
+                    <p class="p-spacer" [innerHtml]='departmentContact.email'>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

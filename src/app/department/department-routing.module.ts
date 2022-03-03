@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnderDevelopmentComponent } from '../shared/components/under-development/under-development.component';
 import { DepartmentHomeComponent } from './department-home/department-home.component';
 import { DepartmentAboutComponent } from './department-about/department-about.component';
 import { DepartmentAdmissionComponent } from './department-admission/department-admission.component';
@@ -15,6 +14,8 @@ import { CurriculumStructureComponent } from './curriculum-structure/curriculum-
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { AlumniComponent } from './alumni/alumni.component';
 import { ResearchComponent } from './research/research.component';
+import { ClubComponent } from './club/club.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -75,11 +76,11 @@ const routes: Routes = [
   },
   {
     path: 'club/:department/:id',
-    component: UnderDevelopmentComponent,
+    component: ClubComponent,
   },
   {
     path: 'contact/:department/:id',
-    component: UnderDevelopmentComponent,
+    component: ContactComponent,
   }
 ];
 

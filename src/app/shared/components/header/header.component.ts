@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
         {
           title: 'Treasurer',
           link : '/authority/members',
-          param: 'Treasurer'
+          param: 'treasurer'
         },
         {
           title: 'Registrar',

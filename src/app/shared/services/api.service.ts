@@ -102,5 +102,11 @@ export class ApiService {
   getResearch(departmentId:number){
     return this.http.get(environment.apiUrl+`/Researches/GetResearchs?departmentId=${departmentId}`,this.httpOptions);
   }
+  getDepartmentClub(departmentId:number){
+    return this.http.get(environment.apiUrl+`/DepartmentClubs/${departmentId}`,this.httpOptions);
+  }
+  getDepartmentContact(departmentId:number){
+    return this.http.get(environment.apiUrl+`/DepartmentContacts/${departmentId}`,this.httpOptions);
+  }
 
 }

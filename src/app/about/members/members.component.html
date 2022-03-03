@@ -26,7 +26,8 @@
             </div>
         </div>
 
-        <div *ngIf='member != "chairman" && member != "vice-chancellor"'>
+        <div
+            *ngIf='member != "chairman" && member != "vice-chancellor" && member != "treasurer" && member != "registrar"'>
             <div *ngIf="loadingMember == 2" class="row grid">
                 <div *ngFor="let item of allMembers" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
                     <div class="row grid">
@@ -44,9 +45,10 @@
             </div>
         </div>
 
+        <!-- Chairman & Vice-Chancellor section -->
         <div *ngIf='member == "chairman" || member == "vice-chancellor"' class="row grid">
-        <div *ngIf="loadingMember == 2" class="row grid">
-            <div *ngFor="let item of allMembers">
+            <div *ngIf="loadingMember == 2" class="row grid">
+                <div *ngFor="let item of allMembers">
                     <div class="rs-team-single">
                         <div class="container">
                             <div class="row team sec-color">
@@ -64,6 +66,155 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Treasurer section -->
+        <div *ngIf='member == "treasurer" && loadingMember == 2' class="row">
+            <div *ngFor="let item of treasurer">
+                <div class="rs-team-single">
+                    <div class="container">
+                        <div class="row team sec-color">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="team-photo mobile-mb-40 pull-right mr-40" *ngIf="item.photo">
+                                    <img src="data:image/png;base64,{{item.photo}}" alt="Team1">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                                <h1 class="team-name color">{{item.name}}</h1>
+                                <h5 class="designation-color">{{member.toUpperCase()}}</h5>
+                                <h5 class="designation-color">Cell: {{item.phoneNumber}}</h5>
+                                <hr>
+                                <div>
+                                    <p [innerHtml]='item.message'></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Accounts Section</p>
+            </div>
+
+            <div *ngFor="let item of treasurerMembers" class="col-lg-3 col-md-6 col-xs-6 team-margin">
+                <div *ngIf='item.orderPriority != 1'>
+                    <div class="row grid">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}"
+                                        width="100%" /></a>
+                            </div>
+                            <div class="team-body">
+                                <h3 class="name">{{item.name}}</h3>
+                                <span class="designation">{{item.role}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registrar section -->
+        <div *ngIf='member == "registrar" && loadingMember == 2' class="row grid">
+            <div *ngFor="let item of registrar">
+                <div class="rs-team-single">
+                    <div class="container">
+                        <div class="row team sec-color">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="team-photo mobile-mb-40 pull-right mr-40" *ngIf="item.photo">
+                                    <img src="data:image/png;base64,{{item.photo}}" alt="Team1">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                                <h1 class="team-name color">{{item.name}}</h1>
+                                <h5 class="designation-color">{{member.toUpperCase()}}</h5>
+                                <h5 class="designation-color">Cell: {{item.phoneNumber}}</h5>
+                                <hr>
+                                <div>
+                                    <p [innerHtml]='item.message'></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Human Resource Management</p>
+            </div>
+
+            <div *ngFor="let item of registrarHrmMembers"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Support Service</p>
+            </div>
+
+            <div *ngFor="let item of registrarSupportServiceMembers"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Information & Monitoring</p>
+            </div>
+
+            <div *ngFor="let item of registrarInformationMonitoringMembers"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Public Relation</p>
+            </div>
+
+            <div *ngFor="let item of registrarPublicRelationMembers"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
                         </div>
                     </div>
                 </div>

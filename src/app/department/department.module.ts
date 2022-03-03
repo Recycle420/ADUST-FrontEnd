@@ -18,6 +18,8 @@ import { CurriculumStructureComponent } from './curriculum-structure/curriculum-
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { AlumniComponent } from './alumni/alumni.component';
 import { ResearchComponent } from './research/research.component';
+import { ClubComponent } from './club/club.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ResearchComponent } from './research/research.component';
     CurriculumStructureComponent,
     CourseDetailsComponent,
     AlumniComponent,
-    ResearchComponent
+    ResearchComponent,
+    ClubComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

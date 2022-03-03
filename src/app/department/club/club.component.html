@@ -1,0 +1,132 @@
+<app-department-header [departmentName]="department" [departmentId]="departmentId"></app-department-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">CLUB</h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">{{department.split('-').join('
+                                ').toUpperCase()}}</a>
+                        </li>
+                        <li>CLUB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<!-- Heading 1 Start -->
+<div class="rs-mission sec-color sec-spacer" *ngIf="departmentClub.heading1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading1Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading1Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mobile-mb-50">
+                <div class="about-desc">
+                    <p [innerHtml]='departmentClub.heading1'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 1 End -->
+<!-- Heading 2 Start -->
+<div class="rs-vision sec-spacer" *ngIf="departmentClub.heading2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="vision-desc">
+                    <p [innerHtml]='departmentClub.heading2'></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading2Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading2Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 2 End -->
+
+<!-- Heading 3 Start -->
+<div class="rs-mission sec-color sec-spacer" *ngIf="departmentClub.heading3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading3Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading3Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mobile-mb-50">
+                <div class="about-desc">
+                    <p [innerHtml]='departmentClub.heading3'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 3 End -->
+<!-- Heading 4 Start -->
+<div class="rs-vision sec-spacer" *ngIf="departmentClub.heading4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="vision-desc">
+                    <p [innerHtml]='departmentClub.heading4'></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading4Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading4Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 4 End -->
+
+<!-- Heading 5 Start -->
+<div class="rs-mission sec-color sec-spacer" *ngIf="departmentClub.heading5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading5Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading5Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mobile-mb-50">
+                <div class="about-desc">
+                    <p [innerHtml]='departmentClub.heading5'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 5 End -->
+<!-- Heading 6 Start -->
+<div class="rs-vision sec-spacer" *ngIf="departmentClub.heading6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="vision-desc">
+                    <p [innerHtml]='departmentClub.heading6'></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12" *ngIf="departmentClub.heading6Photo">
+                <div class="about-img rs-image-effect-shine">
+                    <img src="data:image/png;base64,{{departmentClub.heading6Photo}}" alt="about" width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Heading 6 End -->
