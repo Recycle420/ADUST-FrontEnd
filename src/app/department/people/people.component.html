@@ -46,7 +46,7 @@
                         <div class="testimonial-content people-content-color">
                             <div class="testimonial-profile">
                                 <h3 class="name">{{member.name}}</h3>
-                                <h5 class="title">{{member.designation}}</h5>
+                                <h5 class="title" [innerHtml]='member.designation'></h5>
                             </div>
                         </div>
                         <div class="btn-part mt-30 mb-30">
