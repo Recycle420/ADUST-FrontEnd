@@ -1,0 +1,114 @@
+<app-header></app-header>
+<div class="rs-breadcrumbs breadcrumbs-overlay bg7">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">ADMISSION & COMMUNICATION</h1>
+                    <ul>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">HOME</a>
+                        </li>
+                        <li>ADMISSION & COMMUNICATION</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Team Start -->
+<div id="rs-team-2" class="team-page sec-spacer">
+    <div class="container">
+        <div *ngIf="loadingMember == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Chairman & Vice-Chancellor section -->
+        <div *ngIf='head != null && loadingMember == 2' class="row grid">
+            <div *ngFor="let item of head">
+                <div class="rs-team-single">
+                    <div class="container">
+                        <div class="row team sec-color">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="team-photo mobile-mb-40 pull-right mr-40" *ngIf="item.photo">
+                                    <img src="data:image/png;base64,{{item.photo}}" alt="Team1">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-12">
+                                <h1 class="team-name color">{{item.name}}</h1>
+                                <p class="designation-color" [innerHtml]='item.designation'></p>
+                                <hr>
+                                <div>
+                                    <p [innerHtml]='item.message'></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registrar section -->
+        <div *ngIf='loadingMember == 2' class="row grid">
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Admission Team</p>
+            </div>
+
+            <div *ngFor="let item of admissionTeams" class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">Communication Team</p>
+            </div>
+
+            <div *ngFor="let item of communicationTeams"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accounts-backgorund-color text-center mt-100 mb-30">
+                <p class="accounts-title">IT & Digital</p>
+            </div>
+
+            <div *ngFor="let item of iTAndDigitalTeams"
+                class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div class="row grid">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
+                        </div>
+                        <div class="team-body">
+                            <h3 class="name">{{item.name}}</h3>
+                            <span class="designation">{{item.role}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

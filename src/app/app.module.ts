@@ -13,6 +13,7 @@ import { AdmissionComponent } from './admission/admission.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
 import { ResearchAllComponent } from './research-all/research-all.component';
+import { AdmissionAdministratorComponent } from './admission-administrator/admission-administrator.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ResearchAllComponent } from './research-all/research-all.component';
     AdmissionComponent,
     EventDetailsComponent,
     AdmissionSurveyComponent,
-    ResearchAllComponent
+    ResearchAllComponent,
+    AdmissionAdministratorComponent
   ],
   imports: [
     BrowserModule,

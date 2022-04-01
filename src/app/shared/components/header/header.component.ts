@@ -81,6 +81,24 @@ export class HeaderComponent implements OnInit {
     {
       title: 'Admission',
       link : '/admission',
+      children:[
+        {
+          title: 'Admission & Communication',
+          link : '/admission-and-communication-team'
+        },
+        {
+          title: 'Admission Eligibility & Guideline',
+          link : '/admission'
+        },
+        {
+          title: 'Admission test result',
+          link : '/admission-test-result'
+        },
+        {
+          title: 'Apply Online',
+          link : '/admission-survey'
+        }
+      ]
     },
     {
       title: 'Academics',

@@ -42,6 +42,9 @@ export class ApiService {
   getAdminstrators(role:string){
     return this.http.get(environment.apiUrl+`/Administrators?role=${role}`,this.httpOptions);
   }
+  getAdmissionAdminstrators(){
+    return this.http.get(environment.apiUrl+`/AdmissionAdministrators`,this.httpOptions);
+  }
   getCarousels(departmentId:number){
     return this.http.get(environment.apiUrl+`/Carousels/${departmentId}`,this.httpOptions);
   }
