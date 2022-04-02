@@ -39,7 +39,12 @@
                             </div>
                             <div class="col-lg-9 col-md-12">
                                 <h1 class="team-name color">{{item.name}}</h1>
-                                <p class="designation-color" [innerHtml]='item.designation'></p>
+                                <p class="designation-color mb-1" [innerHtml]='item.designation'></p>
+                                <p> 
+                                    Email: {{item.email}}
+                                    <br>
+                                    Mobile: {{item.phoneNumber}}
+                                </p>
                                 <hr>
                                 <div>
                                     <p [innerHtml]='item.message'></p>
@@ -64,9 +69,14 @@
                         <div class="team-img">
                             <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
                         </div>
-                        <div class="team-body">
+                        <div class="team-body mt-1 text-center">
                             <h3 class="name">{{item.name}}</h3>
-                            <span class="designation">{{item.role}}</span>
+                            <p class="designation-color mb-1" [innerHtml]='item.designation'></p>
+                            <p> 
+                                Email: {{item.email}}
+                                <br>
+                                Mobile: {{item.phoneNumber}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -83,9 +93,14 @@
                         <div class="team-img">
                             <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
                         </div>
-                        <div class="team-body">
+                        <div class="team-body mt-1 text-center">
                             <h3 class="name">{{item.name}}</h3>
-                            <span class="designation">{{item.role}}</span>
+                            <p class="designation-color mb-1" [innerHtml]='item.designation'></p>
+                            <p> 
+                                Email: {{item.email}}
+                                <br>
+                                Mobile: {{item.phoneNumber}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -102,9 +117,14 @@
                         <div class="team-img">
                             <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="{{item.name}}" /></a>
                         </div>
-                        <div class="team-body">
+                        <div class="team-body mt-1 text-center">
                             <h3 class="name">{{item.name}}</h3>
-                            <span class="designation">{{item.role}}</span>
+                            <p class="designation-color mb-1" [innerHtml]='item.designation'></p>
+                            <p> 
+                                Email: {{item.email}}
+                                <br>
+                                Mobile: {{item.phoneNumber}}
+                            </p>
                         </div>
                     </div>
                 </div>

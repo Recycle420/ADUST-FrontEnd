@@ -19,6 +19,7 @@ export class AdmissionAdministratorComponent implements OnInit {
   routerSubscription!: Subscription;
 
   ngOnInit(): void {
+    this.loadingMember = 1;
     this.routerSubscription = this.apiService.getAdmissionAdminstrators().subscribe((data: any) => {
       this.head = data.filter((x: { orderPriority: number; }) => x.orderPriority == 1);
       this.admissionTeams = data.filter((x: { orderPriority: number; section: string; }) => x.orderPriority > 1 && x.section == 'Admission Team');
