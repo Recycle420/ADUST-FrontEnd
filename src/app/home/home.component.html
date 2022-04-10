@@ -186,9 +186,9 @@
                         <div class="col-lg-5 col-md-5">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="assets/images/management/chairman.jpg" alt="team Image" />
+                                    <img src="data:image/png;base64,{{chairman[0].photo}}" width="100%" alt="team Image" />
                                     <div class="normal-text">
-                                        <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                        <h3 class="team-name">{{chairman[0].name}}</h3>
                                         <span class="subtitle">Chairman</span>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                                     <div class="overly-border"></div>
                                     <div class="display-table">
                                         <div class="display-table-cell">
-                                            <h3 class="team-name white-color">LIAKAT ALI SIKDAR</h3>
+                                            <h3 class="team-name white-color">{{chairman[0].name}}</h3>
                                             <span class="team-title">Chairman</span>
                                             <p class="team-desc">Investing in our people and places</p>
                                         </div>
@@ -207,15 +207,11 @@
 
                         <div class="col-lg-7 col-md-7 event-desc">
                             <ng-container *ngIf="!loadMoreMessage">
-                                <p class="description">
-                                    {{chairmanMessage.slice(0, 500)}}...
-                                </p>
+                                <p class="description" [innerHtml]='chairman[0].message.slice(0, 500)'></p>
                                 <a type="button" (click)="readMoreMessage()">Read more</a>
                             </ng-container>
                             <ng-container *ngIf="loadMoreMessage">
-                                <p class="description">
-                                    {{chairmanMessage}}
-                                </p>
+                                <p class="description" [innerHtml]='chairman[0].message'></p>
                                 <a class="text-red" type="button" (click)="readMoreMessage()">Read less</a>
                             </ng-container>
                         </div>
@@ -227,9 +223,9 @@
                         <div class="col-lg-5 col-md-5">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="assets/images/management/vice-chancellor.png" alt="team Image" />
+                                    <img src="data:image/png;base64,{{vc[0].photo}}" width="100%" alt="team Image" />
                                     <div class="normal-text">
-                                        <h3 class="team-name">Prof. Dr. Md. Zahangir Alam</h3>
+                                        <h3 class="team-name">{{vc[0].name}}</h3>
                                         <span class="subtitle">Vice Chancellor</span>
                                     </div>
                                 </div>
@@ -237,7 +233,7 @@
                                     <div class="overly-border"></div>
                                     <div class="display-table">
                                         <div class="display-table-cell">
-                                            <h3 class="team-name white-color">Prof. Dr. Md. Zahangir Alam</h3>
+                                            <h3 class="team-name white-color">{{vc[0].name}}</h3>
                                             <span class="team-title">Vice Chancellor</span>
                                             <p class="team-desc">Providing an exceptional learning and student
                                                 experience
@@ -250,15 +246,11 @@
 
                         <div class="col-lg-7 col-md-7">
                             <ng-container *ngIf="!loadMoreMessage">
-                                <p class="description">
-                                    {{vcMessage.slice(0, 500)}}...
-                                </p>
+                                <p class="description" [innerHtml]='vc[0].message.slice(0, 500)'></p>
                                 <a type="button" (click)="readMoreMessage()">Read more</a>
                             </ng-container>
                             <ng-container *ngIf="loadMoreMessage">
-                                <p class="description">
-                                    {{vcMessage}}
-                                </p>
+                                <p class="description" [innerHtml]='vc[0].message'></p>
                                 <a class="text-red" type="button" (click)="readMoreMessage()">Read less</a>
                             </ng-container>
                         </div>
