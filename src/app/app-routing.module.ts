@@ -8,6 +8,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { AdmissionSurveyComponent } from './admission-survey/admission-survey.component';
 import { ResearchAllComponent } from './research-all/research-all.component';
 import { AdmissionAdministratorComponent } from './admission-administrator/admission-administrator.component';
+import { PaymentProcedureComponent } from './pages/payment-procedure/payment-procedure.component';
+import { AlumniComponent } from './pages/alumni/alumni.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,14 @@ const routes: Routes = [
   {
     path: 'media',
     component: UnderDevelopmentComponent
+  },
+  {
+    path: 'payment-procedure',
+    component: PaymentProcedureComponent
+  },
+  {
+    path: 'alumni',
+    component: AlumniComponent,
   },
   {
 		path: 'about',

@@ -1,0 +1,193 @@
+<app-header></app-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">PAYMENT PROCEDURE</h1>
+                    <ul>
+                        <li>
+                            <a class="active" href="javascript:;">HOME</a>
+                        </li>
+                        <li>PAYMENT PROCEDURE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<div *ngIf="loadingResult == 0" class="d-flex justify-content-center pb-5">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="loadingResult == 1">
+    <!-- Heading 1 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading1">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading1Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading1Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading1'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading1Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading1'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 1 End -->
+    <!-- Heading 2 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading2">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading2Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading2Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading2'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading2Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading2'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 2 End -->
+
+    <!-- Heading 3 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading3">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading3Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading3Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading3'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading3Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading3'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 3 End -->
+    <!-- Heading 4 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading4">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading4Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading4Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading4'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading4Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading4'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 4 End -->
+
+    <!-- Heading 5 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading5">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading5Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading5Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading5'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading5Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading5'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 5 End -->
+    <!-- Heading 6 Start -->
+    <div class="rs-mission sec-color sec-spacer" *ngIf="result.heading6">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="result.heading6Photo != null">
+                    <div class="col-md-6">
+                        <div class="about-img rs-image-effect-shine">
+                            <img src="data:image/png;base64,{{result.heading6Photo}}" alt="about" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading6'></p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="result.heading6Photo == null">
+                    <div class="col-md-12 mobile-mb-50">
+                        <div class="about-desc">
+                            <p [innerHtml]='result.heading6'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heading 6 End -->
+</div>

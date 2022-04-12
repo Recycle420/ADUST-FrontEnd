@@ -99,6 +99,9 @@ export class ApiService {
   getAlumnus(departmentId:number){
     return this.http.get(environment.apiUrl+`/Alumnus/GetAlumnus?departmentId=${departmentId}`,this.httpOptions);
   }
+  getAllAlumnus(){
+    return this.http.get(environment.apiUrl+`/Alumnus/GetAllAlumnus`,this.httpOptions);
+  }
   getAllResearch(){
     return this.http.get(environment.apiUrl+`/Researches`,this.httpOptions);
   }
@@ -110,6 +113,9 @@ export class ApiService {
   }
   getDepartmentContact(departmentId:number){
     return this.http.get(environment.apiUrl+`/DepartmentContacts/${departmentId}`,this.httpOptions);
+  }
+  getPaymentProcedure(){
+    return this.http.get(environment.apiUrl+`/PaymentProcedures`,this.httpOptions);
   }
 
 }

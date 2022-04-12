@@ -221,7 +221,6 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getAdminstrators('chairman').subscribe((data: any) => {
         this.chairman = data;
-        console.log(this.chairman);
     })
 
     this.apiService.getAdminstrators('vice-chancellor').subscribe((data: any) => {
