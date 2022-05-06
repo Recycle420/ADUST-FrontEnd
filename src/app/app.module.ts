@@ -16,6 +16,8 @@ import { ResearchAllComponent } from './research-all/research-all.component';
 import { AdmissionAdministratorComponent } from './admission-administrator/admission-administrator.component';
 import { PaymentProcedureComponent } from './pages/payment-procedure/payment-procedure.component';
 import { AlumniComponent } from './pages/alumni/alumni.component';
+import { FutureStudentComponent } from './pages/future-student/future-student.component';
+import { OnCampusComponent } from './pages/on-campus/on-campus.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AlumniComponent } from './pages/alumni/alumni.component';
     ResearchAllComponent,
     AdmissionAdministratorComponent,
     PaymentProcedureComponent,
-    AlumniComponent
+    AlumniComponent,
+    FutureStudentComponent,
+    OnCampusComponent
   ],
   imports: [
     BrowserModule,

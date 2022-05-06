@@ -117,5 +117,11 @@ export class ApiService {
   getPaymentProcedure(){
     return this.http.get(environment.apiUrl+`/PaymentProcedures`,this.httpOptions);
   }
+  getFutureStudent(){
+    return this.http.get(environment.apiUrl+`/FutureStudents`,this.httpOptions);
+  }
+  getOnCampusInfo(){
+    return this.http.get(environment.apiUrl+`/OnCampusInfo`,this.httpOptions);
+  }
 
 }

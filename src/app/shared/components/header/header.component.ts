@@ -110,6 +110,10 @@ export class HeaderComponent implements OnInit {
       link : '/research-all'
     },
     {
+      title: 'Alumni',
+      link : '/alumni'
+    },
+    {
       title: 'Media',
       link : '/media',
       children: [

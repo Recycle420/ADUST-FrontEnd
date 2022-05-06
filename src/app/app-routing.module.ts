@@ -10,6 +10,8 @@ import { ResearchAllComponent } from './research-all/research-all.component';
 import { AdmissionAdministratorComponent } from './admission-administrator/admission-administrator.component';
 import { PaymentProcedureComponent } from './pages/payment-procedure/payment-procedure.component';
 import { AlumniComponent } from './pages/alumni/alumni.component';
+import { FutureStudentComponent } from './pages/future-student/future-student.component';
+import { OnCampusComponent } from './pages/on-campus/on-campus.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,14 @@ const routes: Routes = [
   {
     path: 'payment-procedure',
     component: PaymentProcedureComponent
+  },
+  {
+    path: 'future-student',
+    component: FutureStudentComponent
+  },
+  {
+    path: 'on-campus',
+    component: OnCampusComponent
   },
   {
     path: 'alumni',
