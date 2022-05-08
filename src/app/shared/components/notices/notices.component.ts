@@ -7,17 +7,18 @@ import { UtilityService } from '../../services/utility.service';
   templateUrl: './notices.component.html',
   styleUrls: ['./notices.component.scss']
 })
+
 export class NoticesComponent implements OnInit {
   allNotices: any;
   loadingNotices = 0;
-  @Input() departmentId!:number;
+  @Input() departmentId!: number;
   @Input() loadAll = false;
 
   constructor(private apiService: ApiService, private utilityService: UtilityService) { }
 
   ngOnInit(): void {
     this.loadingNotices = 1;
-    if(!this.loadAll){
+    if (!this.loadAll) {
       this.apiService.getNotices(this.departmentId).subscribe((notices: any) => {
         this.allNotices = notices.map((notice: any) => {
           return {
@@ -27,7 +28,7 @@ export class NoticesComponent implements OnInit {
         })
         this.loadingNotices = 2;
       })
-    }else{
+    } else {
       this.apiService.getNoticesByDepartments(this.departmentId).subscribe((notices: any) => {
         this.allNotices = notices.map((notice: any) => {
           return {
@@ -38,15 +39,19 @@ export class NoticesComponent implements OnInit {
         this.loadingNotices = 2;
       })
     }
-    
   }
 
-  downloadPdf(base64String:string, fileName:string) {
+  viewSelectedPdf(base64String: string, fileName: string) {
     const linkSource = `data:application/pdf;base64,${base64String}`;
-        const downloadLink = document.createElement("a");
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
+    this.utilityService.setSelectedPdf(linkSource);
+  }
+
+  downloadSelectedPdf(base64String: string, fileName: string) {
+    const linkSource = `data:application/pdf;base64,${base64String}`;
+    const downloadLink = document.createElement("a");
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
   }
 
 }

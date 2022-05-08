@@ -6,6 +6,15 @@ import { Injectable } from '@angular/core';
 export class UtilityService {
 
   constructor() { }
+  public selectedPdf: any;
+
+  getSelectedPdf(): void {
+    return this.selectedPdf;
+  }
+
+  setSelectedPdf(selectedPdf: any) {
+    this.selectedPdf = selectedPdf
+  }
 
   getFormateDate(dateString:string){
     return {
@@ -15,6 +24,7 @@ export class UtilityService {
        year: dateString.split('T')[0].split('-')[0]
      }
  }
+
  getMonthName(monthString: string):string {
    if (monthString == '01') {
      return 'JAN-January'

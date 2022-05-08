@@ -15,14 +15,19 @@
                         <div class="toolbar-share-icon">
                             <ul>
                                 <li><a target="_blank" href="http://103.17.38.130/Login/">UMIS</a></li>
-                                <li><a href="#">Payment Procedure</a></li>
+                                <li><a routerLink="/payment-procedure">Payment Procedure</a></li>
                                 <li><a target="_blank" href="https://vps.cloudhostbd.com:2096/">Webmail</a></li>
-                                <li><a href="#">Alumni</a></li>
+                                <li><a target="_blank"
+                                        href="http://103.17.38.130/WebForms/ComInsec/CftVerification.aspx">Degree
+                                        Verification</a></li>
                                 <li><a href="#">Career</a></li>
+
+                                <li><a target="_blank" href="http://103.17.38.130/Login"
+                                        class="apply-btn color-red">Registration for 3rd Convocation</a></li>
+                                <li><a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx"
+                                        class="apply-btn">Apply Online!</a></li>
                             </ul>
                         </div>
-                        <a target="_blank" href="http://103.17.38.130/Login" class="apply-btn">Registration for 3rd Convocation</a>&nbsp;&nbsp;
-                        <a target="_blank" href="http://103.17.38.130/Admission/ApplicationForm.aspx" class="apply-btn">Apply Online!</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +42,8 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="logo-area">
-                            <h1><img src="assets/images/adust-logo.png" alt="logo">  {{departmentName.split('-').join(' ')}}</h1>
+                            <h1><img src="assets/images/adust-logo.png" alt="logo">
+                                {{departmentName.split('-').join(' ')}}</h1>
                         </div>
                     </div>
                 </div>
@@ -50,21 +56,33 @@
                 <div class="main-menu">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a id="toggle-controller" class="rs-menu-toggle"><i class="fa fa-bars" (click)="runMenuToggle()"></i>Menu</a>
-                            <nav id="toggle-window" class="rs-menu" [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < targetWidth, 'menu-show': menuToggle == 1 && innerWidth < targetWidth }">
+                            <a id="toggle-controller" class="rs-menu-toggle"><i class="fa fa-bars"
+                                    (click)="runMenuToggle()"></i>Menu</a>
+                            <nav id="toggle-window" class="rs-menu"
+                                [ngClass]="{'menu-hide': menuToggle == 0 && innerWidth < targetWidth, 'menu-show': menuToggle == 1 && innerWidth < targetWidth }">
                                 <ul class="nav-menu">
-                                    <li *ngFor="let menu of menuList" [ngClass]="{'active': active(menu), 'menu-item-has-children': menu.children}">
-                                        <a [routerLink]="menu.param ? [menu.link, menu.param,departmentName,departmentId]:[menu.link,departmentName,departmentId]" (click)="routeChange()" *ngIf="menu.link;else other_link">{{menu.title}}</a>
+                                    <li *ngFor="let menu of menuList"
+                                        [ngClass]="{'active': active(menu), 'menu-item-has-children': menu.children}">
+                                        <a [routerLink]="menu.param ? [menu.link, menu.param,departmentName,departmentId]:[menu.link,departmentName,departmentId]"
+                                            (click)="routeChange()" *ngIf="menu.link;else other_link">{{menu.title}}</a>
                                         <ng-template #other_link> <a>{{menu.title}}</a></ng-template>
                                         <ng-container *ngIf="menu.children">
-                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 1" class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true" (click)="this.subMenuToggleList.push(menu.title)"></i></span>
-                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 2" class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true" (click)="this.removeSubMenuTottle(menu.title)"></i></span>
-                                            <ul class="sub-menu" [ngClass]="{'submenu-opacity-0': showToogleIconConditionForSingle(menu.title) ==1, 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)==2}">
-                                                <li *ngFor="let childOne of menu.children"><a [routerLink]="childOne.param ? [childOne.link, childOne.param,departmentName,departmentId]:[childOne.link,departmentName,departmentId]" (click)="routeChange()">{{childOne.title}}</a></li>
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 1"
+                                                class="rs-menu-parent"><i class="fa fa-angle-down" aria-hidden="true"
+                                                    (click)="this.subMenuToggleList.push(menu.title)"></i></span>
+                                            <span *ngIf="showToogleIconConditionForSingle(menu.title) == 2"
+                                                class="rs-menu-parent"><i class="fa fa-angle-up" aria-hidden="true"
+                                                    (click)="this.removeSubMenuTottle(menu.title)"></i></span>
+                                            <ul class="sub-menu"
+                                                [ngClass]="{'submenu-opacity-0': showToogleIconConditionForSingle(menu.title) ==1, 'submenu-opacity-1':  showToogleIconConditionForSingle(menu.title)==2}">
+                                                <li *ngFor="let childOne of menu.children"><a
+                                                        [routerLink]="childOne.param ? [childOne.link, childOne.param,departmentName,departmentId]:[childOne.link,departmentName,departmentId]"
+                                                        (click)="routeChange()">{{childOne.title}}</a></li>
                                             </ul>
                                         </ng-container>
                                     </li>
-                                    <li class="pull-right"> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane text-danger"></i>&nbsp;ADUST HOME</a></li>
+                                    <li class="pull-right"> <a class="nav-link" [routerLink]="['/']"><i
+                                                class="fa fa-paper-plane text-danger"></i>&nbsp;ADUST HOME</a></li>
                                 </ul>
                             </nav>
 

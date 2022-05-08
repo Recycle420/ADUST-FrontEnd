@@ -12,6 +12,7 @@ import { PaymentProcedureComponent } from './pages/payment-procedure/payment-pro
 import { AlumniComponent } from './pages/alumni/alumni.component';
 import { FutureStudentComponent } from './pages/future-student/future-student.component';
 import { OnCampusComponent } from './pages/on-campus/on-campus.component';
+import { PdfPreviewComponent } from './shared/components/pdf-preview/pdf-preview.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'alumni',
     component: AlumniComponent,
+  },
+  {
+    path: 'pdf-preview',
+    component: PdfPreviewComponent,
   },
   {
 		path: 'about',

@@ -34,23 +34,6 @@ export class DepartmentHeaderComponent implements OnChanges {
       title: 'Faculties',
       link : '/department/peoples',
       param: 'faculty'
-      // children:[
-      //   {
-      //     title: 'Faculty',
-      //     link : '/department/peoples',
-      //     param: 'faculty'
-      //   },
-      //   {
-      //     title: 'Office Assistant',
-      //     link : '/department/peoples',
-      //     param: 'office-assistant'
-      //   },
-      //   {
-      //     title: 'Lab Assistant',
-      //     link : '/department/peoples',
-      //     param: 'lab-assistant'
-      //   }
-      // ]
     },
     {
       title: 'EVENT',

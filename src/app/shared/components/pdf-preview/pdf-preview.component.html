@@ -1,0 +1,10 @@
+<app-header *ngIf="!department"></app-header>
+<app-department-header [departmentName]="department" [departmentId]="departmentId" *ngIf="department">
+</app-department-header>
+
+<div class="container">
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false" style="height: 700px;">
+    </pdf-viewer>
+    <a class="pull-right btn btn-primary" href="javascript:;;" (click)="downloadSelectedPdf()"
+        *ngIf="pdfSrc">Download</a>
+</div>
