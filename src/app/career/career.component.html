@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div *ngIf="loadingCareers == 1" class="d-flex justify-content-center pb-5">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container sec-color">
+    <div *ngIf="loadingCareers == 2" class="row grid mb-10 pr-50 pl-50">
+        <table>
+            <div *ngFor="let result of allCareers" class="custom-table">
+                <tr>
+                    <td>
+                        <h4 class="title">{{result.title}}</h4>
+                        <p [innerHtml]="result.description"></p>
+                        <div *ngIf="result.photoName && !result.photoName.includes('.pdf')">
+                            <img src="data:image/png;base64,{{result.photo}}" alt="">
+                        </div>
+                        <a class="pull-left mr-20" routerLink="/pdf-preview"
+                            (click)="viewSelectedPdf(result.photo, result.photoName)"
+                            *ngIf="result.photoName && result.photoName.includes('.pdf')">View</a>
+                        <a class="pull-left" href="javascript:;;"
+                            (click)="downloadSelectedPdf(result.photo, result.photoName)"
+                            *ngIf="result.photoName && result.photoName.includes('.pdf')">Download</a>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</div>

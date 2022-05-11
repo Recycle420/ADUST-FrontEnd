@@ -18,6 +18,8 @@ import { PaymentProcedureComponent } from './pages/payment-procedure/payment-pro
 import { AlumniComponent } from './pages/alumni/alumni.component';
 import { FutureStudentComponent } from './pages/future-student/future-student.component';
 import { OnCampusComponent } from './pages/on-campus/on-campus.component';
+import { PopupNoticeComponent } from './popup-notice/popup-notice.component';
+import { CareerComponent } from './career/career.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { OnCampusComponent } from './pages/on-campus/on-campus.component';
     PaymentProcedureComponent,
     AlumniComponent,
     FutureStudentComponent,
-    OnCampusComponent
+    OnCampusComponent,
+    PopupNoticeComponent,
+    CareerComponent
   ],
   imports: [
     BrowserModule,

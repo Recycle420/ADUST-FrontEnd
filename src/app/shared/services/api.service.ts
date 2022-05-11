@@ -123,5 +123,11 @@ export class ApiService {
   getOnCampusInfo(){
     return this.http.get(environment.apiUrl+`/OnCampusInfo`,this.httpOptions);
   }
+  getCareers(){
+    return this.http.get(environment.apiUrl+`/Careers`,this.httpOptions);
+  }
+  getPopupNotice(){
+    return this.http.get(environment.apiUrl+`/NoticePopUps`,this.httpOptions);
+  }
 
 }

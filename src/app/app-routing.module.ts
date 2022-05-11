@@ -13,6 +13,7 @@ import { AlumniComponent } from './pages/alumni/alumni.component';
 import { FutureStudentComponent } from './pages/future-student/future-student.component';
 import { OnCampusComponent } from './pages/on-campus/on-campus.component';
 import { PdfPreviewComponent } from './shared/components/pdf-preview/pdf-preview.component';
+import { CareerComponent } from './career/career.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'pdf-preview',
     component: PdfPreviewComponent,
+  },
+  {
+    path: 'career',
+    component: CareerComponent,
   },
   {
 		path: 'about',
