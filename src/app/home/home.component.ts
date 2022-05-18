@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   totalStudents = 5000;
   totalSatisfiedClients = 20000;
   selectedCourse: any = {};
+  popupNotice = "";
 
   customOptionsStudents: OwlOptions = {
     loop: true,
@@ -127,6 +128,7 @@ export class HomeComponent implements OnInit {
     }
 
   }
+
   customOptionsPartners: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -244,6 +246,14 @@ export class HomeComponent implements OnInit {
     this.apiService.getPartners().subscribe((partners: any) => {
       this.allPartners = partners;
       this.loadingPartners = 2;
+    })
+    
+    this.popupNotice = "";
+
+    this.apiService.getPopupNotice().subscribe((data:any)=>{
+      this.popupNotice = data.photo;
+      console.log(this.popupNotice);
+
     })
 
   }

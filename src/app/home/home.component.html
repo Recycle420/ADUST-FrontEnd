@@ -186,7 +186,8 @@
                         <div class="col-lg-5 col-md-5">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="data:image/png;base64,{{chairman[0].photo}}" width="100%" alt="team Image" />
+                                    <img src="data:image/png;base64,{{chairman[0].photo}}" width="100%"
+                                        alt="team Image" />
                                     <div class="normal-text">
                                         <h3 class="team-name">{{chairman[0].name}}</h3>
                                         <span class="subtitle">Chairman</span>
@@ -520,5 +521,11 @@
                 </ng-template>
             </ng-container>
         </owl-carousel-o>
+    </div>
+</div>
+
+<div *ngIf="popupNotice.length>0">
+    <div class="overlay" style="background: url('data:image/png;base64,{{popupNotice}}') no-repeat; background-size: 100%;">
+        <button (click)="this.popupNotice =''" class="pull-right">x</button>
     </div>
 </div>

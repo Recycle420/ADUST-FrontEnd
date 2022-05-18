@@ -17,7 +17,6 @@
     }
   }
 
-
   .slide-ani-rev {
     animation-name: sliderev;
     animation-duration: 1s;
@@ -36,5 +35,18 @@
       height: 100%;
       margin-left: -100%;
     }
+  }
+
+  .overlay {
+    position: fixed;
+    display: block;
+    width: 40%;
+    height: 100%;
+    top: 15%;
+    left: 30%;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer;
   }
  
