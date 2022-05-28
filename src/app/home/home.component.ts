@@ -182,7 +182,9 @@ export class HomeComponent implements OnInit {
 
   loadmoreTestimonial: number[] = []
   chairman: any = []
+  loadingChairman = 0;
   vc: any = []
+  loadingVc = 0;
   loadMoreMessage: boolean = false;
 
   commentSurveyForm = {
@@ -223,10 +225,12 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getAdminstrators('chairman').subscribe((data: any) => {
         this.chairman = data;
+        this.loadingChairman = 1;
     })
 
     this.apiService.getAdminstrators('vice-chancellor').subscribe((data: any) => {
         this.vc = data;
+        this.loadingVc = 1;
     })
 
     this.apiService.getCoursePrograms(true).subscribe((coursePrograms: any) => {

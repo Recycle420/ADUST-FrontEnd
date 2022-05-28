@@ -20,6 +20,10 @@ import { FutureStudentComponent } from './pages/future-student/future-student.co
 import { OnCampusComponent } from './pages/on-campus/on-campus.component';
 import { PopupNoticeComponent } from './popup-notice/popup-notice.component';
 import { CareerComponent } from './career/career.component';
+import { VideoComponent } from './pages/media/video/video.component';
+import { YouTubePlayerModule } from "@angular/youtube-player";
+import { FolderComponent } from './pages/media/folder/folder.component';
+import { PhotoComponent } from './pages/media/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { CareerComponent } from './career/career.component';
     FutureStudentComponent,
     OnCampusComponent,
     PopupNoticeComponent,
-    CareerComponent
+    CareerComponent,
+    VideoComponent,
+    FolderComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { CareerComponent } from './career/career.component';
     AppRoutingModule,
     CarouselModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent ]

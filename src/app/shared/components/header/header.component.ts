@@ -119,11 +119,11 @@ export class HeaderComponent implements OnInit {
       children: [
         {
           title: 'Photo Gallery',
-          link : '/media'
+          link : '/image-folder'
         },
         {
           title: 'Video Gallery',
-          link : '/media'
+          link : '/video-gallery'
         }
       ]
     },

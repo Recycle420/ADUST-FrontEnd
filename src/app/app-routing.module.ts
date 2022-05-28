@@ -14,6 +14,9 @@ import { FutureStudentComponent } from './pages/future-student/future-student.co
 import { OnCampusComponent } from './pages/on-campus/on-campus.component';
 import { PdfPreviewComponent } from './shared/components/pdf-preview/pdf-preview.component';
 import { CareerComponent } from './career/career.component';
+import { VideoComponent } from './pages/media/video/video.component';
+import { FolderComponent } from './pages/media/folder/folder.component';
+import { PhotoComponent } from './pages/media/photo/photo.component';
 
 const routes: Routes = [
   {
@@ -48,8 +51,16 @@ const routes: Routes = [
     component: ResearchAllComponent
   },
   {
-    path: 'media',
-    component: UnderDevelopmentComponent
+    path: 'image-folder',
+    component: FolderComponent
+  },
+  {
+    path: 'photo-gallery/:id/:name',
+    component: PhotoComponent
+  },
+  {
+    path: 'video-gallery',
+    component: VideoComponent
   },
   {
     path: 'payment-procedure',

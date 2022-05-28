@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="rs-breadcrumbs bg7 breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">VIDEO GALLERY</h1>
+                    <ul>
+                        <li>
+                            <a class="active">HOME</a>
+                        </li>
+                        <li>VIDEO GALLERY</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<div class="rs-history mt-50">
+    <div class="container">
+        <div *ngIf="loadingResults == 0" class="d-flex justify-content-center pb-5 pt-30">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingResults == 1" class="row grid">
+            <div *ngFor="let item of allResults" class="col-lg-6 col-md-6 col-xs-6 grid-item filter1 team-margin">
+                <div>
+                    <youtube-player videoId="{{item.videoLink}}" suggestedQuality="highres" [startSeconds]="4"
+                        [endSeconds]="300">
+                    </youtube-player>
+                </div>
+                <h3 class="title">{{item.title}}</h3>
+            </div>
+        </div>
+
+    </div>
+</div>

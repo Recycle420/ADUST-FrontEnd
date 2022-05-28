@@ -25,7 +25,6 @@ export class PeopleDetailsComponent implements OnInit {
         this.people_type = paramMap.params.people_type;
         this.department =  paramMap.params.department;
         this.departmentId = paramMap.params.departmentid;
-        console.log(paramMap);
         this.peopleId = paramMap.params.id;
         this.loadPeopleDetails(this.peopleId);
     });
