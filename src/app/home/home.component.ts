@@ -256,8 +256,6 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getPopupNotice().subscribe((data:any)=>{
       this.popupNotice = data.photo;
-      console.log(this.popupNotice);
-
     })
 
   }
